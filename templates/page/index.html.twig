@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page index{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2>Liste des pages</h2>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('page_new') }}">Créer une page</a>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Titre</th>
+                                <th>Date</th>
+                                <th>Maj</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for page in pages | reverse %}
+                            <tr>
+                                <td>{{ page.id }}</td>
+                                <td>{{ page.titre }}</td>
+                                <td>{{ page.createdAt ? page.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info"
+                                        href="{{ path('page_show', {'id': page.id}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-warning"
+                                        href="{{ path('page_edit', {'id': page.id}) }}">Modifier</a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="7">Il n'y a aucun enregistrement.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

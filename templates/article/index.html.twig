@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="row pb-3">
+                        <div class="col">
+                            <h2>Liste des articles</h2>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a href="{{ path('article_new') }}" class="btn btn-success pt-2 fw-bold">Créer un article</a>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Titre</th>
+                                <th>Posté le</th>
+                                <th>Mis à jour le</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                            <tr>
+                                <td>{{ article.id }}</td>
+                                <td>{{ article.titre }}</td>
+                                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="8">Il n'y a aucun enregistrement.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

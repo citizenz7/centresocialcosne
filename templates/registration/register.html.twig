@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : créer un compte{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Connexion</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-4 py-3 border">
+
+                    {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                    {% endfor %}
+
+                    <h2>Créer un compte</h2>
+
+                    {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.prenom) }}
+                    {{ form_row(registrationForm.nom) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+
+                    <div class="text-center small">
+                        Vous devez accepter nos <a href="#">CGU</a>,
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Créer un compte</button>
+                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                    </div>
+                    {{ form_end(registrationForm) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

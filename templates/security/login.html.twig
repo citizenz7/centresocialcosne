@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : connexion{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Connexion</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-3 py-3 border">
+                    <form method="post">
+                        {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}
+                        </div>
+                        {% endif %}
+
+                        {% if app.user %}
+                        <div class="mb-3">
+                            Vous êtes connecté(e) en tant que {{ app.user.prenom }} {{ app.user.nom }}, <a
+                                href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                        {% endif %}
+
+                        <h1 class="h3 mb-3 font-weight-normal text-center"><i class="bi bi-box-arrow-in-left"></i> Connexion</h1>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                            placeholder="E-mail" class="form-control mb-3" autocomplete="email" required autofocus>
+                        <input type="password" name="password" id="inputPassword" placeholder="Mot de passe"
+                            class="form-control mb-3" autocomplete="current-password" required>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                        #}
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">Connexion</button>
+                            <button class="btn btn-secondary" type="reset">Annuler</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center mt-3 small">
+                        Pas de compte ? <a href="{{ path('app_register') }}">Créer un compte</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+{% endblock %}

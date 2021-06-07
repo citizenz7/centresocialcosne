@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="mt-3">
+        <button class="btn btn-sm btn-success">{{ button_label|default('Créer un article') }}</button>
+        <button class="btn btn-sm btn-secondary"type="reset">Annuler</button>
+    </div>
+{{ form_end(form) }}

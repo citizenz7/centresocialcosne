@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="{{ path('article_index') }}" class="btn btn-primary">Gestion des Articles</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="{{ path('categorie_index') }}" class="btn btn-info">Gestion des Catégories</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="{{ path('page_index') }}" class="btn btn-warning">Gestion des Pages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center pt-4">
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="{{ path('user_index') }}" class="btn btn-success">Gestion des Utilisateurs</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-danger">Gestion des Lettres d'info</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-secondary">Autres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+                
+
+{% endblock %}

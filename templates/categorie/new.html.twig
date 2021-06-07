@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Categorie{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <h2>Créer une nouvelle catégorie</h2>
+
+                    {{ include('categorie/_form.html.twig') }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

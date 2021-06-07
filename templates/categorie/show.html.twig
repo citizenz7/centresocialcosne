@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <h2>Catégorie : {{ categorie.titre }}</h2>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ categorie.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Titre</th>
+                                <td>{{ categorie.titre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ categorie.description|raw }}</td>
+                            </tr>
+                            <tr>
+                                <th>Image</th>
+                                <td><img src="../uploads/images/categories/{{ categorie.image }}" alt="{{ categorie.titre }}" class="img-fluid" style="max-width:300px; width:100%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td><a class="btn btn-sm btn-warning" href="{{ path('categorie_edit', {'id': categorie.id}) }}">Modifier la catégorie</a></td>
+                            <td>{{ include('categorie/_delete_form.html.twig') }}</td>
+                            <td><a class="btn btn-sm btn-primary" href="{{ path('categorie_index') }}">Liste des catégories</a></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
