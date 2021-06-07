@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Page;
 use App\Form\PageType;
 use App\Repository\PageRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,19 @@ class PageController extends AbstractController
     /**
      * @Route("/", name="page_index", methods={"GET"})
      */
-    public function index(PageRepository $pageRepository): Response
+    public function index(Request $request, PageRepository $pageRepository, PaginatorInterface $paginator): Response
     {
+        $donnees = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'DESC']);
+
+        $pages = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
+
         return $this->render('page/index.html.twig', [
-            'pages' => $pageRepository->findAll(),
+            'pages' => $pages,
         ]);
     }
 
@@ -56,7 +66,7 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="page_show", methods={"GET"})
+     * @Route("/{slug}", name="page_show", methods={"GET"})
      */
     public function show(Page $page): Response
     {

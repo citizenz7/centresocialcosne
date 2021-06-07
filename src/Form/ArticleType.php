@@ -4,15 +4,16 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Categorie;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class ArticleType extends AbstractType
 {
@@ -60,18 +61,6 @@ class ArticleType extends AbstractType
                 'multiple' => true,
                 'attr' => [
                     'class' => 'form-control mb-3'
-                ]
-            ])
-            ->add('isFeatured', CheckboxType::class, [
-                'label' => 'Article A la Une',
-                'attr' => [
-                    'class' => 'mx-2 mb-3'
-                ]
-            ])
-            ->add('isAbout', CheckboxType::class, [
-                'label' => 'Article A propos',
-                'attr' => [
-                    'class' => 'mx-2 mb-3'
                 ]
             ])
             ->add('is_active', ChoiceType::class, [

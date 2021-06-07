@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Activite;
 use App\Entity\Article;
+use App\Entity\Categorie;
 use App\Entity\Page;
-use Entity\Category;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,29 +23,25 @@ class HomeController extends AbstractController
         $articles = $paginator->paginate(
             $data_articles,
             $request->query->getInt('page', 1),
-            5
+            3
         );
 
         $data_activites = $this->getDoctrine()->getRepository(Activite::class)->findBy([],['titre' => 'desc']);
         $activites = $paginator->paginate(
             $data_activites,
             $request->query->getInt('page', 1),
-            5
+            3
         );
 
-        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy([],['date' => 'titre']);
+        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'asc']);
         $pages = $paginator->paginate(
             $data_pages,
             $request->query->getInt('page', 1),
-            5
+            3
         );
 
-        $data_categories = $this->getDoctrine()->getRepository(Category::class)->findBy([],['titre' => 'desc']);
-        $categories = $paginator->paginate(
-            $data_categories,
-            $request->query->getInt('page', 1),
-            5
-        );
+        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'asc']);
+
 
         return $this->render('home/index.html.twig', [
             'articles' => $articles,

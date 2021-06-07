@@ -37,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for page in pages | reverse %}
+                            {% for page in pages %}
                             <tr>
                                 <td>{{ page.id }}</td>
                                 <td>{{ page.titre }}</td>
@@ -45,7 +45,7 @@
                                 <td>{{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-info"
-                                        href="{{ path('page_show', {'id': page.id}) }}">Voir</a>
+                                        href="{{ path('page_show', {'slug': page.slug}) }}">Voir</a>
                                     <a class="btn btn-sm btn-warning"
                                         href="{{ path('page_edit', {'id': page.id}) }}">Modifier</a>
                                 </td>
@@ -57,8 +57,9 @@
                             {% endfor %}
                         </tbody>
                     </table>
-
-                    
+                </div>
+                <div class="pagination justify-content-center px-2 mt-4">
+                    {{ knp_pagination_render(pages) }}
                 </div>
             </div>
         </div>

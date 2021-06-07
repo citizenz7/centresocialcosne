@@ -4,113 +4,118 @@
 
 {% block body %}
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
+{% for page in pages %}
+    {% if page.isActive and page.isFeatured %}
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="hero d-flex align-items-center">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">Pour toutes les familles, tous les ages...</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">Nous vous proposons des activités, ateliers et services
-                    adaptés, pour tous !</h2>
-                <div data-aos="fade-up" data-aos-delay="600">
-                    <div class="text-center text-lg-start">
-                        <a href="#about"
-                            class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                            <span>Découvrir</span>
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-flex flex-column justify-content-center">
+                        <h1 data-aos="fade-up">{{ page.titre }}</h1>
+                        <h2 data-aos="fade-up" data-aos-delay="400">
+                            {{ page.contenu|raw }}
+                        </h2>
+                        <div data-aos="fade-up" data-aos-delay="600">
+                            <div class="text-center text-lg-start">
+                                <a href="{{ path('home') }}#services"
+                                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                    <span>Découvrir</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{ asset('img/hero-img.png') }}" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                <img src="{{ asset('img/hero-img.png') }}" class="img-fluid" alt="">
-            </div>
-        </div>
-    </div>
 
-</section><!-- End Hero -->
+        </section><!-- End Hero -->
+    {% endif %}
+{% endfor %}
 
 <main id="main">
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+
+    {% for page in pages %}
+        {% if page.isActive and page.isAbout %}
+            <!-- ======= About Section ======= -->
+            <section id="about" class="about">
+
+                <div class="container" data-aos="fade-up">
+                
+                    <div class="row gx-0">
+                        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="content">
+                                <h2>{{ page.titre }}</h2>
+                                <p>
+                                    {{ page.contenu|slice(0,575)|raw }}...
+                                </p>
+                                <div class="text-center text-lg-start">
+                                    <a href="{{ path('page_show', {'slug': page.slug}) }}"
+                                        class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                        <span>Lire la suite</span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                            <img src="{{ asset('img/about.jpg') }}" class="img-fluid" alt="{{ page.titre }}">
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <!-- End About Section -->
+        {% endif %}
+    {% endfor %}
+
+    <!-- ======= Activités et services Section ======= -->
+    <section id="services" class="values">
 
         <div class="container" data-aos="fade-up">
-            <div class="row gx-0">
 
-                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="content">
-                        <h3>A propos...</h3>
-                        <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-                            corrupti reprehenderit.</h2>
-                        <p>
-                            Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                            consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et
-                            est corrupti.<br>
-                            Dolores est repellat corrupti reprehenderit.Inventore et et dolor
-                            consequatur itaque ut voluptate sed et...
-                        </p>
-                        <div class="text-center text-lg-start">
-                            <a href="#"
-                                class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Lire la suite</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
+            <header class="section-header">
+                <h2>Les activités et les services du {{ site_name_full }}</h2>
+                <p>Une trentaines de services et d'activités pour tous !</p>
+                <p>
+                    <a class="fw-bold h4" href="{{ path('page_index') }}">Voir toutes les activités et le services du {{ site_name_full }}</a>
+                </p>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{{ asset('img/values1.jpg') }}" class="img-fluid" alt="">
+                        <h3>Ad cupiditate sed est odio</h3>
+                        <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
                     </div>
                 </div>
 
-                <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                    <img src="{{ asset('img/about.jpg') }}" class="img-fluid" alt="">
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="fade-up" data-aos-delay="400">
+                        <img src="{{ asset('img/values2.jpg') }}" class="img-fluid" alt="">
+                        <h3>Voluptatem voluptatum alias</h3>
+                        <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
+                    </div>
                 </div>
 
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="fade-up" data-aos-delay="600">
+                        <img src="{{ asset('img/values3.jpg') }}" class="img-fluid" alt="">
+                        <h3>Fugit cupiditate alias nobis.</h3>
+                        <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
+                    </div>
+                </div>
             </div>
+
         </div>
-
-    </section><!-- End About Section -->
-
-        <!-- ======= Activités et services Section ======= -->
-        <section id="pages" class="values">
-
-            <div class="container" data-aos="fade-up">
     
-                <header class="section-header">
-                    <h2>Les activités et les services du {{ site_name_full }}</h2>
-                    <p>Une trentaines de services et d'activités pour tous !</p>
-                    <p>
-                        <a class="fw-bold h4" href="{{ path('page_index') }}">Voir toutes les activités et le services du {{ site_name_full }}</a>
-                    </p>
-                </header>
-    
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="box" data-aos="fade-up" data-aos-delay="200">
-                            <img src="{{ asset('img/values1.jpg') }}" class="img-fluid" alt="">
-                            <h3>Ad cupiditate sed est odio</h3>
-                            <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
-                        </div>
-                    </div>
-    
-                    <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box" data-aos="fade-up" data-aos-delay="400">
-                            <img src="{{ asset('img/values2.jpg') }}" class="img-fluid" alt="">
-                            <h3>Voluptatem voluptatum alias</h3>
-                            <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
-                        </div>
-                    </div>
-    
-                    <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box" data-aos="fade-up" data-aos-delay="600">
-                            <img src="{{ asset('img/values3.jpg') }}" class="img-fluid" alt="">
-                            <h3>Fugit cupiditate alias nobis.</h3>
-                            <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-    
-        </section><!-- End Values Section -->
+    </section><!-- End Values Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-blog-posts" class="recent-blog-posts">
