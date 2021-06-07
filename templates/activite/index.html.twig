@@ -3,45 +3,71 @@
 {% block title %}Activite index{% endblock %}
 
 {% block body %}
-    <h1>Activite index</h1>
+<main id="main">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Slug</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>IsActive</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for activite in activites %}
-            <tr>
-                <td>{{ activite.id }}</td>
-                <td>{{ activite.titre }}</td>
-                <td>{{ activite.slug }}</td>
-                <td>{{ activite.description }}</td>
-                <td>{{ activite.image }}</td>
-                <td>{{ activite.createdAt ? activite.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ activite.updatedAt ? activite.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ activite.isActive ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('activite_show', {'id': activite.id}) }}">show</a>
-                    <a href="{{ path('activite_edit', {'id': activite.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
 
-    <a href="{{ path('activite_new') }}">Create new</a>
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2>Liste des activités</h2>                            
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('activite_new') }}">Créer une activité</a>
+                        </div>
+                    </div>
+                    <h4>Categorie index ne sert plus qu'à l'admin. Categorie index ne sera plus présenté au public. On présentera toutes les activités ici sur Activité index, par catégorie, avec des cards</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Catégorie</th>
+                                <th>Posté le</th>
+                                <th>Maj</th>
+                                <th>Auteur</th>
+                                <th>Activé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for activite in activites %}
+                            <tr>
+                                <td>{{ activite.titre }}</td>
+                                <td>
+                                    {% for cat in activite.categorie %}
+                                        {{ cat.titre }}
+                                    {% endfor %}
+                                </td>
+                                <td>{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
+                                <td>{{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}</td>
+                                <td>{{ activite.auteur }}</td>
+                                <td>{{ activite.isActive ? 'Oui' : 'Non' }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info" href="{{ path('activite_show', {'id': activite.id}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ path('activite_edit', {'id': activite.id}) }}">Modifier</a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="9">Il n'y a aucun enregistrement.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

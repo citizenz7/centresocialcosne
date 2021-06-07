@@ -3,9 +3,26 @@
 {% block title %}New Activite{% endblock %}
 
 {% block body %}
-    <h1>Create new Activite</h1>
+<main id="main">
 
-    {{ include('activite/_form.html.twig') }}
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
 
-    <a href="{{ path('activite_index') }}">back to list</a>
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <h2>Créer une activité</h2>
+
+                    {{ include('activite/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

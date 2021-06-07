@@ -64,7 +64,7 @@ class ArticleType extends AbstractType
                 ]
             ])
             ->add('is_active', ChoiceType::class, [
-                'label' => 'Article visible?',
+                'label' => 'Article visible ?',
                 'choices' => [
                     'oui' => 1,
                     'non' => 0

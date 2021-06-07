@@ -40,7 +40,7 @@ class HomeController extends AbstractController
             3
         );
 
-        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'asc']);
+        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['titre' => 'asc']);
 
 
         return $this->render('home/index.html.twig', [

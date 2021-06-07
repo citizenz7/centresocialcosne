@@ -3,11 +3,28 @@
 {% block title %}Edit Activite{% endblock %}
 
 {% block body %}
-    <h1>Edit Activite</h1>
+<main id="main">
 
-    {{ include('activite/_form.html.twig', {'button_label': 'Update'}) }}
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
 
-    <a href="{{ path('activite_index') }}">back to list</a>
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <h2>Modifier une activité</h2>
 
-    {{ include('activite/_delete_form.html.twig') }}
+                    {{ include('activite/_form.html.twig', {'button_label': 'Modifier l\'activité'}) }}
+
+                    {{ include('activite/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

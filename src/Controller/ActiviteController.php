@@ -35,7 +35,31 @@ class ActiviteController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            if ($uploadedFile) {
+                $destination = $this->getParameter("activites_images_directory");
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $activite->setImage($newFilename);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
+
+            // Date de création de l'article
+            $activite->setCreatedAt(new \DateTime());
+
+            // Auteur de l'article
+            $activite->setAuteur($this->getUser());
+
             $entityManager->persist($activite);
             $entityManager->flush();
 
@@ -67,6 +91,23 @@ class ActiviteController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+             // Upload image
+             $uploadedFile = $form['image']->getData();
+
+             if ($uploadedFile) {
+                 $destination = $this->getParameter("activites_images_directory");
+ 
+                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                 $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+ 
+                 $uploadedFile->move(
+                     $destination,
+                     $newFilename
+                 );
+                 $activite->setImage($newFilename);
+             }
+             
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('activite_index');
