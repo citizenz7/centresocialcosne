@@ -67,6 +67,25 @@
                     </article>
                     <!-- End blog entry -->
 
+                    {% if activite.file1 or activite.file2 or activite.file3 %}
+                        <div class="blog-author d-flex align-items-center">
+                            <div>
+                                <h4>Fichiers à télécharger</h4>
+                            </div>
+                            <div class="social-links">
+                            {% if activite.file1 %}
+                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file1 }}">{{ activite.file1 }}</a>
+                            {% endif %}
+                            {% if activite.file2 %}
+                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file2 }}">{{ activite.file2 }}</a>
+                            {% endif %}
+                            {% if activite.file3 %}
+                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file3 }}">{{ activite.file3 }}</a>
+                            {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div class="blog-author d-flex align-items-center">
                         <img src="../uploads/images/users/{{ activite.auteur.image }}" class="rounded-circle float-left" alt="">
                         <div>
@@ -77,7 +96,7 @@
                                 <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
                             </div>
                             <p>
-                                {{ activite.auteur.presentation }}
+                                {{ activite.auteur.presentation|raw }}
                             </p>
                         </div>
                     </div><!-- End blog author bio -->

@@ -82,9 +82,6 @@
             <header class="section-header">
                 <h2>Les activités et les services du {{ site_name_full }}</h2>
                 <p>Une trentaines de services et d'activités pour tous !</p>
-                <p>
-                    <a class="fw-bold h4" href="{{ path('page_index') }}">Voir toutes les activités et les services du {{ site_name_full }}</a>
-                </p>
             </header>
 
             <div class="row">
@@ -92,8 +89,16 @@
                     <div class="col-lg-4">
                         <div class="box" data-aos="fade-up" data-aos-delay="200">
                             <img src="../uploads/images/activites/{{ activite.image }}" class="img-fluid" alt="{{ activite.titre }}">
-                            <h3>{{ activite.titre }}</h3>
-                            <p>{{ activite.description|raw }}</p>
+                            <h6>
+                                {% for cat in activite.categorie %}
+                                    {{ cat.titre }}
+                                {% endfor %}
+                            </h6>
+                            <h3>
+                                <a href="{{ path('activite_show', {'slug': activite.slug}) }}">
+                                    {{ activite.titre }}
+                                </a>
+                            </h3>
                         </div>
                     </div>
                 {% endfor %}
@@ -116,6 +121,14 @@
                 </div>
                 #}
 
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="box" data-aos="fade-up" data-aos-delay="200">
+                        <a class="fw-bold h4" href="{{ path('activite_index') }}">Voir toutes les activités et services du {{ site_name_full }}</a>
+                    </div>
+                </div>
             </div>
 
         </div>

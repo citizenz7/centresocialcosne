@@ -8,6 +8,9 @@ parameters:
     categories_images_directory: '%kernel.project_dir%/public/uploads/images/categories'
     users_images_directory: '%kernel.project_dir%/public/uploads/images/users'
     activites_images_directory: '%kernel.project_dir%/public/uploads/images/activites'
+    activites_files_directory: '%kernel.project_dir%/public/uploads/fichiers/activites'
+    articles_files_directory: '%kernel.project_dir%/public/uploads/fichiers/articles'
+    pages_files_directory: '%kernel.project_dir%/public/uploads/fichiers/pages'
 
 services:
     # default configuration for services in *this* file

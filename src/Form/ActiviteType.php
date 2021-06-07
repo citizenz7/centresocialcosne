@@ -50,6 +50,58 @@ class ActiviteType extends AbstractType
                     ])
                 ]
             ])
+            ->add('file1', FileType::class, [
+                'label' => 'Fichier #1 de l\'activité',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file2', FileType::class, [
+                'label' => 'Fichier #2 de l\'activité',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file3', FileType::class, [
+                'label' => 'Fichier #3 de l\'activité',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+
             //->add('createdAt')
             //->add('updatedAt')
             ->add('categorie', EntityType::class, [

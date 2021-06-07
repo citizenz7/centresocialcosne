@@ -32,6 +32,23 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            if ($uploadedFile) {
+                $destination = $this->getParameter("users_images_directory");
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $user->setImage($newFilename);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -64,6 +81,23 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+             // Upload image
+             $uploadedFile = $form['image']->getData();
+
+             if ($uploadedFile) {
+                 $destination = $this->getParameter("users_images_directory");
+ 
+                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                 $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+ 
+                 $uploadedFile->move(
+                     $destination,
+                     $newFilename
+                 );
+                 $user->setImage($newFilename);
+             }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_index');

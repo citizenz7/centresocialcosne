@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
             'articles' => $articles,
         ]);
     }
-
+ 
     /**
      * @Route("/admin/article/new", name="article_new", methods={"GET","POST"})
      */

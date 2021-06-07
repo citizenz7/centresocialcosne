@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Activite;
 use App\Form\ActiviteType;
 use App\Repository\ActiviteRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,18 @@ class ActiviteController extends AbstractController
     /**
      * @Route("/", name="activite_index", methods={"GET"})
      */
-    public function index(ActiviteRepository $activiteRepository): Response
+    public function index(Request $request, ActiviteRepository $activiteRepository, PaginatorInterface $paginator): Response
     {
+        $donnees = $this->getDoctrine()->getRepository(Activite::class)->findBy([],['id' => 'DESC']);
+
+        $activites = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
         return $this->render('activite/index.html.twig', [
-            'activites' => $activiteRepository->findAll(),
+            'activites' => $activites,
         ]);
     }
 
@@ -52,6 +61,51 @@ class ActiviteController extends AbstractController
                 $activite->setImage($newFilename);
             }
 
+            // Upload fichier 1 
+            $uploadedFile1 = $form['file1']->getData();
+            if ($uploadedFile1) {
+                $destination1 = $this->getParameter("activites_files_directory");
+
+                $originalFile1name = pathinfo($uploadedFile1->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile1name = $originalFile1name.'-'.uniqid().'.'.$uploadedFile1->guessExtension();
+
+                $uploadedFile1->move(
+                    $destination1,
+                    $newFile1name
+                );
+                $activite->setFile1($newFile1name);
+            }
+
+            // Upload fichier 2 
+            $uploadedFile2 = $form['file2']->getData();
+            if ($uploadedFile2) {
+                $destination2 = $this->getParameter("activites_files_directory");
+
+                $originalFile2name = pathinfo($uploadedFile2->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile2name = $originalFile2name.'-'.uniqid().'.'.$uploadedFile2->guessExtension();
+
+                $uploadedFile2->move(
+                    $destination2,
+                    $newFile2name
+                );
+                $activite->setFile2($newFile2name);
+            }
+
+            // Upload fichier 3
+            $uploadedFile3 = $form['file3']->getData();
+            if ($uploadedFile3) {
+                $destination3 = $this->getParameter("activites_files_directory");
+
+                $originalFile3name = pathinfo($uploadedFile3->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile3name = $originalFile3name.'-'.uniqid().'.'.$uploadedFile3->guessExtension();
+
+                $uploadedFile3->move(
+                    $destination3,
+                    $newFile3name
+                );
+                $activite->setFile3($newFile3name);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
 
             // Date de création de l'article
@@ -73,7 +127,7 @@ class ActiviteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="activite_show", methods={"GET"})
+     * @Route("/{slug}", name="activite_show", methods={"GET"})
      */
     public function show(Activite $activite): Response
     {
@@ -107,6 +161,51 @@ class ActiviteController extends AbstractController
                  );
                  $activite->setImage($newFilename);
              }
+
+             // Upload fichier 1 
+            $uploadedFile1 = $form['file1']->getData();
+            if ($uploadedFile1) {
+                $destination1 = $this->getParameter("activites_files_directory");
+
+                $originalFile1name = pathinfo($uploadedFile1->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile1name = $originalFile1name.'-'.uniqid().'.'.$uploadedFile1->guessExtension();
+
+                $uploadedFile1->move(
+                    $destination1,
+                    $newFile1name
+                );
+                $activite->setFile1($newFile1name);
+            }
+
+            // Upload fichier 2 
+            $uploadedFile2 = $form['file2']->getData();
+            if ($uploadedFile2) {
+                $destination2 = $this->getParameter("activites_files_directory");
+
+                $originalFile2name = pathinfo($uploadedFile2->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile2name = $originalFile2name.'-'.uniqid().'.'.$uploadedFile2->guessExtension();
+
+                $uploadedFile2->move(
+                    $destination2,
+                    $newFile2name
+                );
+                $activite->setFile2($newFile2name);
+            }
+
+            // Upload fichier 3
+            $uploadedFile3 = $form['file3']->getData();
+            if ($uploadedFile3) {
+                $destination3 = $this->getParameter("activites_files_directory");
+
+                $originalFile3name = pathinfo($uploadedFile3->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFile3name = $originalFile3name.'-'.uniqid().'.'.$uploadedFile3->guessExtension();
+
+                $uploadedFile3->move(
+                    $destination3,
+                    $newFile3name
+                );
+                $activite->setFile3($newFile3name);
+            }
              
             $this->getDoctrine()->getManager()->flush();
 

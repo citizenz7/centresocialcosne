@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}{{ site_name_full }} : Administration{% endblock %}
 
 {% block body %}
 
@@ -17,19 +17,20 @@
     <section class="inner-page">
         <div class="container">
             <div class="row d-flex justify-content-center">
+                <h2>Gestion du site</h2>
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="{{ path('article_index') }}" class="btn btn-primary">Gestion des Articles</a>
+                        <a href="{{ path('article_index') }}" class="btn btn-primary fw-bold p-3 fs-4">Articles</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="{{ path('categorie_index') }}" class="btn btn-info">Gestion des Catégories</a>
+                        <a href="{{ path('categorie_index') }}" class="btn btn-info fw-bold p-3 fs-4">Catégories</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="{{ path('page_index') }}" class="btn btn-warning">Gestion des Pages</a>
+                        <a href="{{ path('page_index') }}" class="btn btn-warning fw-bold p-3 fs-4">Pages</a>
                     </div>
                 </div>
             </div>
@@ -37,17 +38,17 @@
             <div class="row d-flex justify-content-center pt-4">
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="{{ path('user_index') }}" class="btn btn-success">Gestion des Utilisateurs</a>
+                        <a href="{{ path('activite_index') }}" class="btn btn-dark fw-bold p-3 fs-4">Activités</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="#" class="btn btn-danger">Gestion des Lettres d'info</a>
+                        <a href="{{ path('user_index') }}" class="btn btn-success fw-bold p-3 fs-4">Utilisateurs</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <a href="{{ path('activite_index') }}" class="btn btn-secondary">Gestion des activités</a>
+                        <a href="#" class="btn btn-danger fw-bold p-3 fs-4">Lettres d'info</a>
                     </div>
                 </div>
             </div>

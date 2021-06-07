@@ -66,6 +66,21 @@ class Activite
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $file1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $file2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $file3;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -192,6 +207,42 @@ class Activite
     public function removeCategorie(Categorie $categorie): self
     {
         $this->categorie->removeElement($categorie);
+
+        return $this;
+    }
+
+    public function getFile1(): ?string
+    {
+        return $this->file1;
+    }
+
+    public function setFile1(?string $file1): self
+    {
+        $this->file1 = $file1;
+
+        return $this;
+    }
+
+    public function getFile2(): ?string
+    {
+        return $this->file2;
+    }
+
+    public function setFile2(?string $file2): self
+    {
+        $this->file2 = $file2;
+
+        return $this;
+    }
+
+    public function getFile3(): ?string
+    {
+        return $this->file3;
+    }
+
+    public function setFile3(?string $file3): self
+    {
+        $this->file3 = $file3;
 
         return $this;
     }

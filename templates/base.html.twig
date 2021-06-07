@@ -78,14 +78,14 @@
                             <ul>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <li>
-                                        <a class="nav-link scrollto" href="{{ path('admin') }}"><span>Admin</span></a>
+                                        <a class="nav-link scrollto" href="{{ path('admin') }}"><span><i class="bi bi-gear" style="font-size: 1.2rem; color: cornflowerblue;"></i> Administration</span></a>
                                     </li>
                                  {% endif %}
                                  <li>
-                                    <a class="nav-link scrollto" href="{{ path('user_show', {'id': app.user.id}) }}"><span>Profil</span></a>
+                                    <a class="nav-link scrollto" href="{{ path('user_show', {'id': app.user.id}) }}"><span><i class="bi bi-person-circle" style="font-size: 1.2rem; color: cornflowerblue;"></i> Mon profil</span></a>
                                 </li>
                                 <li>
-                                    <a class="nav-link scrollto" href="{{ path('app_logout') }}">Déconnexion</a>
+                                    <a class="nav-link scrollto" href="{{ path('app_logout') }}"><span><i class="bi bi-box-arrow-right" style="font-size: 1.2rem; color: cornflowerblue;"></i> Déconnexion</span></a>
                                 </li>
                             </ul>
                         </li>

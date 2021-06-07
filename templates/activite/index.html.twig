@@ -52,7 +52,7 @@
                                 <td>{{ activite.auteur }}</td>
                                 <td>{{ activite.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-info" href="{{ path('activite_show', {'id': activite.id}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-info" href="{{ path('activite_show', {'slug': activite.slug}) }}">Voir</a>
                                     <a class="btn btn-sm btn-warning" href="{{ path('activite_edit', {'id': activite.id}) }}">Modifier</a>
                                 </td>
                             </tr>
