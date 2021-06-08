@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategorieController extends AbstractController
 {
     /**
-     * @Route("/admin/categorie", name="categorie_index", methods={"GET"})
+     * @Route("/categories", name="categorie_index", methods={"GET"})
      */
     public function index(Request $request, CategorieRepository $categoriesRepository, PaginatorInterface $paginator): Response
     {
@@ -32,7 +32,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categorie/new", name="categorie_new", methods={"GET","POST"})
+     * @Route("/admin/categories/new", name="categorie_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -74,7 +74,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/categorie/{slug}", name="categorie_show", methods={"GET"})
+     * @Route("/categories/{slug}", name="categorie_show", methods={"GET"})
      */
     public function show(Categorie $categorie): Response
     {
@@ -84,7 +84,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categorie/{id}/edit", name="categorie_edit", methods={"GET","POST"})
+     * @Route("/admin/categories/{id}/edit", name="categorie_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Categorie $categorie): Response
     {
@@ -121,7 +121,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categorie/{id}", name="categorie_delete", methods={"POST"})
+     * @Route("/admin/categories/{id}", name="categorie_delete", methods={"POST"})
      */
     public function delete(Request $request, Categorie $categorie): Response
     {

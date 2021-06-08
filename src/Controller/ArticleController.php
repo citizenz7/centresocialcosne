@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article", name="article_index", methods={"GET"})
+     * @Route("/articles", name="article_index", methods={"GET"})
      */
     public function index(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator): Response
     {
@@ -35,7 +35,7 @@ class ArticleController extends AbstractController
     }
  
     /**
-     * @Route("/admin/article/new", name="article_new", methods={"GET","POST"})
+     * @Route("/admin/articles/new", name="article_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -86,7 +86,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{slug}", name="article_show", methods={"GET"})
+     * @Route("/articles/{slug}", name="article_show", methods={"GET"})
      */
     public function show(Article $article, Request $request, EntityManagerInterface $manager): Response
     {
@@ -104,7 +104,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/admin/article/{id}/edit", name="article_edit", methods={"GET","POST"})
+     * @Route("/admin/articles/{id}/edit", name="article_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Article $article): Response
     {
@@ -112,6 +112,9 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Date de création de l'article
+            $article->setUpdatedAt(new \DateTime());
 
             // Upload image
             $uploadedFile = $form['image']->getData();
@@ -141,7 +144,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/admin/article/{id}", name="article_delete", methods={"POST"})
+     * @Route("admin/articles/{id}", name="article_delete", methods={"POST"})
      */
     public function delete(Request $request, Article $article): Response
     {

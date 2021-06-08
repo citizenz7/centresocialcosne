@@ -11,13 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/page")
- */
 class PageController extends AbstractController
 {
     /**
-     * @Route("/", name="page_index", methods={"GET"})
+     * @Route("/pages", name="page_index", methods={"GET"})
      */
     public function index(Request $request, PageRepository $pageRepository, PaginatorInterface $paginator): Response
     {
@@ -36,7 +33,7 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="page_new", methods={"GET","POST"})
+     * @Route("/admin/pages/new", name="page_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -66,7 +63,7 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="page_show", methods={"GET"})
+     * @Route("/pages/{slug}", name="page_show", methods={"GET"})
      */
     public function show(Page $page): Response
     {
@@ -76,7 +73,7 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="page_edit", methods={"GET","POST"})
+     * @Route("/admin/pages/{id}/edit", name="page_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Page $page): Response
     {
@@ -96,7 +93,7 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="page_delete", methods={"POST"})
+     * @Route("/admin/pages/{id}", name="page_delete", methods={"POST"})
      */
     public function delete(Request $request, Page $page): Response
     {

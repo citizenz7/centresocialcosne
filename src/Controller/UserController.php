@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/admin/user", name="user_index", methods={"GET"})
+     * @Route("/users", name="user_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -23,7 +23,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/user/new", name="user_new", methods={"GET","POST"})
+     * @Route("/admin/users/new", name="user_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

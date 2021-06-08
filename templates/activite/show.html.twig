@@ -27,6 +27,13 @@
                             <img src="../uploads/images/activites/{{ activite.image }}" alt="{{ activite.titre }}" class="img-fluid">
                         </div>
 
+                        <h3 class="mb-3"> 
+                            {% for cat in activite.categorie %}
+                            <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                <span class="badge bg-primary">{{ cat.titre }}</span>
+                            </a>
+                            {% endfor %}
+                        </h3>
                         <h2 class="entry-title">{{ activite.titre }}</h2>
 
                         <div class="entry-meta">
@@ -69,19 +76,21 @@
 
                     {% if activite.file1 or activite.file2 or activite.file3 %}
                         <div class="blog-author d-flex align-items-center">
-                            <div>
-                                <h4>Fichiers à télécharger</h4>
-                            </div>
-                            <div class="social-links">
-                            {% if activite.file1 %}
-                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file1 }}">{{ activite.file1 }}</a>
-                            {% endif %}
-                            {% if activite.file2 %}
-                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file2 }}">{{ activite.file2 }}</a>
-                            {% endif %}
-                            {% if activite.file3 %}
-                                <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file3 }}">{{ activite.file3 }}</a>
-                            {% endif %}
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <h4>Fichiers à télécharger</h4>
+                                </div>
+                                <div class="col">
+                                    {% if activite.file1 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file1 }}">{{ activite.file1 }}</a>
+                                    {% endif %}
+                                    {% if activite.file2 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file2 }}">{{ activite.file2 }}</a>
+                                    {% endif %}
+                                    {% if activite.file3 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/activites/{{ activite.file3 }}">{{ activite.file3 }}</a>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     {% endif %}

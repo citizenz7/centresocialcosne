@@ -8,7 +8,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-            <h2>Administration du site</h2>
+            <h2>Liste de toutes les activités et services</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
@@ -25,7 +25,11 @@
                             <a class="btn btn-success fw-bold pt-2" href="{{ path('activite_new') }}">Créer une activité</a>
                         </div>
                     </div>
-                    <h4>Categorie index ne sert plus qu'à l'admin. Categorie index ne sera plus présenté au public. On présentera toutes les activités ici sur Activité index, par catégorie, avec des cards</h4>
+                    <h4 class="bg-dark text-white rounded p-2 my-4 text-center">
+                        On présentera toutes les activités <b>ICI</b> sur Activité index, par catégorie, avec des cards, visible par tous les publics.<br> 
+                        On désactivera la possibilité de créer ou de modifier une activité pour le public, ceci étant réserver à <b>ADMIN</b>.<br>
+                        Tri par colonne (avec knp_paginator...)
+                    </h4>
                     <table class="table">
                         <thead>
                             <tr>
@@ -63,8 +67,6 @@
                             {% endfor %}
                         </tbody>
                     </table>
-
-                    
                 </div>
             </div>
         </div>

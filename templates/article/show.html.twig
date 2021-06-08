@@ -27,6 +27,14 @@
                             <img src="../uploads/images/articles/{{ article.image }}" alt="{{ article.titre }}" class="img-fluid">
                         </div>
 
+                        <div class="mb-3">
+                            {% for cat in article.categorie %}
+                                    <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                        <span class="badge bg-primary">{{ cat.titre }}</span>
+                                    </a>
+                            {% endfor %}
+                        </div>
+
                         <h2 class="entry-title">{{ article.titre }}</h2>
 
                         <div class="entry-meta">
@@ -42,6 +50,9 @@
                                         <i class="bi bi-clock-fill"></i> {{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}
                                     </li>
                                 {% endif %}
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-eye"></i> {{ article.views }}
+                                </li>
                             </ul>
                         </div>
 
@@ -49,18 +60,19 @@
                             {{ article.contenu|raw }}
                         </div>
 
+                        {#
                         <div class="entry-footer">
-                            <i class="bi bi-folder"></i>
                             <ul class="cats">
                                 <li>
                                     {% for cat in article.categorie %}
-                                        <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                                            <span class="badge bg-secondary">{{ cat.titre }}</span>
+                                        <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                            <span class="badge bg-primary">{{ cat.titre }}</span>
                                         </a>
                                     {% endfor %}
                                 </li>
                             </ul>
                         </div>
+                        #}
 
                     </article>
                     <!-- End blog entry -->
@@ -75,7 +87,7 @@
                                 <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
                             </div>
                             <p>
-                                {{ article.auteur.presentation }}
+                                {{ article.auteur.presentation|raw }}
                             </p>
                         </div>
                     </div><!-- End blog author bio -->

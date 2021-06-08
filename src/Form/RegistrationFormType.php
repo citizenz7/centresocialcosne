@@ -4,11 +4,14 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -71,6 +74,53 @@ class RegistrationFormType extends AbstractType
                 ],
                 'first_options' => ['label' => false, 'attr' => [ 'class' => 'form-control mb-3', 'placeholder' => 'Mot de passe']],
                 'second_options' => ['label' => false, 'attr' => [ 'class' => 'form-control mb-3', 'placeholder' => 'Confirmez le mot de passe']]
+            ])
+            ->add('presentation', CKEditorType::class, [
+                'attr' => [
+                    'class' => 'mb-3'
+                ],
+            ]) 
+            ->add('image', FileType::class, [
+                'label' => 'Image de votre profil',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg'
+                        ],
+                        'mimeTypesMessage' => 'L\'image envoyée n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('fonction', TextType::class, [
+                'label' => 'Votre fonction au centre social',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ]
+            ])
+            ->add('facebook', TextType::class, [
+                'label' => 'Votre profil Facebook',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ]
+            ])
+            ->add('twitter', TextType::class, [
+                'label' => 'Votre profil Twitter',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ]
+            ])
+            ->add('instagram', TextType::class, [
+                'label' => 'Votre profil Instagram',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ]
             ])
         ;
     }

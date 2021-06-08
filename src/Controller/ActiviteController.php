@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/activite")
- */
+
 class ActiviteController extends AbstractController
 {
     /**
-     * @Route("/", name="activite_index", methods={"GET"})
+     * @Route("/activites", name="activite_index", methods={"GET"})
      */
     public function index(Request $request, ActiviteRepository $activiteRepository, PaginatorInterface $paginator): Response
     {
@@ -35,7 +33,7 @@ class ActiviteController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="activite_new", methods={"GET","POST"})
+     * @Route("/admin/activites/new", name="activite_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -127,7 +125,7 @@ class ActiviteController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="activite_show", methods={"GET"})
+     * @Route("/activites/{slug}", name="activite_show", methods={"GET"})
      */
     public function show(Activite $activite): Response
     {
@@ -137,7 +135,7 @@ class ActiviteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="activite_edit", methods={"GET","POST"})
+     * @Route("/admin/activites/{id}/edit", name="activite_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Activite $activite): Response
     {
@@ -146,8 +144,11 @@ class ActiviteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-             // Upload image
-             $uploadedFile = $form['image']->getData();
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            // Date de création de l'article
+            $activite->setUpdatedAt(new \DateTime());
 
              if ($uploadedFile) {
                  $destination = $this->getParameter("activites_images_directory");
@@ -219,7 +220,7 @@ class ActiviteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="activite_delete", methods={"POST"})
+     * @Route("/admin/activites/{id}", name="activite_delete", methods={"POST"})
      */
     public function delete(Request $request, Activite $activite): Response
     {
