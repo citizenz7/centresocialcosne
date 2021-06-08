@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Activite{% endblock %}
+{% block title %}{{ site_name_full }} : {{ activite.titre }}{% endblock %}
 
 {% block body %}
+
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -39,14 +40,14 @@
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> {{ activite.auteur }}
+                                    <i class="bi bi-person"></i> Auteur {{ activite.auteur.prenom }} {{ activite.auteur.nom }}
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <i class="bi bi-clock"></i> {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
+                                    <i class="bi bi-clock"></i> Posté le {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
                                 </li>
                                 {% if activite.updatedAt != null %}
                                     <li class="d-flex align-items-center">
-                                        <i class="bi bi-clock-fill"></i> {{ activite.updatedAt ? activite.updatedAt|date('Y-m-d H:i:s') : '' }}
+                                        <i class="bi bi-clock-fill"></i> Modifié le {{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}
                                     </li>
                                 {% endif %}
                             </ul>
@@ -267,14 +268,16 @@
 
                     <div class="sidebar">
 
-                        <h3 class="sidebar-title">Recherche</h3>
+                        <h3 class="sidebar-title">Rechercher une activité</h3>
                         <div class="sidebar-item search-form">
                             <form action="">
                                 <input type="text">
                                 <button type="submit"><i class="bi bi-search"></i></button>
                             </form>
-                        </div><!-- End sidebar search formn-->
+                        </div>
+                        <!-- End sidebar search formn-->
 
+                        <!--
                         <h3 class="sidebar-title">Catégories</h3>
                         <div class="sidebar-item categories">
                             <ul>
@@ -285,10 +288,14 @@
                                 <li><a href="#">Creative <span>(8)</span></a></li>
                                 <li><a href="#">Educaion <span>(14)</span></a></li>
                             </ul>
-                        </div><!-- End sidebar categories-->
+                        </div>
+                        -->
+                        <!-- End sidebar categories-->
 
-                        <h3 class="sidebar-title">Derniers articles</h3>
+                        <h3 class="sidebar-title">Autres activités...</h3>
                         <div class="sidebar-item recent-posts">
+
+                            <!--
                             <div class="post-item clearfix">
                                 <img src="{{ asset('img/blog/blog-recent-1.jpg') }}" alt="">
                                 <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
@@ -318,8 +325,10 @@
                                 <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
                                 <time datetime="2020-01-01">Jan 1, 2020</time>
                             </div>
+                            -->
 
-                        </div><!-- End sidebar recent posts-->
+                        </div>
+                        <!-- End sidebar recent posts-->
 
                         {#
                         <h3 class="sidebar-title">Tags</h3>

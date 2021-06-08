@@ -28,7 +28,6 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {% endblock %}
-
 </head>
 
 <body>
@@ -46,7 +45,8 @@
                     <li><a class="nav-link scrollto active" href="{{ path('home') }}#hero">Accueil</a></li>
                     <li><a class="nav-link scrollto" href="{{ path('home') }}#about">A propos</a></li>
                     <li><a class="nav-link scrollto" href="{{ path('home') }}#services">Services & Activités</a></li>
-                    <li><a href="{{ path('article_index') }}">Toutes les infos</a></li>
+                    <li><a href="{{ path('home') }}#recent-blog-posts">Dernières infos</a></li>
+                    <li><a href="{{ path('home') }}#pages">Centre Social</a></li>
                     <!--
                     <li class="dropdown">
                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -91,7 +91,7 @@
                         </li>
                     {% endif %}
 
-                    <li><a class="getstarted scrollto" href="{{ path('home') }}#services">Découvrir</a></li>
+                    <!--<li><a class="getstarted scrollto" href="{{ path('home') }}#services">Découvrir</a></li>-->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -127,8 +127,8 @@
                         <a href="{{ path('home') }}" class="logo d-flex align-items-center">
                             <img src="{{ asset('img/logo1.png') }}" class="img-fluid" alt="{{ site_name }}">
                         </a>
-                        <p>Partout, en France, les centres sociaux sont des structures de proximité qui animent le débat démocratique, 
-                            accompagnent des mobilisations et des projets d'habitant. ... e.s, et construisent de meilleures 
+                        <p style="text-align:justify; font-size:1rem;">Partout, en France, les centres sociaux sont des structures de proximité qui animent le débat démocratique, 
+                            accompagnent des mobilisations et des projets d'habitant.e.s, et construisent de meilleures 
                             conditions de vie, aujourd'hui et pour demain.
                         </p>
                         <div class="social-links mt-3">
@@ -144,32 +144,33 @@
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}">Accueil</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#about">A propos</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#services">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
-                            <!--<li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>-->
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#contact">Contact</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-2 col-6 footer-links">
-                        <h4>Activités et services</h4>
+                        <h4>Centre Social</h4>
                         <ul>
+                            <!--
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Petite-enfance</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Enfance/Jeunesse</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Adultes/seniors</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Familles</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Association</a></li>
+                            -->
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#services">Les activités</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#recent-blog-posts">Les infos</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#pages">Le centre en détails</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ path('home') }}#counts">Quelques chiffres</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Nous contacter</h4>
-                        <p>
+                        <p style="font-size:1.1rem;">
                             15, rue de Berry<br>
                             58200 Cosne-Cours-sur-Loire<br>
-                            <strong>Tél. accueil : </strong>03.86.28.20.96<br>
-                            <strong>Tél. Multi-Accueil : </strong>06.23.32.21.14<br>
-                            <strong>Tél. Jeunesse : </strong>06.23.32.21.14<br>
+                            <strong>Téléphone : </strong>03.86.28.20.96<br>
                             <strong>E-Mail : </strong> info@centresocialcosne.org<br>
                         </p>
 
