@@ -19,6 +19,18 @@ class CategorieRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorie::class);
     }
 
+    public function sidebarCategories(): array
+    {
+        return $this->createQueryBuilder('cat')
+            //->andWhere('a.exampleField = :val')
+            //->setParameter('val', $value)
+            ->orderBy('cat.titre', 'ASC')
+            ->select('cat.titre', 'cat.slug')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Categorie[] Returns an array of Categorie objects
     //  */

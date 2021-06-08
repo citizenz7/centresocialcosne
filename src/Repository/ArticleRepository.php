@@ -19,6 +19,46 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function search($titre) 
+    {
+        return $this->createQueryBuilder('Article')
+            ->andWhere('Article.titre LIKE :titre')
+            ->setParameter('titre', '%'.$titre.'%')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findArticles()
+    {
+        $qb = $this->createQueryBuilder('p');
+        //$qb->where('p.status=1');
+        return $qb->getQuery(); // WITHOUT ->getResult(); !!
+    }
+
+    // Retourne les 3 derniers articles les + populaires (les + lus)
+    public function popularArticles(): array
+    {
+        return $this->createQueryBuilder('a')
+            //->andWhere('a.exampleField = :val')
+            //->setParameter('val', $value)
+            ->orderBy('a.views', 'DESC')
+            ->setMaxResults(3)
+            ->select('a.titre', 'a.slug', 'a.image', 'a.views')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function totalViews(): array
+    {
+        return $this->createQueryBuilder('v')
+            ->select('SUM(v.views) AS viewsTotal')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

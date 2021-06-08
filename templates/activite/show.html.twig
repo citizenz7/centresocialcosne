@@ -264,6 +264,7 @@
 
                 </div><!-- End blog entries list -->
 
+                {#
                 <div class="col-lg-4">
 
                     <div class="sidebar">
@@ -330,7 +331,6 @@
                         </div>
                         <!-- End sidebar recent posts-->
 
-                        {#
                         <h3 class="sidebar-title">Tags</h3>
                         <div class="sidebar-item tags">
                             <ul>
@@ -347,11 +347,15 @@
                                 <li><a href="#">Marketing</a></li>
                             </ul>
                         </div><!-- End sidebar tags-->
-                        #}
 
                     </div><!-- End sidebar -->
 
                 </div><!-- End blog sidebar -->
+                #}
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
 
             </div>
 
