@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}{{ site_name_full }} : blog - liste des articles{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -8,63 +8,123 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-            <h2>Administration du site</h2>
+            <h2>Liste des articles - Blog</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col">
-                    <div class="row pb-3">
-                        <div class="col">
-                            <h2>Liste des articles</h2>
-                        </div>
-                        <div class="col d-flex justify-content-end">
-                            <a href="{{ path('article_new') }}" class="btn btn-success pt-2 fw-bold">Créer un article</a>
-                        </div>
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for article in articles %}
+                        {% if article.isActive %}
+                            <article class="entry">
+
+                                <div class="entry-img">
+                                    <img src="../uploads/images/articles/{{ article.image }}" alt="{{ article.titre }}" class="img-fluid">
+                                </div>
+
+                                <div class="mb-3">
+                                    {% for cat in article.categorie %}
+                                    <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                        <span class="badge bg-primary">{{ cat.titre }}</span>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                                
+                                <h2 class="entry-title">
+                                    <a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.titre }}</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-person"></i> {{ article.auteur.prenom }} {{ article.auteur.nom }}
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-clock"></i> {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}
+                                        </li>
+                                        {% if article.updatedAt %}
+                                            <li class="d-flex align-items-center">
+                                                <i class="bi bi-clock-fill"></i> {{ article.updatedAt ? article.updatedAt|date('d-m-Y') : '' }}
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <p>
+                                        {{ article.contenu|raw }}
+                                    </p>
+                                    <div class="read-more">
+                                        <a href="{{ path('article_show', {'slug': article.slug}) }}">Lire l'article</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="pagination justify-content-center px-2 mt-4">
+                        {{ knp_pagination_render(articles) }}
                     </div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
-                                <th>Posté le</th>
-                                <th>Mis à jour le</th>
-                                <th>Vues</th>
-                                <th>Actif</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for article in articles %}
-                            <tr>
-                                <td>{{ article.id }}</td>
-                                <td>{{ article.titre }}</td>
-                                <td>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</td>
-                                <td>{{ article.updatedAt ? article.updatedAt|date('d-m-Y') : '' }}</td>
-                                <td>{{ article.views }}</td>
-                                <td>{{ article.isActive ? 'Oui' : 'Non' }}</td>
-                                <td>
-                                    <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">Voir</a>
-                                    <a class="btn btn-sm btn-warning" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
-                                </td>
-                            </tr>
-                            {% else %}
-                            <tr>
-                                <td colspan="8">Il n'y a aucun enregistrement.</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
                 </div>
-                <div class="pagination justify-content-center px-2 mt-4">
-                    {{ knp_pagination_render(articles) }}
-                </div>
+                <!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+                
+                </div><!-- End blog sidebar -->
             </div>
         </div>
-    </section>
-</main>
+    </section><!-- End Blog Section -->
+
+{#
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Posté le</th>
+                <th>Mis à jour le</th>
+                <th>Vues</th>
+                <th>Actif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('d-m-Y') : '' }}</td>
+                <td>{{ article.views }}</td>
+                <td>{{ article.isActive ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">Voir</a>
+                    <a class="btn btn-sm btn-warning" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">Il n'y a aucun enregistrement.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination justify-content-center px-2 mt-4">
+        {{ knp_pagination_render(articles) }}
+    </div>
+    #}
+
+</main><!-- End #main -->
 {% endblock %}

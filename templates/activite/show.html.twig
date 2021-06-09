@@ -100,11 +100,22 @@
                         <img src="../uploads/images/users/{{ activite.auteur.image }}" class="rounded-circle float-left" alt="">
                         <div>
                             <h4>{{ activite.auteur.prenom }} {{ activite.auteur.nom }}</h4>
-                            <div class="social-links">
-                                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
-                                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
-                            </div>
+                            <h6>{{ activite.auteur.fonction }}</h6>
+
+                            {% if activite.auteur.facebook or activite.auteur.twitter or activite.auteur.instagram %}
+                                <div class="social-links">
+                                    {% if activite.auteur.facebook %}
+                                        <a href="{{ activite.auteur.facebook }}"><i class="bi bi-facebook"></i></a>
+                                    {% endif %}
+                                    {% if activite.auteur.twitter %}
+                                        <a href="{{ activite.auteur.twitter }}"><i class="bi bi-twitter"></i></a>
+                                    {% endif %}
+                                    {% if activite.auteur.instagram %}
+                                        <a href="{{ activite.auteur.instagram }}"><i class="biu bi-instagram"></i></a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
                             <p>
                                 {{ activite.auteur.presentation|raw }}
                             </p>

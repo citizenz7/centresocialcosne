@@ -125,6 +125,17 @@ class CategorieController extends AbstractController
      */
     public function delete(Request $request, Categorie $categorie): Response
     {
+        // Suppression de l'image
+        $image = $categorie->getImage();
+        // On vérifie qu'il y un nom d'image dans la base SQL
+        if($image) {
+            $nomImage = $this->getParameter("categories_images_directory") . '/' . $image;
+            // On vérifie qu'il existe physiquement une image
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
         if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($categorie);

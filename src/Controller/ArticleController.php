@@ -26,7 +26,7 @@ class ArticleController extends AbstractController
         $articles = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            5 // Nombre de résultats par page
+            3 // Nombre de résultats par page
         );
 
         return $this->render('article/index.html.twig', [
@@ -148,13 +148,12 @@ class ArticleController extends AbstractController
      */
     public function delete(Request $request, Article $article): Response
     {
-        // On supprime l'image de l'article qui est supprimé
+        // Suppression de l'image
         $image = $article->getImage();
-
+        // On vérifie qu'il y un nom d'image dans la base SQL
         if($image) {
             $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
-
-            // On vérifie si l'image existe et on supprime l'image
+            // On vérifie qu'il existe physiquement une image
             if(file_exists($nomImage)) {
                 unlink($nomImage);
             }

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/users", name="user_index", methods={"GET"})
+     * @Route("/admin/users", name="user_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -114,6 +114,17 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
+        // Suppression de l'image
+        $image = $user->getImage();
+        // On vérifie qu'il y un nom d'image dans la base SQL
+        if($image) {
+            $nomImage = $this->getParameter("users_images_directory") . '/' . $image;
+            // On vérifie qu'il existe physiquement une image
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);

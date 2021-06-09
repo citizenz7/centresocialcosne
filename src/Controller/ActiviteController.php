@@ -224,6 +224,51 @@ class ActiviteController extends AbstractController
      */
     public function delete(Request $request, Activite $activite): Response
     {
+            // Suppression de l'image
+            $image = $activite->getImage();
+            // On vérifie qu'il y un nom d'image dans la base SQL
+            if($image) {
+                $nomImage = $this->getParameter("activites_images_directory") . '/' . $image;
+                // On vérifie qu'il existe physiquement une image
+                if(file_exists($nomImage)) {
+                    unlink($nomImage);
+                }
+            }
+
+            // Suppression file1
+            $activiteFile1 = $activite->getFile1();
+            // On vérifie qu'il y un nom de fichier dans la base SQL
+            if($activiteFile1) {
+                $nomFile1 = $this->getParameter("activites_files_directory") . '/' . $activiteFile1;
+                // On vérifie qu'il existe physiquement un fichier
+                if(file_exists($nomFile1)) {
+                    unlink($nomFile1);
+                }
+            }
+
+            // Suppression file2
+            $activiteFile2 = $activite->getFile2();
+            // On vérifie qu'il y un nom de fichier dans la base SQL
+            if($activiteFile2) {
+                $nomFile2 = $this->getParameter("activites_files_directory") . '/' . $activiteFile2;
+                // On vérifie qu'il existe physiquement un fichier
+                if(file_exists($nomFile2)) {
+                    unlink($nomFile2);
+                }
+            }
+
+            // Suppression file3
+            $activiteFile3 = $activite->getFile3();
+            // On vérifie qu'il y un nom de fichier dans la base SQL
+            if($activiteFile3) {
+                $nomFile3 = $this->getParameter("activites_files_directory") . '/' . $activiteFile3;
+                // On vérifie qu'il existe physiquement un fichier
+                if(file_exists($nomFile3)) {
+                    unlink($nomFile3);
+                }
+            }
+
+
         if ($this->isCsrfTokenValid('delete'.$activite->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($activite);

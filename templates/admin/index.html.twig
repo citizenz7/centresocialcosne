@@ -16,39 +16,67 @@
 
     <section class="inner-page">
         <div class="container">
+            <h2 class="text-center fw-bold card py-2 mb-4">Gestion du site</h2>
             <div class="row d-flex justify-content-center">
-                <h2>Gestion du site</h2>
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="{{ path('article_index') }}" class="btn btn-primary fw-bold p-3 fs-4">Articles</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">ARTICLES</h5>
+                            <a href="{{ path('article_index') }}" class="btn btn-primary fw-bold p-3 fs-6">Liste des articles</a>
+                            <br>
+                            <a href="{{ path('article_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer un article</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="{{ path('categorie_index') }}" class="btn btn-info fw-bold p-3 fs-4">Catégories</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">CATEGORIES</h5>
+                            <a href="{{ path('categorie_index') }}" class="btn btn-info fw-bold p-3 fs-6">Liste des catégories</a>
+                            <br>
+                            <a href="{{ path('categorie_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une catégorie</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="{{ path('page_index') }}" class="btn btn-warning fw-bold p-3 fs-4">Pages</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">PAGES</h5>
+                            <a href="{{ path('page_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Liste des pages</a>
+                            <br>
+                            <a href="{{ path('page_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une page</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row d-flex justify-content-center pt-4">
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="{{ path('activite_index') }}" class="btn btn-dark fw-bold p-3 fs-4">Activités</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">ACTIVITES</h5>
+                            <a href="{{ path('activite_index') }}" class="btn btn-dark fw-bold p-3 fs-6">Liste des activités</a>
+                            <br>
+                            <a href="{{ path('activite_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une activité</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="{{ path('user_index') }}" class="btn btn-success fw-bold p-3 fs-4">Utilisateurs</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">UTILISATEURS</h5>
+                            <a href="{{ path('user_index') }}" class="btn btn-secondary fw-bold p-3 fs-6">Liste des utilisateurs</a>
+                            <br>
+                            <a href="{{ path('user_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer un utilisateur</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="d-grid gap-2">
-                        <a href="#" class="btn btn-danger fw-bold p-3 fs-4">Lettres d'info</a>
+                    <div class="card">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title">LETTRES D'INFOS</h5>
+                            <a href="#" class="btn btn-danger fw-bold p-3 fs-6">Lettres d'info</a>
+                        </div>
                     </div>
                 </div>
             </div>
