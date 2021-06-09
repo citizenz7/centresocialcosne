@@ -90,4 +90,4 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
-* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flask message)
+* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash message)
