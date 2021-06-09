@@ -53,6 +53,12 @@ LES PAGES N'ONT PAS D'IMAGE
 * Liste des catégories pour l'admin avec Création/Edition/Suppression
 * Liste des users pour l'admin avec Création/Edition/Suppression
 
+* Système de pages d'erreur personnalisées
+
+* Droits utilisateurs : 
+    * un utilisateur a t-il le droit de visiter la page ?
+    * attribuer un role "ROLE_USER" a tout nouvel utilisateur ?
+
 * Système de recherche
 
 * Système de Contact (mail)
