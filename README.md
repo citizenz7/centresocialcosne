@@ -34,6 +34,14 @@ centresocialcosne est un projet de site web pour le Centre Social et Culturel Su
 * Users : les utilisateurs (Utilisateur/Administrateur)
 * Pages : présentation et composantes du CS (ne change que rarement)
 
+# UTILISATION
+* Images : Pixabay (https://pixabay.com/fr/) - Images libres et gratuites
+Sélectionner l'image -> cliquer sur Télécharger gratuitement -> sélectionner le deuxième choix (1280x854 ou taille légèrement différente..., en JPG) -> cliquer sur télécharger -> cocher la case "Je ne suis pas un robot" -> cliquer sur Télécharger
+Enregistrer l'image dans un dossier (sur votre Bureau par exemple...)
+Sélectionner cette image lors de la création d'un Article, d'une Activité ou d'une Catégorie
+LES PAGES N'ONT PAS D'IMAGE
+* Fichiers dans Activités : lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers de PDF. Si au moins un fichier a été téléversé, il sera automatiquement afficher en bas du texte de l'activité et sera directement téléchargeable par le visiteur
+
 # A FAIRE
 * public index pour Activite
 * public index pour Page
