@@ -32,6 +32,24 @@ class CategorieController extends AbstractController
     }
 
     /**
+     * @Route("/admin/categories", name="categorie_admin_index", methods={"GET"})
+     */
+    public function indexCategories(Request $request, CategorieRepository $categoriesRepository, PaginatorInterface $paginator): Response
+    {
+        $donnees = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'DESC']);
+
+        $categories = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
+        return $this->render('categorie/index.admin.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
+
+    /**
      * @Route("/admin/categories/new", name="categorie_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

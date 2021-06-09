@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie{% endblock %}
+{% block title %}{{ site_name_full }} : {{ categorie.titre }}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -8,49 +8,62 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-            <h2>Administration du site</h2>
+            <h2>Liste des catégories</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col">
-                    <h2>Catégorie : {{ categorie.titre }}</h2>
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
 
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>Id</th>
-                                <td>{{ categorie.id }}</td>
-                            </tr>
-                            <tr>
-                                <th>Titre</th>
-                                <td>{{ categorie.titre }}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>{{ categorie.description|raw }}</td>
-                            </tr>
-                            <tr>
-                                <th>Image</th>
-                                <td><img src="../uploads/images/categories/{{ categorie.image }}" alt="{{ categorie.titre }}" class="img-fluid" style="max-width:300px; width:100%;"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="row">
 
-                    <table>
-                        <tr>
-                            <td><a class="btn btn-sm btn-warning" href="{{ path('categorie_edit', {'id': categorie.id}) }}">Modifier la catégorie</a></td>
-                            <td>{{ include('categorie/_delete_form.html.twig') }}</td>
-                            <td><a class="btn btn-sm btn-primary" href="{{ path('categorie_index') }}">Liste des catégories</a></td>
-                        </tr>
-                    </table>
-                    
-                </div>
-            </div>
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img text-center">
+                            <img src="../uploads/images/categories/{{ categorie.image }}" alt="{{ categorie.titre }}"
+                                class="img-fluid">
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="entry-title">{{ categorie.titre }}</h2>
+                            </div>
+                            <div class="col d-flex justify-content-end align-items-center">
+                                <span class="badge bg-primary p-2">Nb d'articles de la catégorie : {{ categorie.articles | length }}</span>
+                            </div>
+                        </div>
+
+                        <div class="entry-content">
+                            {{ categorie.description|raw }}
+                        </div>
+
+                        <div class="entry-content">
+                            <h5 class="bg-light rounded p-2">Tous les articles de la catégorie</h5>
+                            {% for a in categorie.articles|reverse %}
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': a.slug }) }}">{{ a.titre }}</a>
+                                    </li>  
+                                </ul>
+                            {% endfor %}
+                        </div>
+
+                    </article>
+                    <!-- End blog entry -->
+
+                </div><!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+
+            </div><!-- End blog sidebar -->
         </div>
-    </section>
+    </section><!-- End Blog Single Section -->
+
 </main>
 {% endblock %}

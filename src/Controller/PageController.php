@@ -26,8 +26,25 @@ class PageController extends AbstractController
             5 // Nombre de résultats par page
         );
 
-
         return $this->render('page/index.html.twig', [
+            'pages' => $pages,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/pages", name="page_admin_index", methods={"GET"})
+     */
+    public function indexAdmin(Request $request, PageRepository $pageRepository, PaginatorInterface $paginator)
+    {
+        $donnees = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'DESC']);
+
+        $pages = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
+        return $this->render('page/index.admin.html.twig', [
             'pages' => $pages,
         ]);
     }

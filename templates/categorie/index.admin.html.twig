@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="row pb-3">
+                        <div class="col">
+                            <h2>Liste des catégories</h2>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('categorie_new') }}">Créer une catégorie</a>
+                        </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Titre</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for categorie in categories %}
+                            <tr>
+                                <td>{{ categorie.id }}</td>
+                                <td>{{ categorie.titre }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info" href="{{ path('categorie_show', {'slug': categorie.slug}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ path('categorie_edit', {'id': categorie.id}) }}">Editer</a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="5">Il n'y a aucun enregistrement.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination justify-content-center px-2 mt-4">
+                    {{ knp_pagination_render(categories) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{% endblock %}

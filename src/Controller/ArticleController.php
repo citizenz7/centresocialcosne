@@ -33,6 +33,24 @@ class ArticleController extends AbstractController
             'articles' => $articles,
         ]);
     }
+
+    /**
+     * @Route("/admin/articles", name="article_admin_index", methods={"GET"})
+     */
+    public function indexAdmin(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator)
+    {
+        $donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['id' => 'DESC']);
+
+        $articles = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            3 // Nombre de résultats par page
+        );
+
+        return $this->render('article/index.admin.html.twig', [
+            'articles' => $articles,
+        ]);
+    }
  
     /**
      * @Route("/admin/articles/new", name="article_new", methods={"GET","POST"})

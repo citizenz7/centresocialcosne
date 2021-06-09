@@ -35,13 +35,38 @@ centresocialcosne est un projet de site web pour le Centre Social et Culturel Su
 * Pages : présentation et composantes du CS (ne change que rarement)
 
 # UTILISATION
-* Images : Pixabay (https://pixabay.com/fr/) - Images libres et gratuites
-    * sélectionner l'image -> cliquer sur Télécharger gratuitement -> sélectionner le deuxième choix (1280x854 ou taille légèrement différente..., en JPG
-    * cliquer sur télécharger -> cocher la case "Je ne suis pas un robot" -> cliquer sur Télécharger
-    * enregistrer l'image dans un dossier (sur votre Bureau par exemple...)
-    * Sélectionner cette image lors de la création d'un Article, d'une Activité ou d'une Catégorie
-* Fichiers (Activités) : lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers de PDF. Si au moins un fichier a été téléversé, il sera automatiquement afficher en bas du texte de l'activité et sera directement téléchargeable par le visiteur
-LES PAGES N'ONT PAS D'IMAGE
+## Images
+Pixabay (https://pixabay.com/fr/) - Images libres et gratuites
+* sélectionner l'image -> cliquer sur Télécharger gratuitement -> sélectionner le deuxième choix (1280x854 ou taille légèrement différente..., en JPG
+* cliquer sur télécharger -> cocher la case "Je ne suis pas un robot" -> cliquer sur Télécharger
+* enregistrer l'image dans un dossier (sur votre Bureau par exemple...)
+* Sélectionner cette image lors de la création d'un Article, d'une Activité ou d'une Catégorie
+## Fichiers (Activités)
+Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers de PDF. Si au moins un fichier a été téléversé, il sera automatiquement afficher en bas du texte de l'activité et sera directement téléchargeable par le visiteur
+### LES PAGES N'ONT PAS D'IMAGE
+
+## Page d'accueil
+
+## Articles - Blog
+
+## Activités
+
+## Pages
+
+## Catégories
+
+## Connexion
+
+## Administration
+### Création
+
+### Modification
+
+### Suppression
+
+### Listes
+
+
 # A FAIRE
 * public index pour Activite
 * public index pour Page
@@ -52,8 +77,6 @@ LES PAGES N'ONT PAS D'IMAGE
 * Liste des pages pour l'admin avec Création/Edition/Suppression
 * Liste des catégories pour l'admin avec Création/Edition/Suppression
 * Liste des users pour l'admin avec Création/Edition/Suppression
-
-* Système de pages d'erreur personnalisées
 
 * Droits utilisateurs : 
     * un utilisateur a t-il le droit de visiter la page ?
@@ -66,3 +89,5 @@ LES PAGES N'ONT PAS D'IMAGE
 * Système de Lettre d'infos
 
 * Sidebar : nb d'articles / nb d'activités par catégorie
+
+* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flask message)

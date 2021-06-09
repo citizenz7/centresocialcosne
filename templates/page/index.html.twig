@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name_full }} : liste des pages{% endblock %}
+{% block title %}{{ site_name_full }} : pages{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -8,61 +8,70 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-            <h2>Administration du site</h2>
+            <h2>Liste des pages</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <h2>Liste des pages</h2>
-                        </div>
-                        <div class="col d-flex justify-content-end">
-                            <a class="btn btn-success fw-bold pt-2" href="{{ path('page_new') }}">Créer une page</a>
-                        </div>
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for page in pages %}
+                        {% if page.isActive %}
+                            <article class="entry">
+                                <h2 class="entry-title">
+                                    <a href="{{ path('page_show', {'slug': page.slug}) }}">{{ page.titre }}</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-person"></i> {{ page.auteur.prenom }} {{ page.auteur.nom }}
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-clock"></i> {{ page.createdAt ? page.createdAt|date('d-m-Y') : '' }}
+                                        </li>
+                                        {% if page.updatedAt %}
+                                            <li class="d-flex align-items-center">
+                                                <i class="bi bi-clock-fill"></i> {{ page.updatedAt ? page.updatedAt|date('d-m-Y') : '' }}
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <p>
+                                        {{ page.contenu|raw }}
+                                    </p>
+                                    <div class="read-more">
+                                        <a href="{{ path('page_show', {'slug': page.slug}) }}">Lire la page</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="pagination justify-content-center px-2 mt-4">
+                        {{ knp_pagination_render(pages) }}
                     </div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
-                                <th>Date</th>
-                                <th>Maj</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for page in pages %}
-                            <tr>
-                                <td>{{ page.id }}</td>
-                                <td>{{ page.titre }}</td>
-                                <td>{{ page.createdAt ? page.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                                <td>{{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                                <td>
-                                    <a class="btn btn-sm btn-info"
-                                        href="{{ path('page_show', {'slug': page.slug}) }}">Voir</a>
-                                    <a class="btn btn-sm btn-warning"
-                                        href="{{ path('page_edit', {'id': page.id}) }}">Modifier</a>
-                                </td>
-                            </tr>
-                            {% else %}
-                            <tr>
-                                <td colspan="7">Il n'y a aucun enregistrement.</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
                 </div>
-                <div class="pagination justify-content-center px-2 mt-4">
-                    {{ knp_pagination_render(pages) }}
-                </div>
+                <!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+                
+                </div><!-- End blog sidebar -->
             </div>
         </div>
-    </section>
-</main>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
 {% endblock %}
