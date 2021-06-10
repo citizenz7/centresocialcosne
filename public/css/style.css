@@ -2231,6 +2231,33 @@ section {
   border-top: 1px solid #e1ecff;
 }
 
+.adhesion .btn-read-more {
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
+}
+
+.adhesion .btn-read-more span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.adhesion .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.adhesion .btn-read-more:hover i {
+  transform: translateX(5px);
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

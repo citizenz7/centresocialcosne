@@ -34,12 +34,13 @@ class HomeController extends AbstractController
         );
 
         $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['id' => 'asc']);
-
         $pages = $paginator->paginate(
             $data_pages,
             $request->query->getInt('page', 1),
             3
         );
+
+        $totalPages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['id' => 'asc']);
 
         $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['titre' => 'asc']);
 
@@ -48,6 +49,7 @@ class HomeController extends AbstractController
             'articles' => $articles,
             'activites' => $activites,
             'pages' => $pages,
+            'totalPages' => $totalPages,
             'categories' => $categories,
         ]);
     }

@@ -5,7 +5,7 @@
 {% block body %}
 
 {% for page in pages %}
-    {% if page.isActive and page.isFeatured %}
+    {% if page.isFeatured %}
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="hero d-flex align-items-center">
 
@@ -39,7 +39,7 @@
 <main id="main">
 
     {% for page in pages %}
-        {% if page.isActive and page.isAbout %}
+        {% if page.isAbout %}
             <!-- ======= About Section ======= -->
             <section id="about" class="about">
 
@@ -78,19 +78,40 @@
     <section id="adhesion" class="adhesion">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center">
-                <div class="col-lg-12 text-center data-aos="fade-up" data-aos-delay="200"">
-                    <h1>
-                        <i class="bi bi-volume-up-fill"></i>
-                    </h1>
-                    <h3>Etre adhérent...</h3>
-                    <p>
-                        Devenir adhérent du {{ site_name_full }} donne accès à des activités, des services, des avantages mais adhérer c’est avant tout un soutien à une construction collective.<br>
-                        Plus l’association a d’adhérents, plus les idées et les projets de l’association ont de chance de grandir, d’être connus et reconnus sur tout le territoire.<br>
-                        Chaque année c’est environ 600 familles et 30 associations qui s’engagent aux côtés du {{ site_name_full }}.
-                    </p>
-                    <p>
-                        <a href="#" class="h4"><i class="bi bi-person-check-fill"></i> Retrouver nos tarifs et les bulletins d’adhésion</a>
-                    </p>
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+                    <header class="section-header">
+                        <p>Etre adhérent du {{ site_name_full }}</p>
+                    </header>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../img/logo.png" class="img-fluid mx-auto d-block" style="max-width:150px; width:100%;" alt="{{ site_name_full }}">
+                        </div>
+                        <div class="col">
+                            <p>
+                                Devenir adhérent du {{ site_name_full }} donne accès à des activités, des services, des avantages mais adhérer 
+                                c’est avant tout un soutien à une construction collective. Plus l’association possède d’adhérents, plus les idées et les projets 
+                                de l’association ont de chance de grandir, d’être connus et reconnus sur tout le territoire.<br>
+                                Chaque année c’est environ 600 familles et trentaine d'organismes et d'associations qui s’engagent aux côtés du {{ site_name_full }}.
+                            </p>
+                            {#
+                            <div class="text-center text-lg-start">
+                                <a href="#"
+                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                    <span>Tarifs et bulletins d'adhésion</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                            #}
+                            {% for tp in totalPages %}
+                                {% if tp.isInscription %}
+		                            <a href="{{ path('page_show', {'slug': tp.slug}) }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                	                    <span>Tarifs et bulletins d'inscription et d'adhésion</span>
+                	                    <i class="bi bi-arrow-right"></i>
+                                    </a>
+	                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

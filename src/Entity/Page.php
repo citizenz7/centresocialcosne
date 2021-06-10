@@ -115,6 +115,7 @@ class Page
      */
     private $isInscription;
 
+
     public function getId(): ?int
     {
         return $this->id;
