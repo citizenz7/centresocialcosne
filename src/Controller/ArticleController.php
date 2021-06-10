@@ -138,6 +138,20 @@ class ArticleController extends AbstractController
             $uploadedFile = $form['image']->getData();
 
             if ($uploadedFile) {
+                // Puisqu'on a vérifié qu'il y a un changement d'image, on supprime l'ancienne image
+
+                // On récupère le nom de l'ancienne image
+                $image = $article->getImage();
+                // On vérifie qu'il y un nom d'image dans la base SQL
+                if($image) {
+                    $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
+                    // On vérifie qu'il existe physiquement une image
+                    if(file_exists($nomImage)) {
+                        unlink($nomImage);
+                    }
+                }
+
+                // On upload la nouvelle image...
                 $destination = $this->getParameter("articles_images_directory");
 
                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);

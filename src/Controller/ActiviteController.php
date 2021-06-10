@@ -151,6 +151,19 @@ class ActiviteController extends AbstractController
             $activite->setUpdatedAt(new \DateTime());
 
              if ($uploadedFile) {
+                // Puisqu'on a vérifié qu'il y a un changement d'image, on supprime l'ancienne image
+
+                // On récupère le nom de l'ancienne image
+                $image = $activite->getImage();
+                // On vérifie qu'il y un nom d'image dans la base SQL
+                if($image) {
+                    $nomImage = $this->getParameter("activites_images_directory") . '/' . $image;
+                    // On vérifie qu'il existe physiquement une image
+                    if(file_exists($nomImage)) {
+                        unlink($nomImage);
+                    }
+                }
+
                  $destination = $this->getParameter("activites_images_directory");
  
                  $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
