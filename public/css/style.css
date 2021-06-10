@@ -619,6 +619,33 @@ section {
   transform: scale(1);
 }
 
+.values .btn-read-more {
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
+}
+
+.values .btn-read-more span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.values .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.values .btn-read-more:hover i {
+  transform: translateX(5px);
+}
+
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
@@ -1584,6 +1611,33 @@ section {
   transform: rotate(6deg) scale(1.2);
 }
 
+.recent-blog-posts .btn-read-more {
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
+}
+
+.recent-blog-posts .btn-read-more span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.recent-blog-posts .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.recent-blog-posts .btn-read-more:hover i {
+  transform: translateX(5px);
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -2226,7 +2280,7 @@ section {
 # Adhésion
 --------------------------------------------------------------*/
 .adhesion {
-  padding: 50px 0;
+  padding: 40px;
   background: #f6f9ff;
   border-top: 1px solid #e1ecff;
 }

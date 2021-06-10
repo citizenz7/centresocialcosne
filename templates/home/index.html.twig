@@ -75,7 +75,8 @@
     {% endfor %}
 
     <!-- ======= Adhérer au centre social ======= -->
-    <section id="adhesion" class="adhesion">
+    <span id="adhesion" class="pt-5"></span>
+    <section class="adhesion">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center">
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
@@ -93,15 +94,6 @@
                                 de l’association ont de chance de grandir, d’être connus et reconnus sur tout le territoire.<br>
                                 Chaque année c’est environ 600 familles et trentaine d'organismes et d'associations qui s’engagent aux côtés du {{ site_name_full }}.
                             </p>
-                            {#
-                            <div class="text-center text-lg-start">
-                                <a href="#"
-                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                                    <span>Tarifs et bulletins d'adhésion</span>
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-                            #}
                             {% for tp in totalPages %}
                                 {% if tp.isInscription %}
 		                            <a href="{{ path('page_show', {'slug': tp.slug}) }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -151,7 +143,10 @@
             <div class="row mt-3">
                 <div class="col">
                     <div class="box" data-aos="fade-up" data-aos-delay="200">
-                        <a class="fw-bold h4" href="{{ path('activite_index') }}"><i class="bi bi-arrow-down-right-square" style="font-size:1.5rem;"></i> Voir toutes les activités et services</a>
+                        <a href="{{ path('activite_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Voir toutes les activités et les services</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -201,7 +196,10 @@
             <div class="row mt-3">
                 <div class="col">
                     <div class="post-box text-center" data-aos="fade-up" data-aos-delay="200">
-                        <a class="fw-bold h4" href="{{ path('article_index') }}"><i class="bi bi-arrow-down-right-square" style="font-size:1.5rem;"></i> Voir tous les articles</a>
+                        <a href="{{ path('article_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Voir tous les articles : Blog</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -238,7 +236,13 @@
             <div class="row mt-3">
                 <div class="col">
                     <div class="box text-center" data-aos="fade-up" data-aos-delay="200">
+                        {#
                         <a class="fw-bold h4" href="{{ path('page_index') }}"><i class="bi bi-arrow-down-right-square" style="font-size:1.5rem;"></i> Voir toutes les pages</a>
+                        #}
+                        <a href="{{ path('page_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Voir toutes les pages</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>

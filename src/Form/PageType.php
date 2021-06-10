@@ -110,13 +110,6 @@ class PageType extends AbstractType
                     'class' => 'mx-2'
                 ]
             ])
-            ->add('is_adhesion', CheckboxType::class, [
-                'label' => 'Page ADHESION',
-                'required' => false,
-                'attr' => [
-                    'class' => 'mx-2'
-                ]
-            ])
             ->add('is_active', ChoiceType::class, [
                 'label' => 'Page activée (visible) ?',
                 'choices' => [
