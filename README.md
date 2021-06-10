@@ -69,17 +69,12 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 # A FAIRE
 * public index pour Activite
-* public index pour Page
-* public index pour Categorie
 
-* Liste des articles pour l'admin avec Création/Edition/Suppression
 * Liste des activités pour l'admin avec Création/Edition/Suppression
-* Liste des pages pour l'admin avec Création/Edition/Suppression
-* Liste des catégories pour l'admin avec Création/Edition/Suppression
-* Liste des users pour l'admin avec Création/Edition/Suppression
+
+* Show Categorie : afficher tous les ARTICLES de la catégorie ET toutes les ACTIVITES de la catégorie
 
 * Droits utilisateurs : 
-    * un utilisateur a t-il le droit de visiter la page ?
     * attribuer un role "ROLE_USER" a tout nouvel utilisateur ?
 
 * Système de recherche

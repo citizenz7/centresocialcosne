@@ -29,11 +29,12 @@
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-8">
                                 <h2 class="entry-title">{{ categorie.titre }}</h2>
                             </div>
                             <div class="col d-flex justify-content-end align-items-center">
-                                <span class="badge bg-primary p-2">Nb d'articles de la catégorie : {{ categorie.articles | length }}</span>
+                                <span class="badge bg-primary p-2 me-2">Articles : {{ categorie.articles | length }}</span>
+                                <span class="badge bg-primary p-2">Activites : {{ categorie.activites | length }}</span>
                             </div>
                         </div>
 
@@ -41,15 +42,33 @@
                             {{ categorie.description|raw }}
                         </div>
 
-                        <div class="entry-content">
-                            <h5 class="bg-light rounded p-2">Tous les articles de la catégorie</h5>
-                            {% for a in categorie.articles|reverse %}
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': a.slug }) }}">{{ a.titre }}</a>
-                                    </li>  
-                                </ul>
-                            {% endfor %}
+                        <div class="row">
+                            <div class="col">
+                                <div class="entry-content">
+                                    <h5 class="bg-light rounded p-2">Les derniers articles de la catégorie</h5>
+                                    {% for c in categorie.articles|reverse %}
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
+                                            </li>  
+                                        </ul>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="entry-content">
+                                    <h5 class="bg-light rounded p-2">Les dernières activités de la catégorie</h5>
+                                    {#
+                                    {% for c in categorie.articles|reverse %}
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
+                                            </li>  
+                                        </ul>
+                                    {% endfor %}
+                                    #}
+                                </div>
+                            </div>
                         </div>
 
                     </article>

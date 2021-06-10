@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Activite;
 use App\Entity\Categorie;
 use App\Form\CategorieType;
+use App\Repository\ActiviteRepository;
 use App\Repository\CategorieRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,10 +18,9 @@ class CategorieController extends AbstractController
     /**
      * @Route("/categories", name="categorie_index", methods={"GET"})
      */
-    public function index(Request $request, CategorieRepository $categoriesRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, CategorieRepository $categoriesRepository, ActiviteRepository $activiteRepository, PaginatorInterface $paginator): Response
     {
         $donnees = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'DESC']);
-
         $categories = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
