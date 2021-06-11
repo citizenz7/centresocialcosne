@@ -1,5 +1,6 @@
 # centresocialcosne
 centresocialcosne est un projet de site web pour le Centre Social et Culturel Suzanne Coulomb de Cosne-Cours-sur-Loire (58200).
+Il est réalisé grâce au framework SYMFONY 5.
 
 ## Pré-requis
 * PHP 7.4
@@ -7,25 +8,37 @@ centresocialcosne est un projet de site web pour le Centre Social et Culturel Su
 * Symfony CLI (5)
 * Composer
 
-## Initialisation du projet
-* git clone
-* configurer le .env.local (MAILER DSN et MySQL)
-* symfony console doctrine:database:create
-* symfony console doctrine:migrations:migrate
-* composer install
-* symfony console ckeditor:install
-* symfony console assets:install public
-* symfony console elfinder:install
-* symfony serve -d
-
 ## Présentation
 * Genre : site web
-* Langage/technologie/framework utilisé : PHP (Symfony 5), MySQL
+* Langages/technologies/frameworks utilisés : 
+    * Symfony 5 (framework)
+    * PHP 7.4.3, 
+    * MySQL, 
+    * Composer, 
+    * CSS, 
+    * HTML, 
+    * Javascript
 * Type : site vitrine + blog
-* Particularité : semi-modulable (chaque "partie" du site peut se voir attribuer une page par simple "sélection"...)
-* comptes Administrateurs ou Utilisateurs
-* partie administration avec droits limités
-* la partie CONNEXION n'est pas "mise en avant". Ce site n'ets pas conçu pour l'inscription de membres "extérieurs"
+* Fonctionnalités : 
+    * modulable (chaque "partie" du site peut se voir attribuer une page par simple "sélection"...)
+    * espace d'administration avec droits limités (comptes Administrateurs ou Utilisateurs)
+    * blog
+    * recherche
+    * contact
+    * lettre d'info (optionnel...)
+#### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription de membres "extérieurs".
+
+## Initialisation du projet
+* Cloner le repo : `git clone https://github.com/citizenz7/centresocialcosne.git`
+* configurer le .env.local (MAILER DSN et MySQL)
+* Créer la base SQL : `symfony console doctrine:database:create`
+* Importer les tables dans la base SQL : `symfony console doctrine:migrations:migrate`
+* Installer tous les packages : `composer install`
+* Installer CKEditor : `symfony console ckeditor:install`
+* Installer les "assets" de CKEditor : `symfony console assets:install public`
+* Installer Elfinder (navigateur de fichiers dans CKEditor) : `symfony console elfinder:install`
+* Pour passer en PRODUCTION : dans .env.local `APP_ENV=prod`
+* Vider le cache : `symfony console c:c`
 
 ### Les composants du site :
 * Activités : les activités et services proposés par le CS
@@ -37,9 +50,9 @@ centresocialcosne est un projet de site web pour le Centre Social et Culturel Su
 # UTILISATION
 ## Images
 Pixabay (https://pixabay.com/fr/) - Images libres et gratuites
-* sélectionner l'image -> cliquer sur Télécharger gratuitement -> sélectionner le deuxième choix (1280x854 ou taille légèrement différente..., en JPG
+* sélectionner l'image -> cliquer sur Télécharger gratuitement -> sélectionner **le deuxième choix** (1280x854 ou taille légèrement différente..., en JPG)
 * cliquer sur télécharger -> cocher la case "Je ne suis pas un robot" -> cliquer sur Télécharger
-* enregistrer l'image dans un dossier (sur votre Bureau par exemple...)
+* enregistrer l'image dans un dossier de votre ordinateur (sur votre Bureau par exemple...)
 * Sélectionner cette image lors de la création d'un Article, d'une Activité ou d'une Catégorie
 ## Fichiers (Activités)
 Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers de PDF. Si au moins un fichier a été téléversé, il sera automatiquement afficher en bas du texte de l'activité et sera directement téléchargeable par le visiteur
@@ -68,7 +81,6 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 
 # A FAIRE
-* public index pour Activite
 
 * Liste des activités pour l'admin avec Création/Edition/Suppression
 
@@ -85,5 +97,5 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
-* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash message)
+* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash messages)
 
