@@ -89,45 +89,5 @@
         </div>
     </section><!-- End Blog Section -->
 
-{#
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Posté le</th>
-                <th>Mis à jour le</th>
-                <th>Vues</th>
-                <th>Actif</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('d-m-Y') : '' }}</td>
-                <td>{{ article.views }}</td>
-                <td>{{ article.isActive ? 'Oui' : 'Non' }}</td>
-                <td>
-                    <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">Voir</a>
-                    <a class="btn btn-sm btn-warning" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
-                </td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="8">Il n'y a aucun enregistrement.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <div class="pagination justify-content-center px-2 mt-4">
-        {{ knp_pagination_render(articles) }}
-    </div>
-    #}
-
 </main><!-- End #main -->
 {% endblock %}

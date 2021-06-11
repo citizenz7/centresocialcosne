@@ -120,7 +120,7 @@ class ArticleController extends AbstractController
             'article' => $article,
         ]);
     }
-
+ 
     /**
      * @Route("/admin/articles/{id}/edit", name="article_edit", methods={"GET","POST"})
      */
@@ -131,7 +131,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Date de création de l'article
+            // Date de modification
             $article->setUpdatedAt(new \DateTime());
 
             // Upload image

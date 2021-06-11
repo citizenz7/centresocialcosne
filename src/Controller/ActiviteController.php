@@ -33,6 +33,24 @@ class ActiviteController extends AbstractController
     }
 
     /**
+     * @Route("/admin/activites", name="activite_admin_index", methods={"GET"})
+     */
+    public function indexAdmin(Request $request, ActiviteRepository $activiteRepository, PaginatorInterface $paginator): Response
+    {
+        $donnees = $this->getDoctrine()->getRepository(Activite::class)->findBy([],['id' => 'DESC']);
+
+        $activites = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
+        return $this->render('activite/index.admin.html.twig', [
+            'activites' => $activites,
+        ]);
+    }
+
+    /**
      * @Route("/admin/activites/new", name="activite_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -144,11 +162,11 @@ class ActiviteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Date de modification
+            $activite->setUpdatedAt(new \DateTime());
+
             // Upload image
             $uploadedFile = $form['image']->getData();
-
-            // Date de création de l'article
-            $activite->setUpdatedAt(new \DateTime());
 
              if ($uploadedFile) {
                 // Puisqu'on a vérifié qu'il y a un changement d'image, on supprime l'ancienne image

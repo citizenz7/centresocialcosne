@@ -588,9 +588,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Values
+# Services et activités
 --------------------------------------------------------------*/
-.values .box {
+.activites .box {
   padding: 30px;
   box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
   text-align: center;
@@ -598,28 +598,28 @@ section {
   height: 100%;
 }
 
-.values .box img {
+.activites .box img {
   padding: 30px 50px;
   transition: 0.5s;
   transform: scale(1.1);
 }
 
-.values .box h3 {
+.activites .box h3 {
   font-size: 24px;
   color: #012970;
   font-weight: 700;
   margin-bottom: 18px;
 }
 
-.values .box:hover {
+.activites .box:hover {
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
 }
 
-.values .box:hover img {
+.activites .box:hover img {
   transform: scale(1);
 }
 
-.values .btn-read-more {
+.activites .btn-read-more {
   line-height: 0;
   padding: 15px 40px;
   border-radius: 4px;
@@ -629,20 +629,113 @@ section {
   box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
 }
 
-.values .btn-read-more span {
+.activites .btn-read-more span {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-.values .btn-read-more i {
+.activites .btn-read-more i {
   margin-left: 5px;
   font-size: 18px;
   transition: 0.3s;
 }
 
-.values .btn-read-more:hover i {
+.activites .btn-read-more:hover i {
+  transform: translateX(5px);
+}
+
+/*--------------------------------------------------------------
+# Values
+--------------------------------------------------------------*/
+.pages {
+  background: linear-gradient(rgba(35, 74, 92, 0.8), rgba(103, 176, 209, 0.8)), url(../img/values1.jpg) fixed center center;
+  background-size: cover;
+  padding: 60px 0;
+}
+
+.pages h2 {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.pages h1 {
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.pages .box {
+  padding: 30px;
+  box-shadow: 0px 0 5px rgba(255, 255, 255, 0.9);
+  text-align: center;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.pages .box img {
+  padding: 30px 50px;
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+
+.pages .box h2 {
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.pages .box h3 {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.pages .box a {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.pages .box:hover {
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.pages .box:hover img {
+  transform: scale(1);
+}
+
+.pages .btn-read-more {
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
+}
+
+.pages .btn-read-more span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.pages .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.pages .btn-read-more:hover i {
   transform: translateX(5px);
 }
 
@@ -1573,22 +1666,31 @@ section {
 }
 
 .recent-blog-posts .post-box .post-date {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(1, 41, 112, 0.6);
   display: block;
   margin-bottom: 10px;
 }
 
+.recent-blog-posts .post-box .post-date a {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(1, 41, 112, 0.6);
+  background-color: #f3f3f3;
+  padding: 0.2rem 0.4rem;
+  border-radius: 20px;
+}
+
 .recent-blog-posts .post-box .post-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #012970;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 18px;
   position: relative;
   transition: 0.3s;
 }
-
+ 
 .recent-blog-posts .post-box .readmore {
   display: flex;
   align-items: center;

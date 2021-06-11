@@ -87,4 +87,3 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash message)
 
-* suppression FILES on Update pour Activite

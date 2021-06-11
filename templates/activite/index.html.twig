@@ -1,5 +1,105 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ site_name_full }} : liste des services et activités{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Liste des services et activités</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for activite in activites %}
+                        {% if activite.isActive %}
+                            <article class="entry">
+
+                                <div class="entry-img">
+                                    <img src="../uploads/images/activites/{{ activite.image }}" alt="{{ activite.titre }}" class="img-fluid">
+                                </div>
+
+                                <div class="mb-3">
+                                    {% for cat in activite.categorie %}
+                                    <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                        <span class="badge bg-primary">{{ cat.titre }}</span>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                                
+                                <h2 class="entry-title">
+                                    <a href="{{ path('activite_show', {'slug': activite.slug}) }}">{{ activite.titre }}</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-person"></i> {{ activite.auteur.prenom }} {{ activite.auteur.nom }}
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-clock"></i> {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
+                                        </li>
+                                        {% if activite.updatedAt %}
+                                            <li class="d-flex align-items-center">
+                                                <i class="bi bi-clock-fill"></i> {{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <p>
+                                        {{ activite.description|raw }}
+                                    </p>
+                                    <div class="read-more">
+                                        <a href="{{ path('activite_show', {'slug': activite.slug}) }}">Lire l'activite</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="pagination justify-content-center px-2 mt-4">
+                        {{ knp_pagination_render(activites) }}
+                    </div>
+
+                </div>
+                <!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+                
+                </div><!-- End blog sidebar -->
+            </div>
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{#
+{% extends 'base.html.twig' %}
+
 {% block title %}{{ site_name_full }} : liste des activités{% endblock %}
 
 {% block body %}
@@ -73,3 +173,4 @@
     </section>
 </main>
 {% endblock %}
+#}
