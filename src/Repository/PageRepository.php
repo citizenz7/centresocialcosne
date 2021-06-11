@@ -19,6 +19,21 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+    public function search($titre) 
+    {
+        return $this->createQueryBuilder('Page')
+            ->andWhere('Page.titre LIKE :titre')
+            ->setParameter('titre', '%'.$titre.'%')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findPages()
+    {
+        $qb = $this->createQueryBuilder('p');
+        //$qb->where('p.status=1');
+        return $qb->getQuery(); // WITHOUT ->getResult(); !!
+    }
 
     // /**
     //  * @return Page[] Returns an array of Page objects

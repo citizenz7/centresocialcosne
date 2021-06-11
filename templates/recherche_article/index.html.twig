@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : recherche d'articles{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Recherche d'articles</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <h2>Faire une recherche d'articles</h2>
+                    <div class="form-group">
+                        {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
+                        {{ form_start(searchForm) }}
+                            {{ form_row(searchForm.titre, {'label': 'La recherche s\'effectue sur le titre', 'id': 'search-titre', 
+                            'attr': {'placeholder': 'Entrez un mot clé', 'class': 'form-control'}})
+                        }}
+                        <button class="btn btn-success mt-3">Rechercher</button>
+                        {{ form_end(searchForm) }}
+                    </div>
+
+                    {% if app.request.method == 'POST' %}
+                        <div class="mt-5">
+                            {% if articles | length == 0 %}
+                                <h4>Aucun résulat pour votre recherche.</h4>
+                            {% else %}
+                                <h3 class="mt-3">Résulats de votre recherche :</h3>
+                                {% for article in articles %}
+                                    <div class="mt-3 px-3">
+                                    <a href="{{ path('article_show', {'slug': article.slug}) }}">
+                                        <h5 class="text-dark"><i class="bi bi-arrow-down-right-square-fill"></i> {{ article.titre }}</h5>
+                                        <span class="bg-light text-dark small p-1 rounded">Publié le {{ article.createdAt | date('d/m/Y') }}</span>
+                                    </a>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                </div>
+                <!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+                
+                </div><!-- End blog sidebar -->
+            </div>
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+{% endblock %}

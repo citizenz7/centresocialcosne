@@ -19,6 +19,22 @@ class ActiviteRepository extends ServiceEntityRepository
         parent::__construct($registry, Activite::class);
     }
 
+    public function search($titre) 
+    {
+        return $this->createQueryBuilder('Activite')
+            ->andWhere('Activite.titre LIKE :titre')
+            ->setParameter('titre', '%'.$titre.'%')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findActivites()
+    {
+        $qb = $this->createQueryBuilder('p');
+        //$qb->where('p.status=1');
+        return $qb->getQuery(); // WITHOUT ->getResult(); !!
+    }
+
     // /**
     //  * @return Activite[] Returns an array of Activite objects
     //  */

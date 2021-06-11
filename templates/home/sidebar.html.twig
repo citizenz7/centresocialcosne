@@ -3,21 +3,22 @@
 
     <div class="sidebar">
 
-        <h3 class="sidebar-title">Recherche</h3>
-        <div class="sidebar-item search-form">
-            <form action="">
-                <input type="text">
-                <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
+        <h3 class="sidebar-title"><i class="bi bi-search"></i> Recherche</h3>
+        <div class="sidebar-item categories">
+            <ul>
+                <li><a href="{{ path('recherche_article') }}"><i class="bi bi-arrow-right-short"></i> Rechercher un article</a></li>
+                <li><a href="{{ path('recherche_activite') }}"><i class="bi bi-arrow-right-short"></i> Rechercher une activité</a></li>
+                <li><a href="{{ path('recherche_page') }}"><i class="bi bi-arrow-right-short"></i> Rechercher une page</a></li>
+            </ul>
         </div><!-- End sidebar search formn-->
 
-        <h3 class="sidebar-title">Catégories</h3>
+        <h3 class="sidebar-title"><i class="bi bi-tag-fill"></i> Catégories</h3>
         <div class="sidebar-item categories">
             <ul>
                 {% for cat in categories %}
                     <li>
                         <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                            {{ cat.titre }}
+                            <i class="bi bi-arrow-right-short"></i> {{ cat.titre }}
                         </a>
                     </li>
                 {% endfor %}

@@ -55,8 +55,8 @@ Pixabay (https://pixabay.com/fr/) - Images libres et gratuites
 * enregistrer l'image dans un dossier de votre ordinateur (sur votre Bureau par exemple...)
 * Sélectionner cette image lors de la création d'un Article, d'une Activité ou d'une Catégorie
 ## Fichiers (Activités)
-Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers de PDF. Si au moins un fichier a été téléversé, il sera automatiquement afficher en bas du texte de l'activité et sera directement téléchargeable par le visiteur
-### LES PAGES N'ONT PAS D'IMAGE
+Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers au format PDF. Si au moins un fichier a été téléversé, il sera automatiquement affiché en bas du texte de l'activité et sera directement téléchargeable par le visiteur.
+#### LES PAGES N'ONT PAS D'IMAGE
 
 ## Page d'accueil
 
@@ -82,20 +82,19 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 # A FAIRE
 
-* Liste des activités pour l'admin avec Création/Edition/Suppression
-
 * Show Categorie : afficher tous les ARTICLES de la catégorie ET toutes les ACTIVITES de la catégorie
 
 * Droits utilisateurs : 
     * attribuer un role "ROLE_USER" a tout nouvel utilisateur ?
 
-* Système de recherche
-
 * Système de Contact (mail)
 
-* Système de Lettre d'infos
+* Système de Lettre d'infos [ fonctionnalité facultative ]
 
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
 * Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash messages)
 
+* Meta et SEO
+
+* Files upload pour PAGES
