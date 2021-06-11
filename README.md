@@ -45,7 +45,7 @@ Il est réalisé grâce au framework SYMFONY 5.
 * Articles : les infos (blog)
 * Catégories : les "secteurs" du CS
 * Users : les utilisateurs (Utilisateur/Administrateur)
-* Pages : présentation et composantes du CS (ne change que rarement)
+* Pages : présentation "administrative" du CS (ne change que rarement)
 
 # UTILISATION
 ## Images
@@ -86,8 +86,6 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Droits utilisateurs : 
     * attribuer un role "ROLE_USER" a tout nouvel utilisateur ?
-
-* Système de Contact (mail)
 
 * Système de Lettre d'infos [ fonctionnalité facultative ]
 
