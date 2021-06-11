@@ -106,18 +106,21 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('facebook', TextType::class, [
                 'label' => 'Votre profil Facebook',
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
             ])
             ->add('twitter', TextType::class, [
                 'label' => 'Votre profil Twitter',
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
             ])
             ->add('instagram', TextType::class, [
                 'label' => 'Votre profil Instagram',
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]

@@ -84,11 +84,6 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Show Categorie : afficher tous les ARTICLES de la catégorie ET toutes les ACTIVITES de la catégorie
 
-* Droits utilisateurs : 
-    * attribuer un role "ROLE_USER" a tout nouvel utilisateur ?
-
-* Système de Lettre d'infos [ fonctionnalité facultative ]
-
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
 * Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash messages)
@@ -96,3 +91,7 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 * Meta et SEO
 
 * Files upload pour PAGES
+
+# FACULTATIF - A DEFINIR
+
+* Système de Lettre d'infos [ fonctionnalité facultative ]
