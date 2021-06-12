@@ -2,12 +2,17 @@
 centresocialcosne est un projet de site web pour le Centre Social et Culturel Suzanne Coulomb de Cosne-Cours-sur-Loire (58200).
 Il est réalisé grâce au framework SYMFONY 5.
 
-## Pré-requis
+## Pré-requis logiciels
 * PHP 7.4
-* MySQL (Mariadb)
+* Serveur MySQL (Mariadb)
 * Symfony CLI (5)
 * Composer
-
+* Serveur web (Apache, Nginx)
+## Pré-requis matériels
+Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner, Scaleway, etc.) :
+* 2 cores
+* 4 GB RAM
+* 80 GB Disk (la taille du disque permettra de stocker plus ou moins d'images, de fichiers, etc.)
 ## Présentation
 * Genre : site web
 * Langages/technologies/frameworks utilisés : 
@@ -20,17 +25,17 @@ Il est réalisé grâce au framework SYMFONY 5.
     * Javascript
 * Type : site vitrine + blog
 * Fonctionnalités : 
-    * modulable (chaque "partie" du site peut se voir attribuer une page par simple "sélection"...)
-    * espace d'administration avec droits limités (comptes Administrateurs ou Utilisateurs)
+    * modulable (chaque "partie" de la page d'accueil peut se voir attribuer une page par simple "sélection"...)
+    * espace d'administration avec droits limités (comptes Administrateur ou Utilisateur)
     * blog
-    * recherche
+    * recherche par article, activité, page
     * contact
     * lettre d'info (optionnel...)
-#### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription de membres "extérieurs".
+#### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription de d'utilisateurs "extérieurs" (à l'équipe du CS).
 
 ## Initialisation du projet
-* Cloner le repo : `git clone https://github.com/citizenz7/centresocialcosne.git`
-* configurer le .env.local (MAILER DSN et MySQL)
+* Cloner le repo Github : `git clone https://github.com/citizenz7/centresocialcosne.git`
+* Configurer le .env.local (MAILER DSN et MySQL)
 * Créer la base SQL : `symfony console doctrine:database:create`
 * Importer les tables dans la base SQL : `symfony console doctrine:migrations:migrate`
 * Installer tous les packages : `composer install`
