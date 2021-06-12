@@ -59,18 +59,48 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 #### LES PAGES N'ONT PAS D'IMAGE
 
 ## Page d'accueil
-
+La page d'accueil (home) possède plusieurs sections. Ces sections sont des PAGES ou une séldction d'articles, d'activités,...
+Chaque PAGE se voit attribuer une "option" correspondant à la section choisie :
+* Hero (A la Une) : petit texte principal de présentation du centre social - accroche avec image. Attribut `A LA UNE`.
+* A propos : ce texte plus important permet de présenter le centre social plus en détails. Attribut `A PROPOS`.
+* Inscription / Adhésion : accroche permettant de faire un focus sur les inscriptions/ Adhésions. Attribut `INSCRIPTION`.
+* Services et activités : sélection des 3 dernières activités publiées, par date.
+* Les dernières infos / Blog : sélection des 3 derniers articles publiés, par date.
+* Tout le Centre Social : sélection des 3 dernières pages publiées, par date.
+* Chiffres (count) : chiffres marquants du centre social...
+* Nous contacter : coordonnées du centre social avec lien vers formulaire d'envoi de mail
+* Pied de page : rappel des principaux liens, coordonnées, logo et texte de présentation nen rappoart avec le centre social ou son environnement...
 ## Articles - Blog
-
+Il s'agit de la partie BLOG (les infos). Le nom ARTICLE est utilisé pour cette fonctionnalité.
+Vous pouvez créer, modifier, supprimer des ARTICLES, en tant qu'administrateur.
+Lors de la création d'un article, vous devrez choisir OBLIGATOIREMENT :
+* un titre
+* un contenu (texte principal de l'article)
+* une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
+* une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
+* définir si l'article est visible ou non (pratique si vous devez désactiver l'article, sans le supprimer, ... pour le réactiver plus tard. Ou po=ur le préparer en avance et l'activer au moment souhaité.)
 ## Activités
-
+Il s'agit de la partie qui présente tous les services et activités du centre social.
+Lors de la création de l'activité, vous devrez choisir OBLIGATOIREMENT :
+* un titre
+* un contenu (texte principal de l'activité)
+* une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
+* vous pourrez choisir jusqu'à 3 fichiers PDF à téléverser. Ces fichiers seront affichés en bas d'article et téléchargeables par les visiteurs.
+* une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
+* définir si l'activité est visible ou non (cf. Article).
 ## Pages
-
+Il s'agit de la partie qui présente le centre social plus en "détails" (technique, administratif).
+Lors de la création de la page, vous devrez choisir OBLIGATOIREMENT :
+* un titre
+* un contenu (texte principal de la page)
+* un "attribut" pour la page (A LA UNE, A PROPOS, etc.). Permettra de positionner la page sur la page d'accueil.
+* définir si la page est visible ou non (cf. Article).
 ## Catégories
 
 ## Connexion
 
 ## Administration
+
 ### Création
 
 ### Modification
