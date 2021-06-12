@@ -71,14 +71,14 @@ Chaque PAGE se voit attribuer une "option" correspondant à la section choisie :
 * Nous contacter : coordonnées du centre social avec lien vers formulaire d'envoi de mail
 * Pied de page : rappel des principaux liens, coordonnées, logo et texte de présentation nen rappoart avec le centre social ou son environnement...
 ## Articles - Blog
-Il s'agit de la partie BLOG (les infos). Le nom ARTICLE est utilisé pour cette fonctionnalité.
+Il s'agit de la partie BLOG (les infos).
 Vous pouvez créer, modifier, supprimer des ARTICLES, en tant qu'administrateur.
 Lors de la création d'un article, vous devrez choisir OBLIGATOIREMENT :
 * un titre
 * un contenu (texte principal de l'article)
 * une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
 * une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
-* définir si l'article est visible ou non (pratique si vous devez désactiver l'article, sans le supprimer, ... pour le réactiver plus tard. Ou po=ur le préparer en avance et l'activer au moment souhaité.)
+* définir si l'article est visible ou non (pratique si vous devez désactiver l'article, sans le supprimer, ... pour le réactiver plus tard. Ou pour le préparer en avance et l'activer au moment souhaité.)
 ## Activités
 Il s'agit de la partie qui présente tous les services et activités du centre social.
 Lors de la création de l'activité, vous devrez choisir OBLIGATOIREMENT :
@@ -87,32 +87,61 @@ Lors de la création de l'activité, vous devrez choisir OBLIGATOIREMENT :
 * une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
 * vous pourrez choisir jusqu'à 3 fichiers PDF à téléverser. Ces fichiers seront affichés en bas d'article et téléchargeables par les visiteurs.
 * une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
-* définir si l'activité est visible ou non (cf. Article).
+* définir si l'activité est visible ou non (cf. Articles).
 ## Pages
 Il s'agit de la partie qui présente le centre social plus en "détails" (technique, administratif).
 Lors de la création de la page, vous devrez choisir OBLIGATOIREMENT :
 * un titre
 * un contenu (texte principal de la page)
 * un "attribut" pour la page (A LA UNE, A PROPOS, etc.). Permettra de positionner la page sur la page d'accueil.
-* définir si la page est visible ou non (cf. Article).
+* définir si la page est visible ou non (cf. Articles).
 ## Catégories
+Il s'agit de la partie qui présente les "secteurs d'activités" du centre social.
+Cette partie est commune aux Articles et aux Activités.
+Lors de la création de la catégorie, vous devrez choisir OBLIGATOIREMENT :
+* un titre
+* un contenu (petit texte de présentation de la catégorie)
+* une image de présentation (cf. Articles)
+## Barre de menu
+La barre de menu (top menu) possède plusieurs liens qui orientent le visiteur vers des sections de la page d'Accueil.
+Si vous êtes connecté(e), un lien supplémentaire avec votre prénom et un menu "dropdown" apparait.
+## Connexion / Inscription
+### Connexion
+Le site n'étant pas prévu pour l'inscription d'utilisateurs "extérieurs", le lien de connexion à l'espace personnel et d'administration (si rôle Administrateur) est remisé dans le pied de page.
+Si vous possédez un compte, vous pouvez vous connecter avec votre e-mail + mot de passe.
+Une fois connecté, un nouveau lien apparait dans la barre de menu avec votre prénom.
+Selon votre ROLE, vous pourrez :
+* Utilisateur : vous rendre sur votre page de profil, vous déconnecter
+* Administrateur : vous rendre sur l'espace d'administration du site, vous rendre sur votre page de profil, vous déconnecter
+### Inscription
+Un lien d'inscription apparait sur la page CONNEXION. Il vous permet de créer un compte.
+Il faudra définir avec l'équipe du CS si ce lien est utile et s'il ne constitue pas un "problème" de sécurité (en effet, il n'est pas du tout souhaitable que les visiteurs aient accès à ce lien et puissent créer un compte, ce n'est pas l'objectif de ce site).
+Lors de l'inscription vous renseignerez les infos suivantes :
+* email
+* prénom
+* nom
+* mot de passe
+* Petit text de présentation (facultatif mais conseillé)
+* image de profil (facultatif... mais conseillé)
+* fonctions au centre social
+* profils Facebook/Twitter/Instagram (facultatif)
+Vous devrez enfin cocher la case d'acceptation des CGU...
+Vous devrez enfin valider votre adresse e-mail grâce à un lien qui vous sera envoyé par mail.
 
-## Connexion
-
+Par "défaut", tout nouvel utilisateur possède le ROLE `Utilisateur` (ROLE_USER) et n'a pas accès à l'espace d'administration.
+Il faut une intervention manuelle pour passer un utilisateur en Administrateur (ROLE_ADMIN).
 ## Administration
-
-### Création
-
-### Modification
-
-### Suppression
-
-### Listes
-
-
+Si vous avez le ROLE administrateur vous pourrez gérer différentes sections :
+* création/édition/suppression d'articles
+* création/édition/suppression d'activités
+* création/édition/suppression de pages
+* création/édition/suppression de catégories
+* création/édition/suppression d'utilisateurs
+(la partie Lettre d'info n'est pas dévloppée).
+Une fois connecté, vous aurez accès à l'espace d'administration grâce au nouveau lien `Administraion` qui apparaitra dans le menu principal (dans la liste, en-dessous de votre prénom).
 # A FAIRE
 
-* Sidebar : nb d'articles / nb d'activités par catégorie
+* Sidebar : nb d'articles / nb d'activités par catégorie (!)
 
 # FACULTATIF - A DEFINIR
 
