@@ -3,11 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Bienvenue sur le site web du {{ site_name_full }}{% endblock %}</title>
+    <meta name="author" content="citizenz">
+    <meta name="generator" content="Symfony 5">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <!-- search engines -->
+    <meta name="description" content="Le Centre Social et Culturel Suzanne Coulomb, fort d’un enracinement local de 45 ans, développe et renouvelle sans cesse ses activités et projet s’adressant au plus grand nombre.
+    C’est par ses activités et projets qu’il favorise le lien social, socle indispensable à une vie locale riche et épanouissante. Le Centre Social et Culturel “Suzanne Coulomb” fonde son action sur l’engagement citoyen et véhicule des valeurs où prime l’intérêt collectif.">
+    <meta name="keywords" content="centre, social, culturel, cosne, loire, nièvre, coulomb, suzanne, enfants, adultes, alsh, accueil, familles, gym, entretien, yoga, caf, cpam, poste, animation, socioculturel, animateur, projet, mairie, association">
+    <meta name="image" content="https://www.centresocialcosne.org/img/logo.png">
+
+     <!-- Schema.org for Google -->
+     <meta itemprop="name" content="{{ site_name_full }}">
+     <meta itemprop="description" content="Site web du {{ site_name_full }}">
+     <meta itemprop="image" content="https://www.centresocialcosne.org/img/logo.png">
+
+     <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site_name_full }}">
+    <meta name="twitter:description" content="Site web du {{ site_name_full }}">
+    <meta name="twitter:site" content="{{ site_name_full }}">
+    <meta name="twitter:image:src" content="https://www.centresocialcosne.org/img/logo.png">
+
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="{{ site_name_full }}">
+    <meta name="og:description" content="Site web du {{ site_name_full }}">
+    <meta name="og:image" content="https://www.centresocialcosne.org/img/logo.png">
+    <meta name="og:url" content="{{ site_url }}">
+    <meta name="og:site_name" content="{{ site_name_full }}">
+    <meta name="og:locale" content="fr_FR">
+    <meta name="fb:app_id" content="152600573523863">
+    <meta name="og:type" content="website">
 
     <!-- Favicons -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon">
@@ -46,28 +74,9 @@
                     <li><a class="nav-link scrollto" href="{{ path('home') }}#about">A propos</a></li>
                     <li><a class="nav-link scrollto" href="{{ path('home') }}#services">Services & Activités</a></li>
                     <li><a href="{{ path('home') }}#recent-blog-posts">Dernières infos</a></li>
+
                     <li><a href="{{ path('home') }}#pages">Centre Social</a></li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown">
-                                <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li>
-                    -->
+                    
                     <li><a class="nav-link scrollto" href="{{ path('home') }}#contact">Contact</a></li>
 
                     {% if app.user %}
@@ -91,7 +100,7 @@
                         </li>
                     {% endif %}
 
-                    <li><a class="getstarted" href="{{ path('home') }}#adhesion">Adhésion</a></li>
+                    <li><a class="getstarted" href="{{ path('home') }}#adhesion">S'inscrire</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -177,7 +186,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright 2021 <strong><span>{{ site_name }}</span></strong>. Tous droits réservés.
+                &copy; Copyright 2021 <strong><span>{{ site_name_full }}</span></strong>. Tous droits réservés.
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

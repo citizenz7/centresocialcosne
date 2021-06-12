@@ -29,7 +29,7 @@
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> {{ page.auteur }}
+                                    <i class="bi bi-person"></i> {{ page.auteur.prenom }} {{ page.auteur.nom }}
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-clock"></i> {{ page.createdAt ? page.createdAt|date('d-m-Y') : '' }}
@@ -67,7 +67,7 @@
                     <div class="blog-author d-flex align-items-center">
                         <img src="../uploads/images/users/{{ page.auteur.image }}" class="rounded-circle float-left" alt="">
                         <div>
-                            <h4>{{ page.auteur.prenom }} {{ page.auteur.nom }}</h4>
+                            <h4>Posté par {{ page.auteur.prenom }} {{ page.auteur.nom }},</h4>
                             <h6>{{ page.auteur.fonction }}</h6>
 
                             {% if page.auteur.facebook or page.auteur.twitter or page.auteur.instagram %}

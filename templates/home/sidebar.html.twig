@@ -18,10 +18,11 @@
                 {% for cat in categories %}
                     <li>
                         <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                            <i class="bi bi-arrow-right-short"></i> {{ cat.titre }}
+                            <i class="bi bi-arrow-right-short"></i> {{ cat.titre }} 
                         </a>
                     </li>
                 {% endfor %}
+
             </ul>
         </div><!-- End sidebar categories-->
 

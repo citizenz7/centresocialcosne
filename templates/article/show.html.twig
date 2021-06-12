@@ -41,7 +41,7 @@
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> {{ article.auteur }}
+                                    <i class="bi bi-person"></i> {{ article.auteur.prenom }} {{ article.auteur.prenom }}
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-clock"></i>
@@ -70,7 +70,7 @@
                         <img src="../uploads/images/users/{{ article.auteur.image }}" class="rounded-circle float-left"
                             alt="">
                         <div>
-                            <h4>{{ article.auteur.prenom }} {{ article.auteur.nom }}</h4>
+                            <h4>Posté par {{ article.auteur.prenom }} {{ article.auteur.nom }},</h4>
                             <h6>{{ article.auteur.fonction }}</h6>
 
                             {% if article.auteur.facebook or article.auteur.twitter or article.auteur.instagram %}
@@ -96,7 +96,7 @@
                 </div><!-- End blog entries list -->
 
                 {% block sidebar %}
-                {{ sidebar() }}
+                    {{ sidebar() }}
                 {% endblock %}
 
             </div><!-- End blog sidebar -->

@@ -82,15 +82,9 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 # A FAIRE
 
-* Show Categorie : afficher tous les ARTICLES de la catégorie ET toutes les ACTIVITES de la catégorie
-
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
 * Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash messages)
-
-* Meta et SEO
-
-* Files upload pour PAGES
 
 # FACULTATIF - A DEFINIR
 

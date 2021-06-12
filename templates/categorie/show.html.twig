@@ -58,15 +58,13 @@
                             <div class="col">
                                 <div class="entry-content">
                                     <h5 class="bg-light rounded p-2">Les dernières activités de la catégorie</h5>
-                                    {#
-                                    {% for c in categorie.articles|reverse %}
+                                    {% for c in categorie.activites|reverse %}
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
-                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
+                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('activite_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
                                             </li>  
                                         </ul>
                                     {% endfor %}
-                                    #}
                                 </div>
                             </div>
                         </div>
