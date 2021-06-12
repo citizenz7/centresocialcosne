@@ -54,7 +54,7 @@ class UserType extends AbstractType
                             'image/png',
                             'image/jpeg'
                         ],
-                        'mimeTypesMessage' => 'L\'image envoyée n\'est pas valide',
+                        'mimeTypesMessage' => 'L\'image envoyée n\'est pas valide (jpeg et png seulement)',
                     ])
                 ]
             ])

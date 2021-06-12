@@ -84,8 +84,11 @@ Lorsque vous créer une activité, vous pouvez téléverser jusqu'à 3 fichiers 
 
 * Sidebar : nb d'articles / nb d'activités par catégorie
 
-* Affichage des messages au visiteur : mail ok, enregistrement ok, etc. (flash messages)
-
 # FACULTATIF - A DEFINIR
 
-* Système de Lettre d'infos [ fonctionnalité facultative ]
+* Système de Lettre d'infos [ facultatif - A développer ]
+    * périodicité : mensuelle
+    * entité : Article
+    * inscription / désinscription : e-mail avec stockage dans la base SQL
+    * si au moins un nouvel article a été publié durant les 30 derniers jours : envoi d'une newsletter (avec titre, date, auteur, extrait, lien)
+    * possibilité d'envoyer tous les articles parus depuis l'envoi de la dernière newsletter
