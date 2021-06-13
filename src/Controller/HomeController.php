@@ -26,23 +26,23 @@ class HomeController extends AbstractController
             3
         );
 
-        $data_activites = $this->getDoctrine()->getRepository(Activite::class)->findBy(['isActive' => 1],['createdAt' => 'desc']);
+        $data_activites = $this->getDoctrine()->getRepository(Activite::class)->findBy(['isActive' => 1],['updatedAt' => 'desc']);
         $activites = $paginator->paginate(
             $data_activites,
             $request->query->getInt('page', 1),
             3
         );
 
-        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['createdAt' => 'asc']);
+        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['updatedAt' => 'desc']);
         $pages = $paginator->paginate(
             $data_pages,
             $request->query->getInt('page', 1),
             3
         );
 
-        $totalPages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['createdAt' => 'asc']);
+        $totalPages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['updatedAt' => 'desc']);
 
-        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['titre' => 'asc']);
+        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['titre' => 'desc']);
 
 
         return $this->render('home/index.html.twig', [
