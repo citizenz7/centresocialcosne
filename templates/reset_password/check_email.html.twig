@@ -17,15 +17,18 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col">
+                    <h2>Vous avez demandé un nouveau mot de passe</h2>
                     <p>
                         Si votre adresse e-mail appartient à un compte enregistré et validé sur ce site, 
                         vous recevrez rapidement un mail avec un lien à utiliser pour demander un nouveau mot de passe.
                         <br>
-                        Attention : le lien expirera dans 
-                        {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                        Attention : le lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                        <br>
+                        Si vous ne recevez aucun mail, merci de vérifier votre dossier de spams ou bien 
+                        <a href="{{ path('app_forgot_password_request') }}">
+                            faites une nouvelle demande
+                        </a>.
                     </p>
-                    <p>Si vous ne recevez aucun mail, merci de vérifier votre dossier de spams ou bien <a
-                            href="{{ path('app_forgot_password_request') }}">essayez à nouveau</a>.</p>
                 </div>
             </div>
         </div>
