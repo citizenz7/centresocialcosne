@@ -31,8 +31,10 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Titre</th>
+                                <th>Attr.</th>
                                 <th>Date</th>
                                 <th>Maj</th>
+                                <th>Actif</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -41,13 +43,38 @@
                             <tr>
                                 <td>{{ page.id }}</td>
                                 <td>{{ page.titre }}</td>
-                                <td>{{ page.createdAt ? page.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                                <td>{{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-info"
-                                        href="{{ path('page_show', {'slug': page.slug}) }}">Voir</a>
-                                    <a class="btn btn-sm btn-warning"
-                                        href="{{ path('page_edit', {'id': page.id}) }}">Modifier</a>
+                                    {{ page.isFeatured ? 'Hero' : '' }}
+                                    {{ page.isAbout ? 'A Propos' : '' }}
+                                    {{ page.isInscription ? 'Inscription' : '' }}
+                                    {{ page.isTeam ? 'Equipe' : '' }}
+                                    {{ page.ispartenaire ? 'Partenaires' : '' }}
+                                    {{ page.isConseiladmin ? 'Conseil d\'Administration' : '' }}
+                                    {{ page.isProjetsocial ? 'Projet social' : '' }}
+                                    {{ page.isBenevole ? 'Bénévole' : '' }}
+                                    {{ page.isHistorique ? 'Historique' : '' }}
+                                    {{ page.isOrganigramme ? 'Organigramme' : '' }}
+                                    {{ page.isVenir ? 'Venir' : '' }}
+                                    {{ page.isMentionslegales ? 'Mentions légales' : '' }}
+                                </td>
+                                <td>{{ page.createdAt ? page.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td>{{ page.updatedAt ? page.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td>{{ page.isActive ? 'Oui' : 'Non' }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-sm btn-info" href="{{ path('page_show', {'slug': page.slug}) }}">Voir</a>
+                                            </td>
+                                            <td>
+
+                                                <a class="btn btn-sm btn-warning" href="{{ path('page_edit', {'id': page.id}) }}">Modifier</a>
+                                            </td>
+                                            <td>
+                                                {{ include('page/_delete_form.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             {% else %}

@@ -147,6 +147,7 @@ Une fois connecté, vous aurez accès à l'espace d'administration grâce au nou
 # A FAIRE
 
 * Sidebar : nb d'articles / nb d'activités par catégorie (!)
+* tri par colonne dans Administration
 
 # FACULTATIF - A DEFINIR
 

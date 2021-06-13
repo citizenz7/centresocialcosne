@@ -52,7 +52,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function totalViews(): array
     {
         return $this->createQueryBuilder('v')
-            ->select('SUM(v.views) AS viewsTotal')
+            ->select('SUM(v.views) AS totalViews')
             ->getQuery()
             ->getResult()
         ;

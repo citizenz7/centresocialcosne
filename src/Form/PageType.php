@@ -3,13 +3,15 @@
 namespace App\Form;
 
 use App\Entity\Page;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class PageType extends AbstractType
 {
@@ -26,6 +28,93 @@ class PageType extends AbstractType
             //->add('createdAt')
             //->add('updatedAt')
             //->add('auteur')
+
+            ->add('file1', FileType::class, [
+                'label' => 'Fichier #1 de la page',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file2', FileType::class, [
+                'label' => 'Fichier #2 de la page',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file3', FileType::class, [
+                'label' => 'Fichier #3 de la page',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file4', FileType::class, [
+                'label' => 'Fichier #4 de la page',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file5', FileType::class, [
+                'label' => 'Fichier #5 de la page',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+
             ->add('is_featured', CheckboxType::class, [
                 'label' => 'Page A LA UNE',
                 'required' => false,

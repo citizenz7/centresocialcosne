@@ -49,6 +49,33 @@
                     </article>
                     <!-- End blog entry -->
 
+                    {% if page.file1 or page.file2 or page.file3 or page.file4 or page.file5 %}
+                        <div class="blog-author d-flex align-items-center">
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <h4>Fichiers à télécharger</h4>
+                                </div>
+                                <div class="col">
+                                    {% if page.file1 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/pages/{{ page.file1 }}">{{ page.file1 }}</a>
+                                    {% endif %}
+                                    {% if page.file2 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/pages/{{ page.file2 }}">{{ page.file2 }}</a>
+                                    {% endif %}
+                                    {% if page.file3 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/pages/{{ page.file3 }}">{{ page.file3 }}</a>
+                                    {% endif %}
+                                    {% if page.file4 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/pages/{{ page.file4 }}">{{ page.file4 }}</a>
+                                    {% endif %}
+                                    {% if page.file5 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/pages/{{ page.file5 }}">{{ page.file5 }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div class="blog-author d-flex align-items-center">
                         <img src="../uploads/images/users/{{ page.auteur.image }}" class="rounded-circle float-left" alt="">
                         <div>

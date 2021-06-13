@@ -26,6 +26,20 @@
             </ul>
         </div><!-- End sidebar categories-->
 
+        <h3 class="sidebar-title"><i class="bi bi-tag-fill"></i> Blog</h3>
+        <div class="sidebar-item categories">
+            <ul>
+                <li>
+                    Lectures totales : 
+                    <span class="badge bg-secondary">
+                            {% for view in views %}
+                                    {{ view.totalViews | number_format(0, '', ' ') }}
+                            {% endfor %}
+                    </span>
+                </li>
+            </ul>
+        </div>
+
     </div><!-- End sidebar -->
 
 </div>

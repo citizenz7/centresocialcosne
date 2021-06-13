@@ -25,11 +25,7 @@
                             <a class="btn btn-success fw-bold pt-2" href="{{ path('activite_new') }}">Créer une activité</a>
                         </div>
                     </div>
-                    <h4 class="bg-dark text-white rounded p-2 my-4 text-center">
-                        On présentera toutes les activités <b>ICI</b> sur Activité index, par catégorie, avec des cards, visible par tous les publics.<br> 
-                        On désactivera la possibilité de créer ou de modifier une activité pour le public, ceci étant réserver à <b>ADMIN</b>.<br>
-                        Tri par colonne (avec knp_paginator...)
-                    </h4>
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -48,7 +44,7 @@
                                 <td>{{ activite.titre }}</td>
                                 <td>
                                     {% for cat in activite.categorie %}
-                                        {{ cat.titre }}
+                                        <span class="badge bg-secondary">{{ cat.titre }}</span>
                                     {% endfor %}
                                 </td>
                                 <td>{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
@@ -56,8 +52,19 @@
                                 <td>{{ activite.auteur }}</td>
                                 <td>{{ activite.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-info" href="{{ path('activite_show', {'slug': activite.slug}) }}">Voir</a>
-                                    <a class="btn btn-sm btn-warning" href="{{ path('activite_edit', {'id': activite.id}) }}">Modifier</a>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-sm btn-info" href="{{ path('activite_show', {'slug': activite.slug}) }}">Voir</a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm btn-warning" href="{{ path('activite_edit', {'id': activite.id}) }}">Modifier</a>
+                                            </td>
+                                            <td>
+                                                {{ include('activite/_delete_form.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             {% else %}

@@ -197,6 +197,20 @@ class ActiviteController extends AbstractController
              // Upload fichier 1 
             $uploadedFile1 = $form['file1']->getData();
             if ($uploadedFile1) {
+
+                // Puisqu'on a vérifié qu'il y a un changement de fichier, on supprime l'ancien fichier
+                // On récupère le nom de l'ancien fichier
+                $file1 = $activite->getFile1();
+
+                // On vérifie qu'il y un nom de fichier dans la base SQL
+                if($file1) {
+                    $nomFile1 = $this->getParameter("activites_files_directory") . '/' . $file1;
+                    // On vérifie qu'il existe physiquement un fichier
+                    if(file_exists($nomFile1)) {
+                        unlink($nomFile1);
+                    }
+                }
+
                 $destination1 = $this->getParameter("activites_files_directory");
 
                 $originalFile1name = pathinfo($uploadedFile1->getClientOriginalName(), PATHINFO_FILENAME);
@@ -212,6 +226,20 @@ class ActiviteController extends AbstractController
             // Upload fichier 2 
             $uploadedFile2 = $form['file2']->getData();
             if ($uploadedFile2) {
+
+                // Puisqu'on a vérifié qu'il y a un changement de fichier, on supprime l'ancien fichier
+                // On récupère le nom de l'ancien fichier
+                $file2 = $activite->getFile2();
+                
+                // On vérifie qu'il y un nom de fichier dans la base SQL
+                if($file2) {
+                    $nomFile2 = $this->getParameter("activites_files_directory") . '/' . $file2;
+                    // On vérifie qu'il existe physiquement un fichier
+                    if(file_exists($nomFile2)) {
+                        unlink($nomFile2);
+                    }
+                }
+
                 $destination2 = $this->getParameter("activites_files_directory");
 
                 $originalFile2name = pathinfo($uploadedFile2->getClientOriginalName(), PATHINFO_FILENAME);
@@ -227,6 +255,20 @@ class ActiviteController extends AbstractController
             // Upload fichier 3
             $uploadedFile3 = $form['file3']->getData();
             if ($uploadedFile3) {
+
+                // Puisqu'on a vérifié qu'il y a un changement de fichier, on supprime l'ancien fichier
+                // On récupère le nom de l'ancien fichier
+                $file3 = $activite->getFile3();
+                
+                // On vérifie qu'il y un nom de fichier dans la base SQL
+                if($file3) {
+                    $nomFile3 = $this->getParameter("activites_files_directory") . '/' . $file3;
+                    // On vérifie qu'il existe physiquement un fichier
+                    if(file_exists($nomFile3)) {
+                        unlink($nomFile3);
+                    }
+                }
+
                 $destination3 = $this->getParameter("activites_files_directory");
 
                 $originalFile3name = pathinfo($uploadedFile3->getClientOriginalName(), PATHINFO_FILENAME);
