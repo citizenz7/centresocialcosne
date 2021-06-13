@@ -29,12 +29,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
+                                <th width="5%">{{ knp_pagination_sortable(pages, 'Id', 'p.id') }}</th>
+                                <th>{{ knp_pagination_sortable(pages, 'Titre', 'p.titre') }}</th>
                                 <th>Attr.</th>
-                                <th>Date</th>
-                                <th>Maj</th>
-                                <th>Actif</th>
+                                <th width="15%">{{ knp_pagination_sortable(pages, 'Posté le', 'p.createdAt') }}</th>
+                                <th width="15%">{{ knp_pagination_sortable(pages, 'Maj', 'p.updatedAt') }}</th>
+                                <th width="7%">{{ knp_pagination_sortable(pages, 'Actif', 'p.isActive') }}</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

@@ -29,13 +29,13 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
+                                <th width="4%">{{ knp_pagination_sortable(articles, 'Id', 'p.id') }}</th>
+                                <th>{{ knp_pagination_sortable(articles, 'Titre', 'p.titre') }}</th>
                                 <th>Catégorie(s)</th>
-                                <th>Posté le</th>
-                                <th>Mis à jour le</th>
-                                <th>Vues</th>
-                                <th>Actif</th>
+                                <th>{{ knp_pagination_sortable(articles, 'Posté le', 'p.createdAt') }}</th>
+                                <th>{{ knp_pagination_sortable(articles, 'Maj', 'p.updatedAt') }}</th>
+                                <th width="7%">{{ knp_pagination_sortable(articles, 'Vues', 'p.views') }}</th>
+                                <th width="7%">{{ knp_pagination_sortable(articles, 'Actif', 'p.isActive') }}</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

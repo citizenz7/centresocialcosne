@@ -37,7 +37,11 @@ class CategorieController extends AbstractController
      */
     public function indexCategories(Request $request, CategorieRepository $categoriesRepository, PaginatorInterface $paginator): Response
     {
-        $donnees = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'DESC']);
+        //$donnees = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'DESC']);
+
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Categorie p";
+        $donnees = $em->createQuery($dql);
 
         $categories = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)

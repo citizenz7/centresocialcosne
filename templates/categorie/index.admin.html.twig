@@ -28,9 +28,9 @@
                     <table class="table mt-3">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th width="80%">Titre</th>
-                                <th>actions</th>
+                                <th>{{ knp_pagination_sortable(categories, 'Id', 'p.id') }}</th>
+                                <th width="80%">{{ knp_pagination_sortable(categories, 'Titre', 'p.titre') }}</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>

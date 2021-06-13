@@ -36,7 +36,11 @@ class PageController extends AbstractController
      */
     public function indexAdmin(Request $request, PageRepository $pageRepository, PaginatorInterface $paginator)
     {
-        $donnees = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'DESC']);
+        //$donnees = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'DESC']);
+
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Page p";
+        $donnees = $em->createQuery($dql);
 
         $pages = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)

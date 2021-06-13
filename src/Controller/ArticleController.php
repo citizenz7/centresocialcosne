@@ -39,7 +39,11 @@ class ArticleController extends AbstractController
      */
     public function indexAdmin(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator)
     {
-        $donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['id' => 'DESC']);
+        //$donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['id' => 'DESC']);
+
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Article p";
+        $donnees = $em->createQuery($dql);
 
         $articles = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)

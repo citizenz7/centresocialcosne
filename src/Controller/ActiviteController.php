@@ -37,7 +37,12 @@ class ActiviteController extends AbstractController
      */
     public function indexAdmin(Request $request, ActiviteRepository $activiteRepository, PaginatorInterface $paginator): Response
     {
-        $donnees = $this->getDoctrine()->getRepository(Activite::class)->findBy([],['id' => 'DESC']);
+        //$donnees = $this->getDoctrine()->getRepository(Activite::class)->findBy([],['id' => 'DESC']);
+        
+
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Activite p";
+        $donnees = $em->createQuery($dql);
 
         $activites = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer
