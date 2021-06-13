@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : demander un nouveau mot de passe{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Nouveau mot de passe</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    {% for flashError in app.flashes('reset_password_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                    {% endfor %}
+                    <h2>Demander un nouveau mot de passe</h2>
+
+                    {{ form_start(requestForm) }}
+                    {{ form_row(requestForm.email) }}
+                    <div>
+                        <small>
+                            Veuillez entrer votre adresse e-mail et nous vous enverrons un lien pour renouveler votre
+                            mot de passe
+                        </small>
+                    </div>
+
+                    <button class="btn btn-primary mt-3">Demander un nouveau mot de passe</button>
+                    {{ form_end(requestForm) }}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,17 @@
+<h4>Bonjour</h4>
+
+<p>
+    Vous avez demandé un nouveau mot de passe pour le site {{ site_name_full }}.<br>
+    Pour créer un nouveau mot de passe, veuillez visiter le lien suivant :
+</p>
+
+<p>
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+</p>
+
+<p>Attention : le lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+<p>
+    L'équipe du {{ site_name_full }},<br>
+    <a href="{{ site_url_full }}">{{ site_url_full }}</a>
+</p>

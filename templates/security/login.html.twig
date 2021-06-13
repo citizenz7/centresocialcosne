@@ -55,8 +55,13 @@
                         </div>
                     </form>
 
-                    <p class="text-center mt-3 small">
-                        Pas de compte ? <a href="{{ path('app_register') }}">Créer un compte</a>
+                    <p class="text-center mt-3 p-2 small border-top border-bottom">
+                        Pas de compte ?<br>
+                        <a href="{{ path('app_register') }}"><i class="bi bi-person-plus-fill"></i> Créer un compte</a>
+                    </p>
+                    <p class="text-center mt-1 p-2 small border-top border-bottom">
+                        Mot de passe oublié/perdu ?<br>
+                        <a href="{{ path('app_forgot_password_request') }}"><i class="bi bi-arrow-clockwise"></i>  Demander un nouveau mot de passe</a>
                     </p>
 
                 </div>

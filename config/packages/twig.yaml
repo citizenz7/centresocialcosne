@@ -5,7 +5,7 @@ twig:
         site_name: 'Centre Social et Culturel'
         site_name_full: 'Centre Social et Culturel Suzanne Coulomb'
         site_url: 'centresocialcosne.org'
-        site_urlFull: 'https://www.centresocialcosne.org'
+        site_url_full: 'https://www.centresocialcosne.org'
         site_mail: 'info@centresocialcosne.org'
         site_author: 'citizenz7'
         site_location: 'Cosne-Cours-sur-Loire'
