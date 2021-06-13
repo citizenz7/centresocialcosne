@@ -19,28 +19,28 @@ class HomeController extends AbstractController
      */
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
-        $data_articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['isActive' => 1],['id' => 'desc']);
+        $data_articles = $this->getDoctrine()->getRepository(Article::class)->findBy(['isActive' => 1],['createdAt' => 'desc']);
         $articles = $paginator->paginate(
             $data_articles,
             $request->query->getInt('page', 1),
             3
         );
 
-        $data_activites = $this->getDoctrine()->getRepository(Activite::class)->findBy(['isActive' => 1],['updatedAt' => 'desc']);
+        $data_activites = $this->getDoctrine()->getRepository(Activite::class)->findBy(['isActive' => 1],['createdAt' => 'desc']);
         $activites = $paginator->paginate(
             $data_activites,
             $request->query->getInt('page', 1),
             3
         );
 
-        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['id' => 'asc']);
+        $data_pages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['createdAt' => 'asc']);
         $pages = $paginator->paginate(
             $data_pages,
             $request->query->getInt('page', 1),
             3
         );
 
-        $totalPages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['id' => 'asc']);
+        $totalPages = $this->getDoctrine()->getRepository(Page::class)->findBy(['isActive' => 1],['createdAt' => 'asc']);
 
         $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['titre' => 'asc']);
 

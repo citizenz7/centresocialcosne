@@ -46,21 +46,6 @@
                             {{ page.contenu|raw }}
                         </div>
 
-                        {#
-                        <div class="entry-footer">
-                            <i class="bi bi-folder"></i>
-                            <ul class="cats">
-                                <li>
-                                    {% for cat in article.categorie %}
-                                        <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                                            <span class="badge bg-secondary">{{ cat.titre }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </li>
-                            </ul>
-                        </div>
-                        #}
-
                     </article>
                     <!-- End blog entry -->
 

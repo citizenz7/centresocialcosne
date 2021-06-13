@@ -3,11 +3,12 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -18,21 +19,21 @@ class ContactType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'form-control mb-3',
-                    'placeholder' => 'Veuillez entrer votre prénom'
+                    'placeholder' => 'Votre prénom'
                 ]
             ])
             ->add('nom', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'class' => 'form-control mb-3',
-                    'placeholder' => 'Veuillez entrer votre nom'
+                    'placeholder' => 'Votre nom'
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr' => [
                     'class' => 'form-control mb-3',
-                    'placeholder' => 'Veuillez entrer votre adresse e-mail'
+                    'placeholder' => 'Votre adresse e-mail'
                 ]
             ])
             ->add('message', TextareaType::class, [
@@ -41,6 +42,11 @@ class ContactType extends AbstractType
                     'rows' => 8,
                     'class' => 'form-control mb-3',
 		            'placeholder' => 'Votre message'
+                ]
+            ])
+            ->add('captcha', CaptchaType::class, [
+                'attr' => [
+                    'style' => 'width: 200px'
                 ]
             ])
         ;
