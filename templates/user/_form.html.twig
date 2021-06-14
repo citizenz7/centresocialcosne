@@ -1,6 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-sm btn-warning">{{ button_label|default('Créer un utilisateur') }}</button>
+    <button class="btn btn-sm btn-success">{{ button_label|default('Créer un utilisateur') }}</button>
     <button class="btn btn-sm btn-secondary" type="reset">Annuler</button>
     <a class="btn btn-sm btn-primary" href="{{ path('user_index') }}">Liste des utilisateurs</a>
 {{ form_end(form) }}

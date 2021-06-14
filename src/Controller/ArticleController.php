@@ -42,7 +42,7 @@ class ArticleController extends AbstractController
         //$donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['id' => 'DESC']);
 
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM App:Article p";
+        $dql = "SELECT p FROM App:Article p ORDER BY p.createdAt DESC";
         $donnees = $em->createQuery($dql);
 
         $articles = $paginator->paginate(
@@ -98,7 +98,7 @@ class ArticleController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('article_admin_index');
         }
 
         return $this->render('article/new.html.twig', [
@@ -170,7 +170,7 @@ class ArticleController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('article_admin_index');
         }
 
         return $this->render('article/edit.html.twig', [
@@ -201,6 +201,6 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('article_index');
+        return $this->redirectToRoute('article_admin_index');
     }
 }

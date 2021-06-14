@@ -144,13 +144,10 @@ class PageController extends AbstractController
             // Date de création de la page
             $page->setCreatedAt(new \DateTime());
 
-            // Auteur de la page
-            $page->setAuteur($this->getUser());
-
             $entityManager->persist($page);
             $entityManager->flush();
 
-            return $this->redirectToRoute('page_index');
+            return $this->redirectToRoute('page_admin_index');
         }
 
         return $this->render('page/new.html.twig', [
@@ -328,7 +325,7 @@ class PageController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('page_index');
+            return $this->redirectToRoute('page_admin_index');
         }
 
         return $this->render('page/edit.html.twig', [
@@ -403,6 +400,6 @@ class PageController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('page_index');
+        return $this->redirectToRoute('page_admin_index');
     }
 }

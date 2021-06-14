@@ -63,7 +63,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/new.html.twig', [
@@ -145,6 +145,6 @@ class UserController extends AbstractController
         $session = new Session();
         $session->invalidate();
 
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('user_index');
     }
 }

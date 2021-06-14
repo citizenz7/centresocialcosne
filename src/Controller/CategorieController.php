@@ -40,7 +40,7 @@ class CategorieController extends AbstractController
         //$donnees = $this->getDoctrine()->getRepository(Categorie::class)->findBy([],['id' => 'DESC']);
 
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM App:Categorie p";
+        $dql = "SELECT p FROM App:Categorie p ORDER BY p.titre ASC";
         $donnees = $em->createQuery($dql);
 
         $categories = $paginator->paginate(
@@ -87,7 +87,7 @@ class CategorieController extends AbstractController
             $entityManager->persist($categorie);
             $entityManager->flush();
 
-            return $this->redirectToRoute('categorie_index');
+            return $this->redirectToRoute('categorie_admin_index');
         }
 
         return $this->render('categorie/new.html.twig', [
@@ -147,7 +147,7 @@ class CategorieController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categorie_index');
+            return $this->redirectToRoute('categorie_admin_index');
         }
 
         return $this->render('categorie/edit.html.twig', [
@@ -178,6 +178,6 @@ class CategorieController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('categorie_index');
+        return $this->redirectToRoute('categorie_admin_index');
     }
 }

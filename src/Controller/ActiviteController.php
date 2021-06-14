@@ -41,7 +41,8 @@ class ActiviteController extends AbstractController
         
 
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM App:Activite p";
+        // Les data issues de la table activite sont ordonnées par updatedAt
+        $dql = "SELECT p FROM App:Activite p ORDER BY p.updatedAt DESC";
         $donnees = $em->createQuery($dql);
 
         $activites = $paginator->paginate(
@@ -129,16 +130,13 @@ class ActiviteController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
 
-            // Date de création de l'article
+            // Date de création de l'activité
             $activite->setCreatedAt(new \DateTime());
-
-            // Auteur de l'article
-            $activite->setAuteur($this->getUser());
 
             $entityManager->persist($activite);
             $entityManager->flush();
 
-            return $this->redirectToRoute('activite_index');
+            return $this->redirectToRoute('activite_admin_index');
         }
 
         return $this->render('activite/new.html.twig', [
@@ -288,7 +286,7 @@ class ActiviteController extends AbstractController
              
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('activite_index');
+            return $this->redirectToRoute('activite_admin_index');
         }
 
         return $this->render('activite/edit.html.twig', [
@@ -353,6 +351,6 @@ class ActiviteController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('activite_index');
+        return $this->redirectToRoute('activite_admin_index');
     }
 }

@@ -54,10 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $articles;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Page::class, mappedBy="auteur")
-     */
-    private $pages;
+
 
     /**
      * @ORM\Column(type="boolean")
@@ -79,10 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $fonction;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Activite::class, mappedBy="auteur")
-     */
-    private $activites;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -242,35 +236,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Page[]
-     */
-    public function getPages(): Collection
-    {
-        return $this->pages;
-    }
 
-    public function addPage(Page $page): self
-    {
-        if (!$this->pages->contains($page)) {
-            $this->pages[] = $page;
-            $page->setAuteur($this);
-        }
-
-        return $this;
-    }
-
-    public function removePage(Page $page): self
-    {
-        if ($this->pages->removeElement($page)) {
-            // set the owning side to null (unless already changed)
-            if ($page->getAuteur() === $this) {
-                $page->setAuteur(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function isVerified(): bool
     {
@@ -325,35 +291,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Activite[]
-     */
-    public function getActivites(): Collection
-    {
-        return $this->activites;
-    }
 
-    public function addActivite(Activite $activite): self
-    {
-        if (!$this->activites->contains($activite)) {
-            $this->activites[] = $activite;
-            $activite->setAuteur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeActivite(Activite $activite): self
-    {
-        if ($this->activites->removeElement($activite)) {
-            // set the owning side to null (unless already changed)
-            if ($activite->getAuteur() === $this) {
-                $activite->setAuteur(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getFacebook(): ?string
     {

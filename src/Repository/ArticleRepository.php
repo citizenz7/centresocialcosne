@@ -41,6 +41,7 @@ class ArticleRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('a')
             //->andWhere('a.exampleField = :val')
             //->setParameter('val', $value)
+            ->andWhere('a.isActive = true')
             ->orderBy('a.views', 'DESC')
             ->setMaxResults(3)
             ->select('a.titre', 'a.slug', 'a.image', 'a.views')

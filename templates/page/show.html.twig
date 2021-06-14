@@ -24,27 +24,30 @@
 
                     <article class="entry entry-single">
 
-                        <h2 class="entry-title">{{ page.titre }}</h2>
+                        {% if page.isActive %}
 
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> {{ page.auteur.prenom }} {{ page.auteur.nom }}
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-clock"></i> {{ page.createdAt ? page.createdAt|date('d-m-Y') : '' }}
-                                </li>
-                                {% if page.updatedAt != null %}
+                            <h2 class="entry-title">{{ page.titre }}</h2>
+
+                            <div class="entry-meta">
+                                <ul>
                                     <li class="d-flex align-items-center">
-                                        <i class="bi bi-clock-fill"></i> {{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}
+                                        <i class="bi bi-clock"></i> {{ page.createdAt ? page.createdAt|date('d-m-Y') : '' }}
                                     </li>
-                                {% endif %}
-                            </ul>
-                        </div>
+                                    {% if page.updatedAt != null %}
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-clock-fill"></i> {{ page.updatedAt ? page.updatedAt|date('Y-m-d H:i:s') : '' }}
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
 
-                        <div class="entry-content">
-                            {{ page.contenu|raw }}
-                        </div>
+                            <div class="entry-content">
+                                {{ page.contenu|raw }}
+                            </div>
+
+                        {% else %}
+                            <h2>Cette page est désactivée.</h2>
+                        {% endif %}
 
                     </article>
                     <!-- End blog entry -->
@@ -75,32 +78,6 @@
                             </div>
                         </div>
                     {% endif %}
-
-                    <div class="blog-author d-flex align-items-center">
-                        <img src="../uploads/images/users/{{ page.auteur.image }}" class="rounded-circle float-left" alt="">
-                        <div>
-                            <h4>Posté par {{ page.auteur.prenom }} {{ page.auteur.nom }},</h4>
-                            <h6>{{ page.auteur.fonction }}</h6>
-
-                            {% if page.auteur.facebook or page.auteur.twitter or page.auteur.instagram %}
-                                <div class="social-links">
-                                    {% if page.auteur.facebook %}
-                                        <a href="{{ page.auteur.facebook }}"><i class="bi bi-facebook"></i></a>
-                                    {% endif %}
-                                    {% if page.auteur.twitter %}
-                                        <a href="{{ page.auteur.twitter }}"><i class="bi bi-twitter"></i></a>
-                                    {% endif %}
-                                    {% if page.auteur.instagram %}
-                                        <a href="{{ page.auteur.instagram }}"><i class="biu bi-instagram"></i></a>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-
-                            <p>
-                                {{ page.auteur.presentation|raw }}
-                            </p>
-                        </div>
-                    </div><!-- End blog author bio -->
 
                 </div><!-- End blog entries list -->
 

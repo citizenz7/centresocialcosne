@@ -83,7 +83,7 @@ Lors de la création d'un article, vous devrez choisir OBLIGATOIREMENT :
 * un contenu (texte principal de l'article)
 * une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
 * une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
-* définir si l'article est visible ou non (pratique si vous devez désactiver l'article, sans le supprimer, ... pour le réactiver plus tard. Ou pour le préparer en avance et l'activer au moment souhaité.)
+* définir si l'article est visible ou non (Actif) (pratique si vous devez désactiver l'article, sans le supprimer, ... pour le réactiver plus tard. Ou pour le préparer en avance et l'activer au moment souhaité.)
 ## Activités
 Il s'agit de la partie qui présente tous les services et activités du centre social.
 Lors de la création de l'activité, vous devrez choisir OBLIGATOIREMENT :
@@ -92,14 +92,14 @@ Lors de la création de l'activité, vous devrez choisir OBLIGATOIREMENT :
 * une image de présentation (voir la partie Images ci-dessous. Ces images sont préférablement issues de Pixabay)
 * vous pourrez choisir jusqu'à 3 fichiers PDF à téléverser. Ces fichiers seront affichés en bas d'article et téléchargeables par les visiteurs.
 * une ou plusieurs catégories (pour sélectionner plusieurs catégories, utilisez la touche CTRL de votre clavier)
-* définir si l'activité est visible ou non (cf. Articles).
+* définir si l'activité est visible ou non (cf. Articles - Blog).
 ## Pages
 Il s'agit de la partie qui présente le centre social plus en "détails" (technique, administratif).
 Lors de la création de la page, vous devrez choisir OBLIGATOIREMENT :
 * un titre
 * un contenu (texte principal de la page)
 * un "attribut" pour la page (A LA UNE, A PROPOS, etc.). Permettra de positionner la page sur la page d'accueil.
-* définir si la page est visible ou non (cf. Articles).
+* définir si la page est visible ou non (cf. Articles - Blog).
 ## Catégories
 Il s'agit de la partie qui présente les "secteurs d'activités" du centre social.
 Cette partie est commune aux Articles et aux Activités.

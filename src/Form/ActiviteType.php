@@ -38,7 +38,7 @@ class ActiviteType extends AbstractType
                     'class' => 'form-control mb-3'
                 ],
                 'mapped' => false,
-                'required' => true,
+                'required' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '4M',

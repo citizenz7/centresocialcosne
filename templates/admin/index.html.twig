@@ -21,7 +21,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">ARTICLES</h5>
+                            <h5 class="card-title fw-bold">ARTICLES</h5>
                             <a href="{{ path('article_admin_index') }}" class="btn btn-primary fw-bold p-3 fs-6">Liste des articles</a>
                             <br>
                             <a href="{{ path('article_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer un article</a>
@@ -31,7 +31,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">CATEGORIES</h5>
+                            <h5 class="card-title fw-bold">CATEGORIES</h5>
                             <a href="{{ path('categorie_admin_index') }}" class="btn btn-info fw-bold p-3 fs-6">Liste des catégories</a>
                             <br>
                             <a href="{{ path('categorie_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une catégorie</a>
@@ -41,7 +41,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">PAGES</h5>
+                            <h5 class="card-title fw-bold">PAGES</h5>
                             <a href="{{ path('page_admin_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Liste des pages</a>
                             <br>
                             <a href="{{ path('page_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une page</a>
@@ -54,7 +54,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">ACTIVITES</h5>
+                            <h5 class="card-title fw-bold">ACTIVITES</h5>
                             <a href="{{ path('activite_admin_index') }}" class="btn btn-dark fw-bold p-3 fs-6">Liste des activités</a>
                             <br>
                             <a href="{{ path('activite_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer une activité</a>
@@ -64,18 +64,20 @@
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">UTILISATEURS</h5>
+                            <h5 class="card-title fw-bold">UTILISATEURS</h5>
                             <a href="{{ path('user_index') }}" class="btn btn-secondary fw-bold p-3 fs-6">Liste des utilisateurs</a>
                             <br>
-                            <a href="{{ path('user_new') }}" class="btn btn-success fw-bold p-3 fs-6">Créer un utilisateur</a>
+                            <a href="{{ path('app_register') }}" class="btn btn-success fw-bold p-3 fs-6">Enregistrement d'un utilisateur</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card">
                         <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">LETTRES D'INFOS</h5>
-                            <a href="#" class="btn btn-danger fw-bold p-3 fs-6">Lettres d'info</a>
+                            <h5 class="card-title">LETTRES D'INFOS [Désactivé]</h5>
+                            <button class="btn btn-danger fw-bold p-3 fs-6">Liste des lettres d'info</button>
+                            <br>
+                            <button class="btn btn-success fw-bold p-3 fs-6">Créer une lettre d'info</button>
                         </div>
                     </div>
                 </div>

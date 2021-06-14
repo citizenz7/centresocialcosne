@@ -26,7 +26,25 @@
             </ul>
         </div><!-- End sidebar categories-->
 
-        <h3 class="sidebar-title"><i class="bi bi-tag-fill"></i> Blog</h3>
+        <h3 class="sidebar-title"><i class="bi bi-card-text"></i> Articles populaires</h3>
+        <div class="sidebar-item categories">
+            <ul class="list-group list-group-flush">
+                {% for a in articles %}
+
+                        <li class="list-group-item" style="text-align:justify;">
+                            <img src="../uploads/images/articles/{{ a.image }}" alt="{{ a.titre }}" class="img-fluid me-2 mt-2 float-start rounded" style="max-width:70px; width:100%;">
+                            <a class="small" href="{{ path('article_show', {'slug': a.slug}) }}">
+                                {{ a.titre }} 
+                            </a>
+                            <span class="badge rounded-pill border mx-1 px-2 pb-1 text-dark small">{{ a.views }}</span>
+                        </li>
+
+                {% endfor %}
+
+            </ul>
+        </div><!-- End sidebar categories-->
+
+        <h3 class="sidebar-title"><i class="bi bi-newspaper"></i> Blog</h3>
         <div class="sidebar-item categories">
             <ul>
                 <li>

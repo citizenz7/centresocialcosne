@@ -31,9 +31,6 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center">
-                                            <i class="bi bi-person"></i> {{ page.auteur.prenom }} {{ page.auteur.nom }}
-                                        </li>
-                                        <li class="d-flex align-items-center">
                                             <i class="bi bi-clock"></i> {{ page.createdAt ? page.createdAt|date('d-m-Y') : '' }}
                                         </li>
                                         {% if page.updatedAt %}

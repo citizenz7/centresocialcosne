@@ -46,24 +46,30 @@
                             <div class="col">
                                 <div class="entry-content">
                                     <h5 class="bg-light rounded p-2">Les derniers articles de la catégorie</h5>
-                                    {% for c in categorie.articles|reverse %}
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
-                                            </li>  
-                                        </ul>
+                                    {% for c in categorie.articles|slice(0,10)|reverse %}
+                                        <!-- si l'article est actif, on affiche-->
+                                        {% if c.isActive %}
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
+                                                </li>  
+                                            </ul>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="entry-content">
                                     <h5 class="bg-light rounded p-2">Les dernières activités de la catégorie</h5>
-                                    {% for c in categorie.activites|reverse %}
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('activite_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
-                                            </li>  
-                                        </ul>
+                                    {% for c in categorie.activites %}
+                                        <!-- si l'activité est active, on affiche-->
+                                        {% if c.isActive %}
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('activite_show', { 'slug': c.slug }) }}">{{ c.titre }}</a>
+                                                </li>  
+                                            </ul>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>

@@ -23,45 +23,47 @@
 
                     <article class="entry entry-single">
 
-                        <div class="entry-img">
-                            <img src="../uploads/images/articles/{{ article.image }}" alt="{{ article.titre }}"
-                                class="img-fluid">
-                        </div>
+                        {% if article.isActive %}
 
-                        <div class="mb-3">
-                            {% for cat in article.categorie %}
-                            <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                                <span class="badge bg-primary">{{ cat.titre }}</span>
-                            </a>
-                            {% endfor %}
-                        </div>
+                            <div class="entry-img">
+                                <img src="../uploads/images/articles/{{ article.image }}" alt="{{ article.titre }}"
+                                    class="img-fluid">
+                            </div>
 
-                        <h2 class="entry-title">{{ article.titre }}</h2>
+                            <div class="mb-3">
+                                {% for cat in article.categorie %}
+                                <a class="h4" href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                    <span class="badge bg-primary">{{ cat.titre }}</span>
+                                </a>
+                                {% endfor %}
+                            </div>
 
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> {{ article.auteur.prenom }} {{ article.auteur.prenom }}
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-clock"></i>
-                                    {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}
-                                </li>
-                                {% if article.updatedAt != null %}
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-clock-fill"></i>
-                                    {{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}
-                                </li>
-                                {% endif %}
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-eye"></i> {{ article.views }}
-                                </li>
-                            </ul>
-                        </div>
+                            <h2 class="entry-title">{{ article.titre }}</h2>
 
-                        <div class="entry-content">
-                            {{ article.contenu|raw }}
-                        </div>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center" title="Posté le">
+                                        <i class="bi bi-clock"></i>
+                                        {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}
+                                    </li>
+                                    {% if article.updatedAt %}
+                                    <li class="d-flex align-items-center" title="Mis à jour le">
+                                        <i class="bi bi-clock-fill"></i>
+                                        {{ article.updatedAt ? article.updatedAt|date('d-m-Y') : '' }}
+                                    </li>
+                                    {% endif %}
+                                    <li class="d-flex align-items-center" title="Nombre de lectures">
+                                        <i class="bi bi-eye"></i> {{ article.views }}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="entry-content">
+                                {{ article.contenu|raw }}
+                            </div>
+                        {% else %}
+                            <h2>Cet article est désactivé.</h2>
+                        {% endif %}
 
                     </article>
                     <!-- End blog entry -->

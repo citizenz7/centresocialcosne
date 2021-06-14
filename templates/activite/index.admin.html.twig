@@ -29,13 +29,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>{{ knp_pagination_sortable(activites, 'Id', 'p.id') }}</th>
+                                <th width="4%">{{ knp_pagination_sortable(activites, 'Id', 'p.id') }}</th>
                                 <th>{{ knp_pagination_sortable(activites, 'Titre', 'p.titre') }}</th>
                                 <th>Catégorie</th>
-                                <th>{{ knp_pagination_sortable(activites, 'Posté le', 'p.createdAt') }}</th>
-                                <th>{{ knp_pagination_sortable(activites, 'Mise à jour', 'p.updatedAt') }}</th>
-                                <th>Auteur</th>
-                                <th>{{ knp_pagination_sortable(activites, 'Activé', 'p.isActive') }}</th>
+                                <th width="10%">{{ knp_pagination_sortable(activites, 'Posté le', 'p.createdAt') }}</th>
+                                <th width="10%">{{ knp_pagination_sortable(activites, 'Mise à jour', 'p.updatedAt') }}</th>
+                                <th width="7%">{{ knp_pagination_sortable(activites, 'Activé', 'p.isActive') }}</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -51,7 +50,6 @@
                                 </td>
                                 <td>{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
                                 <td>{{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}</td>
-                                <td>{{ activite.auteur }}</td>
                                 <td>{{ activite.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
                                     <table>

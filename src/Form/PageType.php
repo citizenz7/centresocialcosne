@@ -24,6 +24,7 @@ class PageType extends AbstractType
                 ]
             ])
             ->add('contenu', CKEditorType::class)
+
             //->add('slug')
             //->add('createdAt')
             //->add('updatedAt')
@@ -196,7 +197,7 @@ class PageType extends AbstractType
                 'label' => 'Page INSCRIPTIONS',
                 'required' => false,
                 'attr' => [
-                    'class' => 'mx-2'
+                    'class' => 'mx-2 mb-3'
                 ]
             ])
             ->add('is_active', ChoiceType::class, [

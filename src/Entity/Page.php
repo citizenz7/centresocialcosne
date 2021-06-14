@@ -45,12 +45,6 @@ class Page
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pages")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $auteur;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isFeatured;
@@ -204,18 +198,6 @@ class Page
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getAuteur(): ?User
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(?User $auteur): self
-    {
-        $this->auteur = $auteur;
 
         return $this;
     }

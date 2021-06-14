@@ -36,7 +36,7 @@ class Activite
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -54,12 +54,6 @@ class Activite
      * @ORM\Column(type="boolean")
      */
     private $isActive;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="activites")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $auteur;
 
     /**
      * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="activites")
@@ -171,18 +165,6 @@ class Activite
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    public function getAuteur(): ?User
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(?User $auteur): self
-    {
-        $this->auteur = $auteur;
 
         return $this;
     }

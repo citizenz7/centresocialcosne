@@ -19,7 +19,9 @@
                 <div class="col">
                     <h2>Modification de la catégorie : <b>{{ categorie.titre }}</b></h2>
 
-                    {{ include('categorie/_form.html.twig', {'button_label': 'Modifier la catégorie'}) }}
+                    <p>
+                        {{ include('categorie/_form.html.twig', {'button_label': 'Modifier la catégorie'}) }}
+                    </p>
 
                     {{ include('categorie/_delete_form.html.twig') }}
                 </div>

@@ -24,53 +24,41 @@
 
                     <article class="entry entry-single">
 
-                        <div class="entry-img text-center">
-                            <img src="../uploads/images/activites/{{ activite.image }}" alt="{{ activite.titre }}" class="img-fluid">
-                        </div>
+                        {% if activite.isActive %}
+                            {% if activite.image %}
+                                <div class="entry-img text-center">
+                                    <img src="../uploads/images/activites/{{ activite.image }}" alt="{{ activite.titre }}" class="img-fluid">
+                                </div>
+                            {% endif %}
 
-                        <h3 class="mb-3"> 
-                            {% for cat in activite.categorie %}
-                            <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                                <span class="badge bg-primary">{{ cat.titre }}</span>
-                            </a>
-                            {% endfor %}
-                        </h3>
-                        <h2 class="entry-title">{{ activite.titre }}</h2>
+                            <h3 class="mb-3"> 
+                                {% for cat in activite.categorie %}
+                                <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
+                                    <span class="badge bg-primary">{{ cat.titre }}</span>
+                                </a>
+                                {% endfor %}
+                            </h3>
+                            <h2 class="entry-title">{{ activite.titre }}</h2>
 
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i> Auteur {{ activite.auteur.prenom }} {{ activite.auteur.nom }}
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i class="bi bi-clock"></i> Posté le {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
-                                </li>
-                                {% if activite.updatedAt != null %}
+                            <div class="entry-meta">
+                                <ul>
                                     <li class="d-flex align-items-center">
-                                        <i class="bi bi-clock-fill"></i> Modifié le {{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}
+                                        <i class="bi bi-clock"></i> Posté le {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
                                     </li>
-                                {% endif %}
-                            </ul>
-                        </div>
+                                    {% if activite.updatedAt != null %}
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-clock-fill"></i> Modifié le {{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
 
-                        <div class="entry-content">
-                            {{ activite.description|raw }}
-                        </div>
-
-                        {#
-                        <div class="entry-footer">
-                            <i class="bi bi-folder"></i>
-                            <ul class="cats">
-                                <li>
-                                    {% for cat in article.categorie %}
-                                        <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
-                                            <span class="badge bg-secondary">{{ cat.titre }}</span>
-                                        </a>
-                                    {% endfor %}
-                                </li>
-                            </ul>
-                        </div>
-                        #}
+                            <div class="entry-content">
+                                {{ activite.description|raw }}
+                            </div>
+                        {% else %}
+                            <h2>Cette activité est désactivée.</h2>
+                        {% endif %}
 
                     </article>
                     <!-- End blog entry -->
@@ -95,32 +83,6 @@
                             </div>
                         </div>
                     {% endif %}
-
-                    <div class="blog-author d-flex align-items-center">
-                        <img src="../uploads/images/users/{{ activite.auteur.image }}" class="rounded-circle float-left" alt="">
-                        <div>
-                            <h4>Posté par {{ activite.auteur.prenom }} {{ activite.auteur.nom }},</h4>
-                            <h6>{{ activite.auteur.fonction }}</h6>
-
-                            {% if activite.auteur.facebook or activite.auteur.twitter or activite.auteur.instagram %}
-                                <div class="social-links">
-                                    {% if activite.auteur.facebook %}
-                                        <a href="{{ activite.auteur.facebook }}"><i class="bi bi-facebook"></i></a>
-                                    {% endif %}
-                                    {% if activite.auteur.twitter %}
-                                        <a href="{{ activite.auteur.twitter }}"><i class="bi bi-twitter"></i></a>
-                                    {% endif %}
-                                    {% if activite.auteur.instagram %}
-                                        <a href="{{ activite.auteur.instagram }}"><i class="biu bi-instagram"></i></a>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-
-                            <p>
-                                {{ activite.auteur.presentation|raw }}
-                            </p>
-                        </div>
-                    </div><!-- End blog author bio -->
 
                 </div><!-- End blog entries list -->
 

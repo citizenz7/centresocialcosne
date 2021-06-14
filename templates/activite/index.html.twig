@@ -22,6 +22,7 @@
                 <div class="col-lg-8 entries">
 
                     {% for activite in activites %}
+                        <!-- si l'activité est active, on affiche -->
                         {% if activite.isActive %}
                             <article class="entry">
 
@@ -43,9 +44,6 @@
 
                                 <div class="entry-meta">
                                     <ul>
-                                        <li class="d-flex align-items-center">
-                                            <i class="bi bi-person"></i> {{ activite.auteur.prenom }} {{ activite.auteur.nom }}
-                                        </li>
                                         <li class="d-flex align-items-center">
                                             <i class="bi bi-clock"></i> {{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}
                                         </li>

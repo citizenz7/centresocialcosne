@@ -21,15 +21,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, [
-                'label' => 'Titre',
+                'label' => 'Titre de l\'article',
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
             ])
             ->add('contenu', CKEditorType::class, [
-                'label' => 'Contenu',
+                'label' => 'Contenu de l\'article',
                 'attr' => [
-                    'class' => 'form-control mb-3'
+                    'class' => 'my-3'
                 ]
             ])
             //->add('createdAt')
@@ -55,7 +55,7 @@ class ArticleType extends AbstractType
             //->add('slug')
             //->add('auteur')
             ->add('categorie', EntityType::class, [
-                'label' => 'Catégories du de l\'article (Choisissez une ou plusieurs catégories)',
+                'label' => 'Catégorie(s) de l\'article (Choisissez une ou plusieurs catégories)',
                 'class' => Categorie::class,
                 'choice_label' => 'titre',
                 'multiple' => true,
