@@ -220,7 +220,6 @@
                 {% endfor %}
             </div>
 
-
             <div class="row mt-3">
                 <div class="col">
                     <div class="box text-center" data-aos="fade-up" data-aos-delay="200">
@@ -337,6 +336,29 @@
         </div>
 
     </section><!-- End Contact Section -->
+
+    <!-- ======= Mentions légales Section ======= -->
+    <section id="mentions" class="clients">
+
+        <div class="container" data-aos="fade-up">
+  
+            <header class="section-header">
+                <h2>Utilisation du site web</h2>
+                <p>Mentions légales</p>
+                <div>
+                    {% for page in pagesAll %}
+                        {% if page.isMentionslegales %}
+                            <div class="text-center small mt-3">
+                                Consulter :<br>
+                                <a class="btn btn-primary" href="{{ path('page_show', {'slug': page.slug}) }}">Mentions légales et conditions générales d'utilisation du site</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </header>
+        </div>
+  
+    </section><!-- End Mentions légales Section -->
 
 </main><!-- End #main -->
 

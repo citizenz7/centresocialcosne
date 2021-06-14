@@ -143,7 +143,7 @@
                         </a>
                         <p style="text-align:justify; font-size:1rem;">Partout, en France, les centres sociaux sont des structures de proximité qui animent le débat démocratique, 
                             accompagnent des mobilisations et des projets d'habitant.e.s, et construisent de meilleures 
-                            conditions de vie, aujourd'hui et pour demain.
+                            conditions de vie, aujourd'hui et pour demain. <a href="http://www.centres-sociaux.fr/">Voir le site des centres sociaux.</a>
                         </p>
                         <div class="social-links mt-3">
                             <a href="https://www.facebook.com/Centre-Social-et-Culturel-Suzanne-Coulomb-412193298831383" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -198,9 +198,9 @@
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | 
                 {% if app.user %}
-                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a href="{{ path('app_logout') }}"><i class="bi bi-unlock-fill"></i> Déconnexion</a>
                 {% else %}
-                    <a href="{{ path('app_login') }}">Connexion</a>
+                    <a href="{{ path('app_login') }}"><i class="bi bi-lock-fill"></i> Connexion</a>
                 {% endif %}
             </div>
         </div>
@@ -225,3 +225,4 @@
 </body>
 
 </html>
+
