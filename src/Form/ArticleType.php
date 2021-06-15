@@ -54,6 +54,58 @@ class ArticleType extends AbstractType
             ])
             //->add('slug')
             //->add('auteur')
+            
+            ->add('file1', FileType::class, [
+                'label' => 'Fichier #1 de l\'article',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file2', FileType::class, [
+                'label' => 'Fichier #2 de l\'article',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
+            ->add('file3', FileType::class, [
+                'label' => 'Fichier #3 de l\'article',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
+                    ])
+                ]
+            ])
             ->add('categorie', EntityType::class, [
                 'label' => 'Catégorie(s) de l\'article (Choisissez une ou plusieurs catégories)',
                 'class' => Categorie::class,

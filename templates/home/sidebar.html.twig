@@ -30,13 +30,13 @@
         <div class="sidebar-item categories">
             <ul class="list-group list-group-flush">
                 {% for a in articles %}
-
                         <li class="list-group-item" style="text-align:justify;">
                             <img src="../uploads/images/articles/{{ a.image }}" alt="{{ a.titre }}" class="img-fluid me-2 mt-2 float-start rounded" style="max-width:70px; width:100%;">
+                                <span class="badge border text-primary" style="font-size:9px;">{{ a.createdAt|date('d-m-Y') }}</span>
                             <a class="small" href="{{ path('article_show', {'slug': a.slug}) }}">
                                 {{ a.titre }} 
                             </a>
-                            <span class="badge rounded-pill border mx-1 px-2 pb-1 text-dark small">{{ a.views }}</span>
+                            <span class="badge border mx-1 px-2 pb-1 text-dark" style="font-size:9px;" title="Nb de lectures">{{ a.views }}</span>
                         </li>
 
                 {% endfor %}

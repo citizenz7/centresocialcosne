@@ -144,9 +144,6 @@ Si vous avez le ROLE administrateur vous pourrez gérer différentes sections :
 * création/édition/suppression d'utilisateurs
 (la partie Lettre d'info n'est pas dévloppée).
 Une fois connecté, vous aurez accès à l'espace d'administration grâce au nouveau lien `Administration` qui apparaitra dans le menu principal (dans la liste, en-dessous de votre prénom).
-# A FAIRE
-
-* Sidebar : nb d'articles / nb d'activités par catégorie (!)
 
 # FACULTATIF - A DEFINIR
 

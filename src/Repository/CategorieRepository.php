@@ -25,7 +25,7 @@ class CategorieRepository extends ServiceEntityRepository
             //->andWhere('a.exampleField = :val')
             //->setParameter('val', $value)
             ->orderBy('cat.titre', 'ASC')
-            ->select('cat.titre', 'cat.slug')
+            ->select('cat.id', 'cat.titre', 'cat.slug')
             ->getQuery()
             ->getResult()
         ;

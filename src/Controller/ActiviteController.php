@@ -197,7 +197,7 @@ class ActiviteController extends AbstractController
                  $activite->setImage($newFilename);
              }
 
-             // Upload fichier 1 
+            // Upload fichier 1 
             $uploadedFile1 = $form['file1']->getData();
             if ($uploadedFile1) {
 

@@ -44,7 +44,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->andWhere('a.isActive = true')
             ->orderBy('a.views', 'DESC')
             ->setMaxResults(3)
-            ->select('a.titre', 'a.slug', 'a.image', 'a.views')
+            ->select('a.titre', 'a.slug', 'a.createdAt', 'a.image', 'a.views')
             ->getQuery()
             ->getResult()
         ;

@@ -68,6 +68,27 @@
                     </article>
                     <!-- End blog entry -->
 
+                    {% if article.file1 or article.file2 or article.file3 %}
+                        <div class="blog-author d-flex align-items-center">
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <h4>Fichiers à télécharger</h4>
+                                </div>
+                                <div class="col">
+                                    {% if article.file1 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/articles/{{ article.file1 }}">{{ article.file1 }}</a>
+                                    {% endif %}
+                                    {% if article.file2 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/articles/{{ article.file2 }}">{{ article.file2 }}</a>
+                                    {% endif %}
+                                    {% if article.file3 %}
+                                        <a class="btn btn-primary text-white m-1" href="../uploads/fichiers/articles/{{ article.file3 }}">{{ article.file3 }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div class="blog-author d-flex align-items-center">
                         <img src="../uploads/images/users/{{ article.auteur.image }}" class="rounded-circle float-left"
                             alt="">

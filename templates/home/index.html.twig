@@ -90,7 +90,7 @@
                                 {{ tp.contenu|slice(0,750)|raw }}...
                             </div>
                             <a href="{{ path('page_show', {'slug': tp.slug}) }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Tarifs et bulletins d'inscription et d'adhésion</span>
+                                <span>Inscription</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -135,7 +135,7 @@
                 <div class="col">
                     <div class="box" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{ path('activite_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                            <span>Voir toutes les activités et les services</span>
+                            <span>Toutes les activités</span>
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -167,15 +167,17 @@
                             </div>
                             <span class="post-date">
                                 Posté le {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}, 
-                                par {{ article.auteur }}
-                                <br>
+                                par {{ article.auteur.prenom }} {{ article.auteur.nom }}
+                            </span>
+                            <br>
+                            <span class="post-date">
                                 {% for cat in article.categorie %}
                                     <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">{{ cat.titre }}</a>
                                 {% endfor %}
                             </span>
 
                             <h3 class="post-title">{{ article.titre }}</h3>
-                            <a href="{{ path('article_show', {'slug': article.slug}) }}" class="btn btn-sm btn-dark">
+                            <a href="{{ path('article_show', {'slug': article.slug}) }}" class="btn btn-sm btn-outline-dark">
                                 Lire l'article
                             </a>
                         </div>
@@ -188,7 +190,7 @@
                 <div class="col">
                     <div class="post-box text-center" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{ path('article_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                            <span>Voir tous les articles : Blog</span>
+                            <span>Tous les articles</span>
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -224,7 +226,7 @@
                 <div class="col">
                     <div class="box text-center" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{ path('page_index') }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                            <span>Découvrir le {{ site_name_full }}</span>
+                            <span>Découvrir le CSCSC</span>
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
