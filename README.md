@@ -31,7 +31,7 @@ Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner
     * recherche par article, activité, page
     * contact
     * lettre d'info (optionnel...)
-#### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription de d'utilisateurs "extérieurs" (à l'équipe du CS).
+#### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription d'utilisateurs "extérieurs" (à l'équipe du CS).
 
 ## Initialisation du projet
 * Cloner le repo Github : `git clone https://github.com/citizenz7/centresocialcosne.git`

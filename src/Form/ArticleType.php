@@ -66,7 +66,9 @@ class ArticleType extends AbstractType
                     new File([
                         'maxSize' => '3M',
                         'mimeTypes' => [
-                            'application/pdf'
+                            'application/pdf',
+                            'image/png',
+                            'image/jpeg',
                         ],
                         'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
                     ])
@@ -83,7 +85,9 @@ class ArticleType extends AbstractType
                     new File([
                         'maxSize' => '3M',
                         'mimeTypes' => [
-                            'application/pdf'
+                            'application/pdf',
+                            'image/png',
+                            'image/jpeg',
                         ],
                         'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
                     ])
@@ -100,7 +104,9 @@ class ArticleType extends AbstractType
                     new File([
                         'maxSize' => '3M',
                         'mimeTypes' => [
-                            'application/pdf'
+                            'application/pdf',
+                            'image/png',
+                            'image/jpeg',
                         ],
                         'mimeTypesMessage' => 'Le fichier envoyé n\'est pas valide',
                     ])
