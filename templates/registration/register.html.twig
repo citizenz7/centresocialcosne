@@ -25,13 +25,13 @@
                     <h2>Créer un compte</h2>
 
                     {{ form_start(registrationForm) }}
-                        {{ form_row(registrationForm.email) }}
                         {{ form_row(registrationForm.prenom) }}
                         {{ form_row(registrationForm.nom) }}
+                        {{ form_row(registrationForm.email) }}
                         {{ form_row(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.fonction) }}
                         {{ form_row(registrationForm.presentation) }}
                         {{ form_row(registrationForm.image) }}
-                        {{ form_row(registrationForm.fonction) }}
                         {{ form_row(registrationForm.facebook) }}
                         {{ form_row(registrationForm.twitter) }}
                         {{ form_row(registrationForm.instagram) }}

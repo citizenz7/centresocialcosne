@@ -105,7 +105,7 @@ class ActiviteType extends AbstractType
             //->add('createdAt')
             //->add('updatedAt')
             ->add('categorie', EntityType::class, [
-                'label' => 'Catégories du de l\'activité (Choisissez une ou plusieurs catégories)',
+                'label' => 'Catégories de l\'activité (Choisissez une ou plusieurs catégories)',
                 'class' => Categorie::class,
                 'choice_label' => 'titre',
                 'multiple' => true,

@@ -117,87 +117,87 @@ class PageType extends AbstractType
             ])
 
             ->add('is_featured', CheckboxType::class, [
-                'label' => 'Page A LA UNE',
+                'label' => 'A LA UNE',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_about', CheckboxType::class, [
-                'label' => 'Page A PROPOS',
+                'label' => 'A PROPOS',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_team', CheckboxType::class, [
-                'label' => 'Page EQUIPE',
+                'label' => 'EQUIPE',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_partenaire', CheckboxType::class, [
-                'label' => 'Page PARTENAIRES',
+                'label' => 'PARTENAIRES',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_conseiladmin', CheckboxType::class, [
-                'label' => 'Page CONSEIL ADMINISTRATION',
+                'label' => 'CONSEIL ADMINISTRATION',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_projetsocial', CheckboxType::class, [
-                'label' => 'Page PROJET SOCIAL',
+                'label' => 'PROJET SOCIAL',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_benevole', CheckboxType::class, [
-                'label' => 'Page BENEVOLES',
+                'label' => 'BENEVOLES',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_historique', CheckboxType::class, [
-                'label' => 'Page HISTORIQUE',
+                'label' => 'HISTORIQUE',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_organigramme', CheckboxType::class, [
-                'label' => 'Page ORGANIGRAMME',
+                'label' => 'ORGANIGRAMME',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_venir', CheckboxType::class, [
-                'label' => 'Page VENIR AU CENTRE SOCIAL',
+                'label' => 'VENIR AU CENTRE SOCIAL',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_mentionslegales', CheckboxType::class, [
-                'label' => 'Page MENTIONS LEGALES',
+                'label' => 'MENTIONS LEGALES',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'
                 ]
             ])
             ->add('is_inscription', CheckboxType::class, [
-                'label' => 'Page INSCRIPTIONS',
+                'label' => 'INSCRIPTIONS',
                 'required' => false,
                 'attr' => [
-                    'class' => 'mx-2 mb-3'
+                    'class' => 'mx-2'
                 ]
             ])
             ->add('is_active', ChoiceType::class, [

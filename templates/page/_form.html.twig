@@ -1,5 +1,37 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {#{ form_widget(form) }#}
+
+    {{ form_row(form.titre) }}
+    <div class="mb-3">
+        {{ form_row(form.contenu) }}
+    </div>
+
+    <div class="border border-primary rounded p-2 mb-3">
+        {{ form_row(form.file1) }}
+        {{ form_row(form.file2) }}
+        {{ form_row(form.file3) }}
+        {{ form_row(form.file4) }}
+        {{ form_row(form.file5) }}
+    </div>
+
+    <div class="border border-warning rounded p-2 mb-3">
+        <p>Cette page est-elle liée à une section ?</p>
+        {{ form_row(form.is_featured) }}
+        {{ form_row(form.is_about) }}
+        {{ form_row(form.is_inscription) }}
+        {{ form_row(form.is_team) }}
+        {{ form_row(form.is_partenaire) }}
+        {{ form_row(form.is_conseiladmin) }}
+        {{ form_row(form.is_projetsocial) }}
+        {{ form_row(form.is_benevole) }}
+        {{ form_row(form.is_historique) }}
+        {{ form_row(form.is_organigramme) }}
+        {{ form_row(form.is_venir) }}
+        {{ form_row(form.is_mentionslegales) }}
+    </div>
+
+    {{ form_row(form.is_active) }}
+
     <div class="mt-3">
         <button class="btn btn-sm btn-success">{{ button_label|default('Créer la page') }}</button>
         <button class="btn btn-sm btn-secondary" type="reset">Annuler</button>

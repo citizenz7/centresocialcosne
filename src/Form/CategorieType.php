@@ -23,7 +23,7 @@ class CategorieType extends AbstractType
                 ]
             ])
             ->add('description', CKEditorType::class, [
-                'label' => 'Contenu',
+                'label' => 'Description',
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]

@@ -5,13 +5,13 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UserType extends AbstractType
 {
@@ -35,9 +35,9 @@ class UserType extends AbstractType
                     'class' => 'form-control mb-3'
                 ],
             ])
-            ->add('presentation', CKEditorType::class, [
+            ->add('presentation', TextareaType::class, [
                 'attr' => [
-                    'class' => 'mb-3'
+                    'class' => 'mb-3 form-control'
                 ],
             ])
             ->add('image', FileType::class, [

@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,19 +16,13 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control mb-3',
-                    'placeholder' => 'E-mail'
-                ]
-            ])
             ->add('prenom', TextType::class, [
                 'label' => false,
                 'attr' => [
@@ -44,7 +37,13 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Nom'
                 ]
             ])
-
+            ->add('email', EmailType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'E-mail'
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => 'merci de cochez la case',
                 'mapped' => false,
@@ -75,9 +74,19 @@ class RegistrationFormType extends AbstractType
                 'first_options' => ['label' => false, 'attr' => [ 'class' => 'form-control mb-3', 'placeholder' => 'Mot de passe']],
                 'second_options' => ['label' => false, 'attr' => [ 'class' => 'form-control mb-3', 'placeholder' => 'Confirmez le mot de passe']]
             ])
-            ->add('presentation', CKEditorType::class, [
+            ->add('fonction', TextType::class, [
+                'label' => false,
                 'attr' => [
-                    'class' => 'mb-3'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Votre fonction au Centre Social'
+                ]
+            ])
+            ->add('presentation', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control mb-3',
+                    'rows' => '4',
+                    'placeholder' => 'Présentation courte'
                 ],
             ]) 
             ->add('image', FileType::class, [
@@ -98,31 +107,28 @@ class RegistrationFormType extends AbstractType
                     ])
                 ]
             ])
-            ->add('fonction', TextType::class, [
-                'label' => 'Votre fonction au centre social',
-                'attr' => [
-                    'class' => 'form-control mb-3'
-                ]
-            ])
             ->add('facebook', TextType::class, [
-                'label' => 'Votre profil Facebook',
+                'label' => false,
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Votre profil Facebook',
                 ]
             ])
             ->add('twitter', TextType::class, [
-                'label' => 'Votre profil Twitter',
+                'label' => false,
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Votre profil Twitter'
                 ]
             ])
             ->add('instagram', TextType::class, [
-                'label' => 'Votre profil Instagram',
+                'label' => false,
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Votre profil Instagram'
                 ]
             ])
         ;

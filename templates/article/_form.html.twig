@@ -1,5 +1,22 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {#{ form_widget(form) }#}
+    {{ form_row(form.titre) }}
+    <div class="mb-3">
+        {{ form_row(form.contenu) }}
+    </div>
+
+    <div class="border border-success rounded p-2 mb-3">
+        {{ form_row(form.image) }}
+    </div>
+
+    <div class="border border-primary rounded p-2 mb-3">
+        {{ form_row(form.file1) }}
+        {{ form_row(form.file2) }}
+        {{ form_row(form.file3) }}
+    </div>
+    {{ form_row(form.categorie) }}
+    {{ form_row(form.is_active) }}
+
     <div class="mt-3">
         <button class="btn btn-sm btn-success">{{ button_label|default('Créer un article') }}</button>
         <button class="btn btn-sm btn-secondary"type="reset">Annuler</button> 
