@@ -150,7 +150,11 @@ Si vous avez le ROLE administrateur vous pourrez gérer différentes sections :
 
 Une fois connecté, vous aurez accès à l'espace d'administration grâce au nouveau lien `Administration` qui apparaitra dans le menu principal (dans la liste, en-dessous de votre prénom).
 
-# Lettre d'infos
+## Formulaire de contact
+Un formulaire de contact est accesible à tous les visiteurs sur le site depuis le bas de la page d'accueil.
+Le formaulaire de contact est protégé des robots informatiques par un antispam "captcha".
+Le mail ainsi envoyé arrive dans la boit mail du Centre Social (adresse finale à définir).
+## Lettre d'infos
 * Système manuel de Lettre d'infos 
     * La lettre d'info permet de créer un texte avec un titre, un contenu et des images et de l'envoyer à des abonnés.
     * Il s'agit d'un système manuel. Il ne se base pas sur les articles du site et le texte qui sera envoyé est totalement libre.
