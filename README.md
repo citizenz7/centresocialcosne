@@ -146,6 +146,7 @@ Si vous avez le ROLE administrateur vous pourrez gérer différentes sections :
 * création/édition/suppression d'utilisateurs
 * création/édition/suppression de lettres d'infos
 * création/édition/suppression d'abonnés aux lettres d'infos
+
 Une fois connecté, vous aurez accès à l'espace d'administration grâce au nouveau lien `Administration` qui apparaitra dans le menu principal (dans la liste, en-dessous de votre prénom).
 
 # Lettre d'infos
