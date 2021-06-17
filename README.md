@@ -26,11 +26,11 @@ Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner
 * Type : site vitrine + blog
 * Fonctionnalités : 
     * modulable (chaque "partie" de la page d'accueil peut se voir attribuer une page par simple "sélection"...)
-    * espace d'administration avec droits limités (comptes Administrateur ou Utilisateur)
+    * espace d'administration avec droits limités (compte Administrateur)
     * blog
     * recherche par article, activité, page
     * contact
-    * lettre d'info (optionnel...)
+    * lettre d'infos
 #### La partie CONNEXION n'est pas "mise en avant". Ce site n'est pas conçu pour l'inscription d'utilisateurs "extérieurs" (à l'équipe du CS).
 
 ## Initialisation du projet
@@ -51,6 +51,8 @@ Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner
 * Catégories : les "secteurs" du CS
 * Users : les utilisateurs (Utilisateur/Administrateur)
 * Pages : présentation "administrative" du CS (ne change que rarement)
+* Newsletters : lettre d'infos
+* NewsletterUsers : abonnés à la lettre d'infos
 
 # UTILISATION
 ## Images
@@ -142,14 +144,14 @@ Si vous avez le ROLE administrateur vous pourrez gérer différentes sections :
 * création/édition/suppression de pages
 * création/édition/suppression de catégories
 * création/édition/suppression d'utilisateurs
-(la partie Lettre d'info n'est pas dévloppée).
+* création/édition/suppression de lettres d'infos
+* création/édition/suppression d'abonnés aux lettres d'infos
 Une fois connecté, vous aurez accès à l'espace d'administration grâce au nouveau lien `Administration` qui apparaitra dans le menu principal (dans la liste, en-dessous de votre prénom).
 
-# FACULTATIF - A DEFINIR
-
-* Système de Lettre d'infos [ facultatif - A développer ]
-    * périodicité : mensuelle
-    * entité : Article
-    * inscription / désinscription : e-mail avec stockage dans la base SQL
-    * si au moins un nouvel article a été publié durant les 30 derniers jours : envoi d'une newsletter (avec titre, date, auteur, extrait, lien)
-    * possibilité d'envoyer tous les articles parus depuis l'envoi de la dernière newsletter
+# Lettre d'infos
+* Système manuel de Lettre d'infos 
+    * La lettre d'info permet de créer un texte avec un titre, un contenu et des images et de l'envoyer à des abonnés.
+    * Il s'agit d'un système manuel. Il ne se base pas sur les articles du site et le texte qui sera envoyé est totalement libre.
+    * L'abonnement est manuel. Les abonnés sont inscrits un par un par l'administrateur.
+    * La lettre d'info créée peut être mise en attente ou envoyée.
+    * Une fois cliqué sur le bouton ENVOYER, la lettre d'info est envoyée à TOUS les abonnés, par e-mail.
