@@ -8,6 +8,7 @@ Il est réalisé grâce au framework SYMFONY 5.
 * Symfony CLI (5)
 * Composer
 * Serveur web (Apache, Nginx)
+* Serveur mail SMTP (Postfix, ...) : envoi mail d'inscription, lettres d'infos, etc.
 ## Pré-requis matériels
 Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner, Scaleway, etc.) :
 * 2 cores
