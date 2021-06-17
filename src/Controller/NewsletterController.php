@@ -7,6 +7,7 @@ use App\Entity\NewsletterUser;
 use App\Form\NewsletterType;
 use App\Repository\NewsletterRepository;
 use App\Repository\NewsletterUserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,10 +23,19 @@ class NewsletterController extends AbstractController
     /**
      * @Route("/", name="newsletter_index", methods={"GET"})
      */
-    public function index(NewsletterRepository $newsletterRepository): Response
+    public function index(Request $request, NewsletterRepository $newsletterRepository, PaginatorInterface $paginator): Response
     {
+        $donnees = $this->getDoctrine()->getRepository(Newsletter::class)->findBy([],['id' => 'DESC']);
+
+        $newsletters = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
         return $this->render('newsletter/index.html.twig', [
-            'newsletters' => $newsletterRepository->findAll(),
+            //'newsletters' => $newsletterRepository->findAll(),
+            'newsletters' => $newsletters,
         ]);
     }
 
@@ -106,8 +116,10 @@ class NewsletterController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        // La newslleter est envoyée. On passe le isSent à true.
+        // La newslleter est envoyée :
+        // On passe le isSent à true et on met la date d'envoi
         $newsletter->setIsSent(true);
+        $newsletter->setSentAt(new \DateTime());
 
         $entityManager->persist($newsletter);
         $entityManager->flush();

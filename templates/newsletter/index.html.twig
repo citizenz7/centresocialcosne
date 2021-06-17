@@ -37,13 +37,14 @@
                                 <td>{{ newsletter.titre }}</td>
                                 <td class="small">{{ newsletter.createdAt ? newsletter.createdAt|date('d-m-Y H:i:s') : '' }}</td>
                                 <td>
-                                    {#{ newsletter.isSent ? 'Oui' : 'Non' }#}
                                     {% if newsletter.isSent == false %}
                                         <a href="{{ path('newsletter_send', {id: newsletter.id}) }}" class="btn btn-sm btn-outline-success">Envoyer</a>
                                     {% else %}
-                                        <span class="small">
-                                            {{ newsletter.sentAt|date('d-m-Y H:i:s') }}
-                                        </span>
+                                        {% if newsletter.sentAt %}
+                                            <span class="small">
+                                                {{ newsletter.sentAt|date('d-m-Y H:i:s') }}
+                                            </span>
+                                        {% endif %}
                                     {% endif %}
                                 </td>
                                 <td>
@@ -70,9 +71,10 @@
                             <a class="btn btn-primary" href="{{ path('newsletter_user_index') }}">Liste des abonnés</a>
                         </div>
                     </div>
-
-
                 </div>
+            </div>
+            <div class="pagination justify-content-center px-2 mt-4">
+                {{ knp_pagination_render(newsletters) }}
             </div>
         </div>
     </section>
