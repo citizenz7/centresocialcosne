@@ -1,0 +1,16 @@
+<h5>Lettre d'infos du {{ site_name_full }}</h5>
+<h3>{{ newsletter.titre }}</h3>
+<p>
+    <b>Lettre d'infos du {{ newsletter.createdAt|date('d-m-Y') }}</b>
+</p>
+
+<div>
+    {{ newsletter.contenu|raw }}
+</div>
+
+<p>
+    <small>L'équipe du {{ site_name_full }}</small>
+</p>
+<p>
+    <small>Site web : <a href="{{ site_url_full }}">{{ site_url_full }}</a></small>
+</p>

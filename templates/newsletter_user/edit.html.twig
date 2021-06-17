@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : modification de l'abonné{% endblock %}
+
+{% block body %}
+
+    {{ include('newsletter_user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('newsletter_user_index') }}">back to list</a>
+
+    {{ include('newsletter_user/_delete_form.html.twig') }}
+{% endblock %}

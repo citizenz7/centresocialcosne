@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : abonné{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <h2 class="text-center fw-bold card py-2 mb-4">Abonné à la lettre d'info</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ newsletter_user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>E-mail</th>
+                                <td>{{ newsletter_user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Abonné le</th>
+                                <td>{{ newsletter_user.createdAt ? newsletter_user.createdAt|date('Y-m-d H:i:s') : '' }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <a class="btn btn-sm btn-success" href="{{ path('newsletter_user_edit', {'id': newsletter_user.id}) }}">Modifier l'abonné</a> 
+                    <button class="btn btn-sm btn-secondary" type="reset">Annuler</button> 
+                    <a class="btn btn-sm btn-primary" href="{{ path('newsletter_user_index') }}">Liste des abonnés</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

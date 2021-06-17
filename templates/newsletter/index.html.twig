@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : liste des lettres d'infos{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <h2 class="text-center fw-bold card py-2 mb-4">Liste des Lettres d'info</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Titre</th>
+                                <th width="12%">Créée le</th>
+                                <th width="12%">Envoyée le</th>
+                                <th width="11%"></th>
+                                <th width="7%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for newsletter in newsletters %}
+                            <tr>
+                                <td>{{ newsletter.id }}</td>
+                                <td>{{ newsletter.titre }}</td>
+                                <td class="small">{{ newsletter.createdAt ? newsletter.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td>
+                                    {#{ newsletter.isSent ? 'Oui' : 'Non' }#}
+                                    {% if newsletter.isSent == false %}
+                                        <a href="{{ path('newsletter_send', {id: newsletter.id}) }}" class="btn btn-sm btn-outline-success">Envoyer</a>
+                                    {% else %}
+                                        <span class="small">
+                                            {{ newsletter.sentAt|date('d-m-Y H:i:s') }}
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-info" href="{{ path('newsletter_show', {'id': newsletter.id}) }}">Voir</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ path('newsletter_edit', {'id': newsletter.id}) }}">Modifier</a>
+                                </td>
+                                <td>
+                                    {{ include('newsletter/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="7">Il n'y a aucun enregistrement.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-success mt-3" href="{{ path('newsletter_new') }}">Créer une nouvelle lettre d'infos</a>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center mt-3">
+                            <a class="btn btn-primary" href="{{ path('newsletter_user_index') }}">Liste des abonnés</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

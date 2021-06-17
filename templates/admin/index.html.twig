@@ -77,11 +77,25 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <div class="d-grid gap-2 card-body">
-                            <h5 class="card-title">LETTRES D'INFOS [Désactivé]</h5>
-                            <button class="btn btn-outline-danger fw-bold p-3 fs-6">Liste des lettres d'info</button>
-                            <br>
-                            <button class="btn btn-outline-success fw-bold p-3 fs-6">Créer une lettre d'info</button>
+                        <div class="card-body">
+                            <h5 class="card-title">LETTRES D'INFOS</h5>
+                            <div class="row mt-3">
+                                <div class="col d-grid gap-2 ">
+                                    <a href="{{ path('newsletter_index') }}" class="btn btn-danger fw-bold p-3 fs-6">Liste des lettres</a>
+                                </div>
+                                <div class="col d-grid gap-2 ">
+                                    <a href="{{ path('newsletter_user_index') }}"  class="btn btn-danger fw-bold p-3 fs-6">Liste des inscrits</a>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col d-grid gap-2 ">
+                                    <a href="{{ path('newsletter_new') }}"  class="btn btn-success fw-bold p-3 fs-6">Créer une lettre</a>
+                                </div>
+                                <div class="col d-grid gap-2 ">
+                                    <a href="{{ path('newsletter_user_new') }}"  class="btn btn-success fw-bold p-3 fs-6">Inscription</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : lettre d'infos{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <h2 class="text-center fw-bold card py-2 mb-4">Lettre d'infos</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ newsletter.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Titre</th>
+                                <td>{{ newsletter.titre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Contenu</th>
+                                <td width="90%">{{ newsletter.contenu|raw }}</td>
+                            </tr>
+                            <tr>
+                                <th>Créée le</th>
+                                <td>{{ newsletter.createdAt ? newsletter.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Envoyée le</th>
+                                <td>{{ newsletter.sentAt ? newsletter.sentAt|date('d-m-Y H:i:s') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Envoyée ?</th>
+                                <td>{{ newsletter.isSent ? 'Oui' : 'Non' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <a class="btn btn-sm btn-success" href="{{ path('newsletter_edit', {'id': newsletter.id}) }}">Modifier la lettre d'infos</a> 
+                    <button class="btn btn-sm btn-secondary" type="reset">Annuler</button>
+                    <a class="btn btn-sm btn-primary" href="{{ path('newsletter_index') }}">Liste des lettres d'info</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
