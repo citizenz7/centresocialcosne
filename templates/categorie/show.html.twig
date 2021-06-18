@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="entry-content">
-                                    <h5 class="bg-light rounded p-2">Les derniers articles de la catégorie</h5>
+                                    <h5 class="bg-light rounded p-2">Les 10 derniers articles de la catégorie</h5>
                                     {% for c in categorie.articles|slice(0,10)|reverse %}
                                         <!-- si l'article est actif, on affiche-->
                                         {% if c.isActive %}
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col">
                                 <div class="entry-content">
-                                    <h5 class="bg-light rounded p-2">Les dernières activités de la catégorie</h5>
+                                    <h5 class="bg-light rounded p-2">Les activités de la catégorie</h5>
                                     {% for c in categorie.activites %}
                                         <!-- si l'activité est active, on affiche-->
                                         {% if c.isActive %}

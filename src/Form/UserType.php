@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,23 +23,26 @@ class UserType extends AbstractType
                     'class' => 'form-control mb-3'
                 ],
             ])
-            //->add('roles')
+
             //->add('password')
             ->add('prenom', TextType::class, [
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ],
             ])
+
             ->add('nom', TextType::class, [
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ],
             ])
+
             ->add('presentation', TextareaType::class, [
                 'attr' => [
                     'class' => 'mb-3 form-control'
                 ],
             ])
+
             ->add('image', FileType::class, [
                 'label' => 'Image de votre profil',
                 'attr' => [
@@ -58,12 +61,14 @@ class UserType extends AbstractType
                     ])
                 ]
             ])
+
             ->add('fonction', TextType::class, [
                 'label' => 'Votre fonction au centre social',
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
             ])
+
             ->add('facebook', TextType::class, [
                 'label' => 'Votre profil Facebook',
                 'required' => false,
@@ -71,6 +76,7 @@ class UserType extends AbstractType
                     'class' => 'form-control mb-3'
                 ]
             ])
+
             ->add('twitter', TextType::class, [
                 'label' => 'Votre profil Twitter',
                 'required' => false,
@@ -78,6 +84,7 @@ class UserType extends AbstractType
                     'class' => 'form-control mb-3'
                 ]
             ])
+
             ->add('instagram', TextType::class, [
                 'label' => 'Votre profil Instagram',
                 'required' => false,
@@ -85,6 +92,8 @@ class UserType extends AbstractType
                     'class' => 'form-control mb-3'
                 ]
             ])
+
+            //->add('roles')
         ;
     }
 

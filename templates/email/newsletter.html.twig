@@ -1,16 +1,20 @@
-<h5>Lettre d'infos du {{ site_name_full }}</h5>
-<h3>{{ newsletter.titre }}</h3>
-<p>
+<div style="text-align:center; background-color:lavender; padding-top:10px; padding-bottom:2px;">
+    <h3>{{ newsletter.titre }}</h3>
+</div>
+<div style="text-align:center; margin-top:12px; margin-bottom:20px; font-size:16px;">
     <b>Lettre d'infos du {{ newsletter.createdAt|date('d-m-Y') }}</b>
-</p>
+</div>
 
 <div>
     {{ newsletter.contenu|raw }}
 </div>
 
-<p>
-    <small>L'équipe du {{ site_name_full }}</small>
-</p>
-<p>
-    <small>Site web : <a href="{{ site_url_full }}">{{ site_url_full }}</a></small>
+<p style="text-align:center; background-color:lavender; padding:10px; margin-top:12px;">
+    <span style="font-weight:bold; font-size:18px;">{{ site_name_full }}</span>
+    <br>
+    {{ site_address_full }}
+    <br>
+    Téléphone : {{ site_address_tel }}
+    <br>
+    Site web : <a href="{{ site_url_full }}">{{ site_url_full }}</a>
 </p>

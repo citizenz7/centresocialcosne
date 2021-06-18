@@ -9,4 +9,6 @@ twig:
         site_mail: 'info@centresocialcosne.org'
         site_author: 'citizenz7'
         site_location: 'Cosne-Cours-sur-Loire'
+        site_address_full: '15, rue de Berry 58200 Cosne-Cours-sur-Loire'
+        site_address_tel: '03.86.28.20.96'
         site_version: '1.0.1'

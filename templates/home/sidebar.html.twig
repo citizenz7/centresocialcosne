@@ -44,10 +44,34 @@
             </ul>
         </div><!-- End sidebar categories-->
 
-        <h3 class="sidebar-title"><i class="bi bi-newspaper"></i> Blog</h3>
+        <h3 class="sidebar-title"><i class="bi bi-newspaper"></i> Stats du site</h3>
         <div class="sidebar-item categories">
-            <ul>
-                <li>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Nombre d'articles :
+                    <span class="badge bg-secondary">
+                        {{ articlesAll | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Nombre d'activités :
+                    <span class="badge bg-secondary">
+                        {{ activitesAll | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Nombre de catégories :
+                    <span class="badge bg-secondary">
+                        {{ categoriesAll | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Nombre de pages :
+                    <span class="badge bg-secondary">
+                        {{ pages | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     Lectures totales : 
                     <span class="badge bg-secondary">
                             {% for view in views %}

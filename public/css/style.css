@@ -491,6 +491,10 @@ section {
   text-align: right;
 }
 
+.hero .hero-img img {
+  border-radius:50px;
+}
+
 @media (min-width: 1024px) {
   .hero {
     background-attachment: fixed;
@@ -650,7 +654,7 @@ section {
 # Pages - Values
 --------------------------------------------------------------*/
 .pages {
-  background: linear-gradient(rgba(35, 74, 92, 0.8), rgba(55, 96, 116, 0.9)), url(../img/hero-img.png) fixed center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(49, 49, 49, 0.9)), url(../img/hero-img.png) fixed center center;
   background-size: cover;
   padding: 60px 0;
 }
