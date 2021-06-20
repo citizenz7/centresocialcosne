@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name_full }} : abonné{% endblock %}
+{% block title %}{{ site_name_full }} : abonné à la lettre d'infos{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -15,7 +15,7 @@
 
     <section class="inner-page">
         <div class="container">
-            <h2 class="text-center fw-bold card py-2 mb-4">Abonné à la lettre d'info</h2>
+            <h2 class="text-center fw-bold card py-2 mb-4">Abonné à la Lettre d'info</h2>
             <div class="row d-flex justify-content-center">
                 <div class="col">
 
@@ -23,24 +23,26 @@
                         <tbody>
                             <tr>
                                 <th>Id</th>
-                                <td>{{ newsletter_user.id }}</td>
+                                <td>{{ abonne.id }}</td>
                             </tr>
                             <tr>
                                 <th>E-mail</th>
-                                <td>{{ newsletter_user.email }}</td>
+                                <td>{{ abonne.email }}</td>
                             </tr>
                             <tr>
                                 <th>Abonné le</th>
-                                <td>{{ newsletter_user.createdAt ? newsletter_user.createdAt|date('Y-m-d H:i:s') : '' }}
-                                </td>
+                                <td>{{ abonne.createdAt ? abonne.createdAt|date('d-m-Y H:i:s') : '' }}</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <a class="btn btn-sm btn-success" href="{{ path('newsletter_user_edit', {'id': newsletter_user.id}) }}">Modifier l'abonné</a> 
+                    <a class="btn btn-sm btn-success" href="{{ path('abonne_edit', {'id': abonne.id}) }}">Modifier</a> 
                     <button class="btn btn-sm btn-secondary" type="reset">Annuler</button> 
-                    <a class="btn btn-sm btn-primary" href="{{ path('newsletter_user_index') }}">Liste des abonnés</a>
+                    <a class="btn btn-sm btn-primary" href="{{ path('abonne_index') }}">Liste des abonnés</a>
 
+                    <div class="mt-3">
+                        {{ include('abonne/_delete_form.html.twig') }}
+                    </div>
                 </div>
             </div>
         </div>

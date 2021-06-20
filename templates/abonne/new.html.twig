@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name_full }} : nouvel abonné{% endblock %}
+{% block title %}{{ site_name_full }} : inscription à la lettre d'infos{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -15,11 +15,11 @@
 
     <section class="inner-page">
         <div class="container">
-            <h2 class="text-center fw-bold card py-2 mb-4">Inscription d'un abonné</h2>
+            <h2 class="text-center fw-bold card py-2 mb-4">Créer un abonné à la Lettre d'info</h2>
             <div class="row d-flex justify-content-center">
                 <div class="col">
 
-                    {{ include('newsletter_user/_form.html.twig') }}
+                    {{ include('abonne/_form.html.twig') }}
 
                 </div>
             </div>

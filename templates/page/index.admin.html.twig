@@ -34,6 +34,7 @@
                                 <th>Attr.</th>
                                 <th width="15%">{{ knp_pagination_sortable(pages, 'Posté le', 'p.createdAt') }}</th>
                                 <th width="15%">{{ knp_pagination_sortable(pages, 'Maj', 'p.updatedAt') }}</th>
+                                <th>Fichiers</th>
                                 <th width="7%">{{ knp_pagination_sortable(pages, 'Actif', 'p.isActive') }}</th>
                                 <th>Actions</th>
                             </tr>
@@ -59,6 +60,23 @@
                                 </td>
                                 <td class="small">{{ page.createdAt ? page.createdAt|date('d-m-Y H:i:s') : '' }}</td>
                                 <td class="small">{{ page.updatedAt ? page.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td class="small">
+                                    {% if page.file1 and not page.file2 and not page.file3 and not page.file4 and not page.file5 %}
+                                        1
+                                    {% endif %}
+                                    {% if page.file1 and page.file2 and not page.file3 and not page.file4 and not page.file5 %}
+                                        2
+                                    {% endif %}
+                                    {% if page.file1 and page.file2 and page.file3 and not page.file4 and not page.file5 %}
+                                        3
+                                    {% endif %}
+                                    {% if page.file1 and page.file2 and page.file3 and page.file4 and not page.file5 %}
+                                        4
+                                    {% endif %}
+                                    {% if page.file1 and page.file2 and page.file3 and page.file4 and page.file5 %}
+                                        5
+                                    {% endif %}
+                                </td>
                                 <td class="small">{{ page.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
                                     <table>

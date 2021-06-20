@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Abonne;
 use App\Entity\Newsletter;
-use App\Entity\NewsletterUser;
 use App\Form\NewsletterType;
 use App\Repository\NewsletterRepository;
-use App\Repository\NewsletterUserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/admin/newsletter")
@@ -102,9 +102,9 @@ class NewsletterController extends AbstractController
     /**
      * @Route("/send/{id}", name="newsletter_send")
      */
-    public function send(Newsletter $newsletter, NewsletterUser $newsletterUser, NewsletterUserRepository $repos, MailerInterface $mailer): Response
+    public function send(Newsletter $newsletter, Abonne $abonne, MailerInterface $mailer): Response
     {
-        $abonnes = $this->getDoctrine()->getRepository(NewsletterUser::class)->findBy([],['id' => 'DESC']);
+        $abonnes = $this->getDoctrine()->getRepository(Abonne::class)->findBy([],['created_at' => 'DESC']);
 
         foreach($abonnes as $abonne) {
             $email = (new TemplatedEmail())

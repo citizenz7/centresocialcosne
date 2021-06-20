@@ -34,6 +34,7 @@
                                 <th width="20%">Catégorie</th>
                                 <th width="10%">{{ knp_pagination_sortable(activites, 'Posté le', 'p.createdAt') }}</th>
                                 <th width="10%">{{ knp_pagination_sortable(activites, 'Mise à jour', 'p.updatedAt') }}</th>
+                                <th>Fichiers</th>
                                 <th width="7%">{{ knp_pagination_sortable(activites, 'Activé', 'p.isActive') }}</th>
                                 <th width="15%">Actions</th>
                             </tr>
@@ -50,6 +51,17 @@
                                 </td>
                                 <td class="small">{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
                                 <td class="small">{{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}</td>
+                                <td class="small">
+                                    {% if activite.file1 and not activite.file2 and not activite.file3 %}
+                                        1
+                                    {% endif %}
+                                    {% if activite.file1 and activite.file2 and not activite.file3 %}
+                                        2
+                                    {% endif %}
+                                    {% if activite.file1 and activite.file2 and activite.file3 %}
+                                        3
+                                    {% endif %}
+                                </td>
                                 <td class="small">{{ activite.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
                                     <table>

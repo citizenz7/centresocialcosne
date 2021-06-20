@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\NewsletterUserRepository;
+use App\Repository\AbonneRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=NewsletterUserRepository::class)
+ * @ORM\Entity(repositoryClass=AbonneRepository::class)
  */
-class NewsletterUser
+class Abonne
 {
     /**
      * @ORM\Id

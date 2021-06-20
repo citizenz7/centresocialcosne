@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name_full }} : liste des abonnés à la lettre d'infos{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <h2>Administration du site</h2>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+            <h2 class="text-center fw-bold card py-2 mb-4">Liste des abonnés à la Lettre d'info</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <table class="table table-sm table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th width="4%">{{ knp_pagination_sortable(abonnes, 'Id', 'p.id') }}</th>
+                                <th width="60%">E-mail</th>
+                                <th>Abonné le</th>
+                                <th width="18%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for abonne in abonnes %}
+                            <tr>
+                                <td>{{ abonne.id }}</td>
+                                <td>{{ abonne.email }}</td>
+                                <td>{{ abonne.createdAt ? abonne.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-sm btn-primary" href="{{ path('abonne_show', {'id': abonne.id}) }}">Voir</a>
+                                                <a class="btn btn-sm btn-warning" href="{{ path('abonne_edit', {'id': abonne.id}) }}">Modifier</a> 
+                                            </td>
+                                            <td>
+                                                {{ include('abonne/_delete_form.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4">Il n'y a aucun enregistrement</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-success mt-3" href="{{ path('abonne_new') }}"><i class="bi bi-plus-square"></i> Créer un abonné</a>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center mt-3">
+                            <a class="btn btn-primary" href="{{ path('newsletter_index') }}"><i class="bi bi-list"></i> Liste des lettres d'infos</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

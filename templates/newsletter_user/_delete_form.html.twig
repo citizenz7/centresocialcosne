@@ -1,4 +1,0 @@
-<form method="post" action="{{ path('newsletter_user_delete', {'id': newsletter_user.id}) }}" onsubmit="return confirm('Etes-vous certain de vouloir supprimer l\'abonné ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ newsletter_user.id) }}">
-    <button class="btn btn-sm btn-danger">Supprimer</button>
-</form>

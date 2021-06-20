@@ -2,20 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\NewsletterUser;
+use App\Entity\Abonne;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NewsletterUserType extends AbstractType
+class AbonneType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Adresse e-mail du nouvel abonné',
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
@@ -27,7 +25,7 @@ class NewsletterUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => NewsletterUser::class,
+            'data_class' => Abonne::class,
         ]);
     }
 }
