@@ -15,13 +15,13 @@ class NewsletterType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, [
-                'label' => 'Titre de la lettre d\'info',
+                'label' => 'Titre de la lettre d\'infos',
                 'attr' => [
                     'class' => 'form-control mb-3'
                 ]
             ])
             ->add('contenu', CKEditorType::class, [
-                'label' => 'Contenu de la lettre d\'info',
+                'label' => 'Contenu de la lettre d\'infos',
             ])
             //->add('created_at')
             //->add('sent_at')

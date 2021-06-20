@@ -22,11 +22,11 @@
                             <h2>Liste des pages</h2>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a class="btn btn-success fw-bold pt-2" href="{{ path('page_new') }}">Créer une page</a>
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('page_new') }}"><i class="bi bi-plus-square"></i> Créer une page</a>
                         </div>
                     </div>
 
-                    <table class="table">
+                    <table class="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
                                 <th width="5%">{{ knp_pagination_sortable(pages, 'Id', 'p.id') }}</th>
@@ -57,9 +57,9 @@
                                     {{ page.isVenir ? 'Venir' : '' }}
                                     {{ page.isMentionslegales ? 'Mentions légales' : '' }}
                                 </td>
-                                <td>{{ page.createdAt ? page.createdAt|date('d-m-Y H:i:s') : '' }}</td>
-                                <td>{{ page.updatedAt ? page.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
-                                <td>{{ page.isActive ? 'Oui' : 'Non' }}</td>
+                                <td class="small">{{ page.createdAt ? page.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td class="small">{{ page.updatedAt ? page.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                                <td class="small">{{ page.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
                                     <table>
                                         <tr>

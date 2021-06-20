@@ -19,13 +19,13 @@
             <div class="row d-flex justify-content-center">
                 <div class="col">
 
-                    <table class="table">
+                    <table class="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>E-mail</th>
-                                <th>Abonné le</th>
-                                <th width="12%"></th>
+                                <th>{{ knp_pagination_sortable(newsletter_users, 'Id', 'p.id') }}</th>
+                                <th>{{ knp_pagination_sortable(newsletter_users, 'E-mail', 'p.email') }}</th>
+                                <th>{{ knp_pagination_sortable(newsletter_users, 'Abonné le', 'p.created_at') }}</th>
+                                <th width="10%"></th>
                                 <th width="8%"></th>
                             </tr>
                         </thead>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ newsletter_user.id }}</td>
                                 <td>{{ newsletter_user.email }}</td>
-                                <td>{{ newsletter_user.createdAt ? newsletter_user.createdAt|date('d-m-Y H:i:s') : '' }}
+                                <td class="small">{{ newsletter_user.createdAt ? newsletter_user.createdAt|date('d-m-Y H:i:s') : '' }}
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="{{ path('newsletter_user_show', {'id': newsletter_user.id}) }}">Voir</a>
@@ -54,10 +54,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <a href="{{ path('newsletter_user_new') }}" class="btn btn-success mt-3">Inscription d'un nouvel abonné</a>
+                            <a href="{{ path('newsletter_user_new') }}" class="btn btn-success mt-3"><i class="bi bi-plus-square"></i> Inscription d'un nouvel abonné</a>
                         </div>
                         <div class="col d-flex justify-content-end align-items-center mt-3">
-                            <a class="btn btn-primary" href="{{ path('newsletter_index') }}">Liste des lettres d'infos</a>
+                            <a class="btn btn-primary" href="{{ path('newsletter_index') }}"><i class="bi bi-list"></i> Liste des lettres d'infos</a>
                         </div>
                     </div>
 

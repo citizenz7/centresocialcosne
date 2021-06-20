@@ -22,10 +22,10 @@
                             <h2>Liste des catégories</h2>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a class="btn btn-success fw-bold pt-2" href="{{ path('categorie_new') }}">Créer une catégorie</a>
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('categorie_new') }}"><i class="bi bi-plus-square"></i> Créer une catégorie</a>
                         </div>
 
-                    <table class="table mt-3">
+                    <table class="table table-sm table-striped table-hover mt-3">
                         <thead>
                             <tr>
                                 <th>{{ knp_pagination_sortable(categories, 'Id', 'p.id') }}</th>

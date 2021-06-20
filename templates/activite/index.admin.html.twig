@@ -22,20 +22,20 @@
                             <h2>Liste des activités</h2>                            
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a class="btn btn-success fw-bold pt-2" href="{{ path('activite_new') }}">Créer une activité</a>
+                            <a class="btn btn-success fw-bold pt-2" href="{{ path('activite_new') }}"><i class="bi bi-plus-square"></i> Créer une activité</a>
                         </div>
                     </div>
 
-                    <table class="table">
+                    <table class="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
                                 <th width="4%">{{ knp_pagination_sortable(activites, 'Id', 'p.id') }}</th>
                                 <th>{{ knp_pagination_sortable(activites, 'Titre', 'p.titre') }}</th>
-                                <th>Catégorie</th>
+                                <th width="20%">Catégorie</th>
                                 <th width="10%">{{ knp_pagination_sortable(activites, 'Posté le', 'p.createdAt') }}</th>
                                 <th width="10%">{{ knp_pagination_sortable(activites, 'Mise à jour', 'p.updatedAt') }}</th>
                                 <th width="7%">{{ knp_pagination_sortable(activites, 'Activé', 'p.isActive') }}</th>
-                                <th>Actions</th>
+                                <th width="15%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,9 +48,9 @@
                                         <span class="badge bg-secondary">{{ cat.titre }}</span>
                                     {% endfor %}
                                 </td>
-                                <td>{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
-                                <td>{{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}</td>
-                                <td>{{ activite.isActive ? 'Oui' : 'Non' }}</td>
+                                <td class="small">{{ activite.createdAt ? activite.createdAt|date('d-m-Y') : '' }}</td>
+                                <td class="small">{{ activite.updatedAt ? activite.updatedAt|date('d-m-Y') : '' }}</td>
+                                <td class="small">{{ activite.isActive ? 'Oui' : 'Non' }}</td>
                                 <td>
                                     <table>
                                         <tr>

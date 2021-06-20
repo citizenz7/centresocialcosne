@@ -19,6 +19,7 @@ class NewsletterRepository extends ServiceEntityRepository
         parent::__construct($registry, Newsletter::class);
     }
 
+
     // /**
     //  * @return Newsletter[] Returns an array of Newsletter objects
     //  */

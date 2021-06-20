@@ -21,7 +21,10 @@ class NewsletterUserController extends AbstractController
      */
     public function index(Request $request, NewsletterUserRepository $newsletterUserRepository, PaginatorInterface $paginator): Response
     {
-        $donnees = $this->getDoctrine()->getRepository(NewsletterUser::class)->findBy([],['id' => 'DESC']);
+        //$donnees = $this->getDoctrine()->getRepository(NewsletterUser::class)->findBy([],['id' => 'DESC']);
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:NewsletterUser p ORDER BY p.created_at DESC";
+        $donnees = $em->createQuery($dql);
 
         $newsletter_users = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
