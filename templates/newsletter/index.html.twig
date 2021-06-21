@@ -38,7 +38,7 @@
                                 <td class="small">{{ newsletter.createdAt ? newsletter.createdAt|date('d-m-Y H:i:s') : '' }}</td>
                                 <td>
                                     {% if newsletter.isSent == false %}
-                                        <a href="{{ path('newsletter_send', {id: newsletter.id}) }}" class="btn btn-sm btn-outline-success">Envoyer</a>
+                                        <a href="{{ path('newsletter_send', {id: newsletter.id}) }}" class="btn btn-sm btn-success px-4">Envoyer</a>
                                     {% else %}
                                         {% if newsletter.sentAt %}
                                             <span class="small">
