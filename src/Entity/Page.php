@@ -134,6 +134,11 @@ class Page
      */
     private $file5;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_programme;
+
 
     public function getId(): ?int
     {
@@ -414,6 +419,18 @@ class Page
     public function setFile5(?string $file5): self
     {
         $this->file5 = $file5;
+
+        return $this;
+    }
+
+    public function getIsProgramme(): ?bool
+    {
+        return $this->is_programme;
+    }
+
+    public function setIsProgramme(bool $is_programme): self
+    {
+        $this->is_programme = $is_programme;
 
         return $this;
     }

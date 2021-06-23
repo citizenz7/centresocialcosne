@@ -39,7 +39,7 @@ class PageController extends AbstractController
         //$donnees = $this->getDoctrine()->getRepository(Page::class)->findBy([],['id' => 'DESC']);
 
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM App:Page p";
+        $dql = "SELECT p FROM App:Page p ORDER BY p.id DESC";
         $donnees = $em->createQuery($dql);
 
         $pages = $paginator->paginate(

@@ -594,6 +594,12 @@ section {
 /*--------------------------------------------------------------
 # Services et activités
 --------------------------------------------------------------*/
+.activites {
+  background: url(../img/hero-bg.png) top center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .activites .box {
   padding: 30px;
   box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
@@ -1647,6 +1653,13 @@ section {
 /*--------------------------------------------------------------
 # Recent Blog Posts
 --------------------------------------------------------------*/
+.recent-blog-posts {
+  background: url(../img/hero-bg.png) top center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
 .recent-blog-posts .post-box {
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
   transition: 0.3s;

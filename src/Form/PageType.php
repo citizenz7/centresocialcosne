@@ -200,6 +200,13 @@ class PageType extends AbstractType
                     'class' => 'mx-2'
                 ]
             ])
+            ->add('is_programme', CheckboxType::class, [
+                'label' => 'PROGRAMME DES ACTIVITES',
+                'required' => false,
+                'attr' => [
+                    'class' => 'mx-2'
+                ]
+            ])
             ->add('is_active', ChoiceType::class, [
                 'label' => 'Page activée (visible) ?',
                 'choices' => [

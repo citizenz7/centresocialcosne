@@ -42,7 +42,7 @@ class ActiviteController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
         // Les data issues de la table activite sont ordonnées par updatedAt
-        $dql = "SELECT p FROM App:Activite p ORDER BY p.updatedAt DESC";
+        $dql = "SELECT p FROM App:Activite p ORDER BY p.id DESC";
         $donnees = $em->createQuery($dql);
 
         $activites = $paginator->paginate(

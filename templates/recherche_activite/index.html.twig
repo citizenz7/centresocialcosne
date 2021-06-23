@@ -39,11 +39,12 @@
                             {% else %}
                                 <h3 class="mt-3">Résulats de votre recherche :</h3>
                                 {% for activite in activites %}
-                                    <div class="mt-3 px-3">
-                                    <a href="{{ path('activite_show', {'slug': activite.slug}) }}">
-                                        <h5 class="text-dark"><i class="bi bi-arrow-down-right-square-fill"></i> {{ activite.titre }}</h5>
-                                        <span class="bg-light text-dark small p-1 rounded">Publié le {{ activite.createdAt | date('d/m/Y') }}</span>
-                                    </a>
+                                    <div class="mt-3 pt-3 px-3 border-top">
+                                        <a href="{{ path('activite_show', {'slug': activite.slug}) }}">
+                                            <p class="text-dark">
+                                                <i class="bi bi-arrow-down-right-square-fill text-primary"></i> <span class="lead">{{ activite.titre }}</span> 
+                                            </p>
+                                        </a>
                                     </div>
                                 {% endfor %}
                             {% endif %}
