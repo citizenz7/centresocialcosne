@@ -14,12 +14,13 @@
 
         <h3 class="sidebar-title"><i class="bi bi-tag-fill"></i> Catégories</h3>
         <div class="sidebar-item categories">
-            <ul>
-                {% for cat in categories %}
-                    <li>
+            <ul class="list-group list-group-flush">
+                {% for cat in categoriesAll %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <a href="{{ path('categorie_show', {'slug': cat.slug}) }}">
                             <i class="bi bi-arrow-right-short"></i> {{ cat.titre }} 
-                        </a>
+                        </a> 
+                        <span class="badge bg-primary rounded-pill" title="Il y a {{ cat.articles|length }} articles dans cette catégorie">{{ cat.articles|length }}</span>
                     </li>
                 {% endfor %}
 
