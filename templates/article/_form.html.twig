@@ -5,6 +5,21 @@
         {{ form_row(form.contenu) }}
     </div>
 
+    {% if app.request.get('_route') == 'article_edit' %}
+        {% if article.image is not empty %}
+            Image actuelle :<br>
+            <img src="{{ asset('uploads/images/articles/' ~ article.image) }}" alt="{{ article.titre }}" class="img-fluid mb-3" 
+            style="max-width: 350px; width: 100%;">
+            <p>
+                <a href="{{ path('article_delete_image', {'id': article.id}) }}" class="btn btn-sm btn-danger">Supprimer l'image</a>
+            </p>
+        {% else %}
+            <div class="text-white bg-danger p-2 mb-2 text-center">
+                <i class="bi bi-exclamation-lg"></i> Il n'y a aucune image active pour cet article. Veuillez en sélectionner une.
+            </div>
+        {% endif %}
+    {% endif %}
+
     <div class="border border-success rounded p-2 mb-3">
         {{ form_row(form.image) }}
     </div>

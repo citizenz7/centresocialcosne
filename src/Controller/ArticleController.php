@@ -312,6 +312,29 @@ class ArticleController extends AbstractController
     }
 
     /**
+     * @Route("/admin/articles/{id}/delimage", name="article_delete_image", methods={"GET"})
+     */
+    public function deleteImage(Request $request, Article $article): Response
+    {
+        // Delete article's image in folder
+        $image = $article->getImage();
+        if($image) {
+            $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
+        // Set image to "nothing" in DB
+        $article->setImage('');       
+        $this->getDoctrine()->getManager()->flush();
+
+        // Redirect to edit page
+        $this->addFlash('image_delete', 'L\'image de l\'article a été supprimée avec succès.');
+        return $this->redirectToRoute('article_edit', ['id' => $article->getId()]);
+    }
+
+    /**
      * @Route("admin/articles/{id}", name="article_delete", methods={"POST"})
      */
     public function delete(Request $request, Article $article): Response

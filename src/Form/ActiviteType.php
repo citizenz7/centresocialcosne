@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Activite;
 use App\Entity\Categorie;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -111,7 +112,11 @@ class ActiviteType extends AbstractType
                 'multiple' => true,
                 'attr' => [
                     'class' => 'form-control mb-3'
-                ]
+                ],
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('a')
+                        ->orderBy('a.titre', 'ASC');
+                }
             ])
             ->add('is_active', ChoiceType::class, [
                 'label' => 'Activité visible ?',

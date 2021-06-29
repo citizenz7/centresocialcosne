@@ -39,10 +39,10 @@ Un serveur type VPS avec les caractéristiques minimales suivantes (OVH, Hetzner
 
 ## Initialisation du projet
 * Cloner le repo Github : `git clone https://github.com/citizenz7/centresocialcosne.git`
+* Installer tous les packages : `composer install`
 * Créer et configurer un fichier .env.local (MAILER DSN et MySQL) à la racine
 * Créer la base SQL : `symfony console doctrine:database:create`
 * Importer les tables dans la base SQL : `symfony console doctrine:migrations:migrate`
-* Installer tous les packages : `composer install`
 * Installer CKEditor : `symfony console ckeditor:install`
 * Installer les "assets" de CKEditor : `symfony console assets:install public`
 * Installer Elfinder (navigateur de fichiers dans CKEditor) : `symfony console elfinder:install`

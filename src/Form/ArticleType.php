@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Categorie;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -119,7 +120,11 @@ class ArticleType extends AbstractType
                 'multiple' => true,
                 'attr' => [
                     'class' => 'form-control mb-3'
-                ]
+                ],
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.titre', 'ASC');
+                }
             ])
             ->add('is_active', ChoiceType::class, [
                 'label' => 'Article visible ?',

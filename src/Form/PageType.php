@@ -130,6 +130,20 @@ class PageType extends AbstractType
                     'class' => 'mx-2'
                 ]
             ])
+            ->add('is_benevole', CheckboxType::class, [
+                'label' => 'BENEVOLES',
+                'required' => false,
+                'attr' => [
+                    'class' => 'mx-2'
+                ]
+            ])
+            ->add('is_conseiladmin', CheckboxType::class, [
+                'label' => 'CONSEIL ADMINISTRATION',
+                'required' => false,
+                'attr' => [
+                    'class' => 'mx-2'
+                ]
+            ])
             ->add('is_team', CheckboxType::class, [
                 'label' => 'EQUIPE',
                 'required' => false,
@@ -144,22 +158,8 @@ class PageType extends AbstractType
                     'class' => 'mx-2'
                 ]
             ])
-            ->add('is_conseiladmin', CheckboxType::class, [
-                'label' => 'CONSEIL ADMINISTRATION',
-                'required' => false,
-                'attr' => [
-                    'class' => 'mx-2'
-                ]
-            ])
             ->add('is_projetsocial', CheckboxType::class, [
                 'label' => 'PROJET SOCIAL',
-                'required' => false,
-                'attr' => [
-                    'class' => 'mx-2'
-                ]
-            ])
-            ->add('is_benevole', CheckboxType::class, [
-                'label' => 'BENEVOLES',
                 'required' => false,
                 'attr' => [
                     'class' => 'mx-2'

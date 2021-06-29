@@ -296,6 +296,30 @@ class ActiviteController extends AbstractController
     }
 
     /**
+     * @Route("/admin/activites/{id}/delimage", name="activite_delete_image", methods={"GET"})
+     */
+    public function deleteImage(Request $request, Activite $activite): Response
+    {
+        // Delete activite's image in folder
+        $image = $activite->getImage();
+        if($image) {
+            $nomImage = $this->getParameter("activites_images_directory") . '/' . $image;
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
+        // Set image to "nothing" in DB
+        $activite->setImage('');       
+        $this->getDoctrine()->getManager()->flush();
+
+        // Redirect to edit page
+        $this->addFlash('image_delete', 'L\'image de l\'activite a été supprimée avec succès.');
+        return $this->redirectToRoute('activite_edit', ['id' => $activite->getId()]);
+    }
+
+
+    /**
      * @Route("/admin/activites/{id}", name="activite_delete", methods={"POST"})
      */
     public function delete(Request $request, Activite $activite): Response
