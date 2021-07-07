@@ -4,10 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Bienvenue sur le site web du {{ site_name_full }}{% endblock %}</title>
+    <link rel="profile" href="https://gmpg.org/xfn/11">
     <meta name="author" content="citizenz">
     <meta name="generator" content="Symfony 5">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+
+    {% if article is defined %}
+
+    <title>{{ article.titre }}</title>
+    <link rel="canonical" href="{{ site_url_full }}/article/{{ article.slug }}" />
+
+    <meta name="title" content="{{ article.titre }}">
+    <meta name="description" content="{{ article.titre}}" />
+
+    <meta property="og:url" content="{{ site_url_full }}/article/{{ article.slug }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ article.titre }}" />
+    <meta property="og:description" content="{{ article.titre }}" />
+    <meta property="og:image" content="{{ asset('uploads/images/articles/' ~ article.image) }}" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="768" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ site_url_full }}">
+    <meta name="twitter:creator" content="{{ site_author }}">
+    <meta name="twitter:title" content="{{ article.titre }}">
+    <meta name="twitter:description" content="{{ article.titre }}">
+    <meta name="twitter:image" content="{{ asset('uploads/images/articles/' ~ article.image) }}">
+
+    {% else %}
+
+    <title>{% block title %}Bienvenue sur le site web du {{ site_name_full }}{% endblock %}</title>
+    <link rel="canonical" href="{{ site_url_full }}" />
+
+    <meta name="title" content="{{ site_name_full}}">
+    <meta name="description" content="{{ site_description }}" />
 
     <!-- search engines -->
     <meta name="description" content="Le Centre Social et Culturel Suzanne Coulomb, fort d’un enracinement local de 45 ans, développe et renouvelle sans cesse ses activités et projet s’adressant au plus grand nombre.
@@ -17,7 +48,7 @@
 
      <!-- Schema.org for Google -->
      <meta itemprop="name" content="{{ site_name_full }}">
-     <meta itemprop="description" content="Site web du {{ site_name_full }}">
+     <meta itemprop="description" content="Site web du {{ site_description }}">
      <meta itemprop="image" content="https://www.centresocialcosne.org/img/logo.png">
 
      <!-- Twitter -->
@@ -25,17 +56,19 @@
     <meta name="twitter:title" content="{{ site_name_full }}">
     <meta name="twitter:description" content="Site web du {{ site_name_full }}">
     <meta name="twitter:site" content="{{ site_name_full }}">
-    <meta name="twitter:image:src" content="https://www.centresocialcosne.org/img/logo.png">
+    <meta name="twitter:image:src" content="{{ site_url_full }}/img/logo.png">
 
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
     <meta name="og:title" content="{{ site_name_full }}">
-    <meta name="og:description" content="Site web du {{ site_name_full }}">
-    <meta name="og:image" content="https://www.centresocialcosne.org/img/logo.png">
-    <meta name="og:url" content="{{ site_url }}">
+    <meta name="og:description" content="{{ site_description }}">
+    <meta name="og:image" content="{{ site_url_full }}/img/logo.png">
+    <meta name="og:url" content="{{ site_url_full }}">
     <meta name="og:site_name" content="{{ site_name_full }}">
     <meta name="og:locale" content="fr_FR">
     <meta name="fb:app_id" content="152600573523863">
     <meta name="og:type" content="website">
+
+    {% endif %}
 
     <!-- Favicons -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon">
